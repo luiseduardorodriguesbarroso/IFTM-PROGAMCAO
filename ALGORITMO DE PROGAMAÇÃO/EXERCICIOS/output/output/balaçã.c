@@ -32,6 +32,8 @@ void pouse()
 //==========================
 int main ()
 {
+    //VARIAVEIS 
+        
     //FIM DO PROGAMA
     limpatl();
     printf("\nFinalizando o progama...");
