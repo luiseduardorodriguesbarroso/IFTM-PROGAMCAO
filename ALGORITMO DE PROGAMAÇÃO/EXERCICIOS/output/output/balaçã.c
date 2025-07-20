@@ -32,8 +32,34 @@ void pouse()
 //==========================
 int main ()
 {
+    limpatl();
     //VARIAVEIS 
-        
+    int idade;
+    char sexo[20],nome[80];
+    float peso;
+
+    //RECEBER DADOS 
+    printf("\n          SEJA BEM VINDO AO PROGAMA SAUDE +          \n");
+
+    printf("\nInforme seu nome ...: ");
+    fflush(stdin);
+    gets(nome);
+    
+    printf("\nInforme sua idade ...:");
+    fflush(stdin);
+    scanf("%d", &idade);
+
+    printf("\nInforme seu sexo (Masculino ou Feminino) ...: ");
+    fflush(stdin);
+    gets(sexo);
+
+    printf("\nInforme seu peso ...: ");
+    fflush(stdin);
+    scanf("%f", &peso);
+
+    //PROSESAR DADOS 
+    
+
     //FIM DO PROGAMA
     limpatl();
     printf("\nFinalizando o progama...");
