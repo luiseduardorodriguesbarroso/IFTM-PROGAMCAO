@@ -32,5 +32,10 @@ void pouse()
 //==========================
 int main ()
 {
-
+    //FIM DO PROGAMA
+    limpatl();
+    printf("\nFinalizando o progama...");
+    Sleep(800); //pausa a tela por 800 milegundos...
+    printf("\n\nAcabou...Tchau...Obrigado...\n\n");
+    return 0;
 }
