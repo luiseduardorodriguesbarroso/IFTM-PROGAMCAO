@@ -20,7 +20,18 @@ void pouse()
     Sleep(200);
 }
 //==========================
-
+void procesar ()
+{
+    limpatl();
+    printf("\nEstamos processando os dados informados...\n");
+    Sleep(1000);
+    limpatl();
+    printf("\n\n\nAguarde...\n\n");
+    Sleep(1500);
+    limpatl();
+    printf("\n\nProcessamento concluido!");
+    Sleep(1000);
+}
 //==========================
 
 //==========================
@@ -49,7 +60,7 @@ int main ()
     fflush(stdin);
     scanf("%d", &idade);
 
-    printf("\nInforme seu sexo (Masculino ou Feminino) ...: ");
+    printf("\nInforme seu sexo F (Feminino) M (Masculino) ...: ");
     fflush(stdin);
     gets(sexo);
 
@@ -58,7 +69,7 @@ int main ()
     scanf("%f", &peso);
 
     //PROSESAR DADOS 
-    
+    procesar();
 
     //FIM DO PROGAMA
     limpatl();
