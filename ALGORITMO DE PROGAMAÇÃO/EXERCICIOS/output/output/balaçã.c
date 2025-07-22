@@ -9,6 +9,8 @@
 //==========================
 void limpatl();
 void pouse();
+void procesar ();
+void fim();
 //==========================
 void limpatl()
 {
@@ -33,7 +35,13 @@ void procesar ()
     Sleep(1000);
 }
 //==========================
-
+void fim()
+{
+    limpatl();
+    printf("\nFinalizando o progama...");
+    Sleep(800); //pausa a tela por 800 milegundos...
+    printf("\n\nAcabou...Tchau...Obrigado...\n\n");
+}
 //==========================
 
 //==========================
@@ -72,9 +80,6 @@ int main ()
     procesar();
 
     //FIM DO PROGAMA
-    limpatl();
-    printf("\nFinalizando o progama...");
-    Sleep(800); //pausa a tela por 800 milegundos...
-    printf("\n\nAcabou...Tchau...Obrigado...\n\n");
+    fim();
     return 0;
 }
