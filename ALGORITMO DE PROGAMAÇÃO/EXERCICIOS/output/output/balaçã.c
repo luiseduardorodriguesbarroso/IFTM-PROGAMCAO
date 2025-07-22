@@ -63,11 +63,15 @@ int main ()
     printf("\nInforme seu nome ...: ");
     fflush(stdin);
     gets(nome);
-    
-    printf("\nInforme sua idade ...:");
-    fflush(stdin);
-    scanf("%d", &idade);
 
+    while (idade < 1 || idade > 100)
+    {
+        printf("\nInforme sua idade  entre (1 e 100)...:");
+        fflush(stdin);
+        scanf("%d", &idade);  
+      
+    }
+    
     printf("\nInforme seu sexo F (Feminino) M (Masculino) ...: ");
     fflush(stdin);
     gets(sexo);
