@@ -1,0 +1,333 @@
+/*==============================================================
+    CURSO: ENGENHARIA DE COMPUTACAO
+    Nome: LUÍS EDUARDO RODRIGUES BARROSO
+    1° PERIODO - ALGORITMO DE PROGRAMAÇÃO 
+    1 SEMESTRE 2025
+    Prof. Ernani Claudio Borges
+    Data: 03/06/2025
+*/
+//===============================================================
+//======== LOCAL PARA DECLARAR AS INCLUDES E VARS GLOBAIS =======
+//===============================================================
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <math.h>
+#include <locale.h>
+#include <conio.h>
+#include <windows.h>
+#include <time.h>
+
+// Tipos auxiliares
+typedef struct
+{
+    int dif;
+    int pos1;
+    int pos2;
+} InfoVet;
+
+typedef enum 
+{
+    MD_POS,
+    MD_QUANT,
+    MD_EMP,
+    MD_POS_CUSTOM
+} ModeFunction;
+
+//===============================================================
+//============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
+//===============================================================
+void limparTela();
+void menu(char *a);
+int input_array(int *array, int i);
+int mostrar_maior_elemento_array(int *array, int tam);
+int sequencia_array(int *array, int inicio, int tam, int buscatam, ModeFunction mf);
+void input_array2(int *array, int tam);
+void mostrar_array(int *array, int tam);
+InfoVet maior_dif(int *array, int tam);
+
+//===============================================================
+//============== LOCAL PARA CRIAR OS M�DULOS DE FUN��ES =========
+//===============================================================
+
+void limparTela()
+{
+    #ifdef _WIN32
+    system("cls");
+    #else
+    system("clear");
+    #endif
+}
+
+void menu(char *a)
+{
+    printf("MENU DE OPCOES\n=================\n1 maior sequencia de n�meros iguais consecutivos\n2 maior diferen�a entre dois numeros consecutivos\n3 sair\nEscolha o numero de uma das opcoes acima...: ");
+    do 
+    {
+        *a = getch();
+        if(*a < '1' || *a > '3')
+        {
+            printf("\nOpcao invalida! Tente novamente: ");
+        }
+    } while(*a < '1' || *a > '3');
+}
+
+int input_array(int *array, int i)
+{
+    do 
+    {
+        (i == 0) ? printf("Informe um numero de 1 a 9 para o item %d: ", i+1) : printf("Informe zero para finalizar ou um numero de 1 a 9 para o item %d: ", i+1);
+        scanf("%d", (array + i));
+        while(getchar() != '\n');
+        if((i == 0) && (*(array + i) < 1 || *(array + i) > 9))
+        {
+            printf("Apenas numeros entre 1 a 9! ");
+        }
+        else if(*(array + i) < 0 || *(array + i) > 9)
+        {
+            printf("Apenas numeros entre 1 a 9 ou zero! ");
+        }
+    } while (((i == 0) && (*(array + i) < 1 || *(array + i) > 9)) || (*(array + i) < 0 || *(array + i) > 9));
+    return (*(array + i) == 0) ? 0 : 1;
+}
+
+int mostrar_maior_elemento_array(int *array, int tam)
+{
+    int vezes_maior_num = 1;
+    int maior_num = 0;
+    int vezes = 0;
+    for(int i = 1; i <= 9; i++)
+    {
+        vezes = 0;
+        for(int j = 0; j < tam; j++)
+        {
+            if(array[j] == i)
+            { 
+                vezes++;
+            }
+        }
+        if(vezes > vezes_maior_num)
+        {
+            vezes_maior_num = vezes;
+            maior_num = i;
+        }
+    }
+    return maior_num;
+}
+
+int sequencia_array(int *array, int inicio, int tam, int buscatam, ModeFunction mf)
+{
+    int maior_quant = 1;
+    int pos = -1;
+    int empate = 0;
+    for(int i = inicio, j = inicio; i < tam; i++)
+    {
+        int eleatual = 0;
+        for(; *(array + j) == *(array + i); j++)
+        {
+            eleatual++;
+        }
+        if(eleatual > maior_quant && mf != MD_POS_CUSTOM)
+        {
+            maior_quant = eleatual;
+            pos = i;
+            empate = 0;
+            i = j - 1;
+        } else if (eleatual == maior_quant && maior_quant != 1 && mf != MD_POS_CUSTOM)
+        {
+            empate = 1;
+            i = j - 1;
+        } else if(mf == MD_POS_CUSTOM && eleatual == buscatam)
+        {
+            pos = i;
+            i = tam;
+        }
+    }
+    if(mf == MD_POS)
+    {
+        return pos;
+    }
+    else if(mf == MD_QUANT)
+    {
+        return maior_quant;
+    } 
+    else if(mf == MD_EMP)
+    {
+        return empate;
+    }
+    else if(mf == MD_POS_CUSTOM)
+    {
+        return pos;
+    }  
+    else
+    {
+        return -2;
+    }    
+}
+
+void input_array2(int *array, int tam)
+{
+    for(int i = 0; i < tam; i++)
+    {
+        int continuar = 1;
+        while(continuar)
+        {
+            continuar = 0;
+            printf("Digite o elemento %d: ", i+1);
+            scanf("%d", &array[i]);
+            while(getchar() != '\n');
+            if(array[i] <= 0)
+            {
+                continuar = 1;
+                printf("Apenas numeros maiores do que zero! ");
+            } else {
+                for(int j = 0; j < i; j++)
+                {
+                    if(array[i] == array[j])
+                    {
+                        continuar = 1;
+                        printf("Apenas numeros distintos! ");
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+void mostrar_array(int *array, int tam)
+{
+    for(int i = 0; i < tam; i++)
+    {
+        printf("%d ", array[i]);
+        if((i+1) % 5 == 0 && i+1 < tam)
+            printf("\n");
+    }
+}
+
+InfoVet maior_dif(int *array, int tam)
+{
+    int maior_dif = 0, pos1 = 0, pos2 = 0;
+    for(int i = 1; i < tam; i++)
+    {
+        int dif = abs(array[i] - array[i-1]);
+        if(dif > maior_dif)
+        {
+            maior_dif = dif;
+            pos1 = i;
+            pos2 = i-1;
+        }
+    }
+    InfoVet dados = {maior_dif, pos1, pos2};
+    return dados;
+}
+
+//===============================================================
+//==============  CODIGO PRINCIPAL ==============================
+//===============================================================
+
+int main() 
+{
+    setlocale(LC_CTYPE, "Portuguese");
+    char resp;
+    while(resp != '3')
+    {
+        limparTela();
+        menu(&resp);
+
+        if(resp == '1')
+        {
+            char resp1 = '1';
+            while(resp1 == '1')
+            {
+                limparTela();
+                int num[300];
+                int continuar = 1;
+                int i;
+                for(i = 0; i < 300 && continuar; i++)
+                    continuar = input_array(num, i);
+
+                i--;
+                limparTela();
+                printf("Vetor apresentado:\n");
+                for(int j = 0; j < i; j++)
+                {
+                    printf("%d ", num[j]);
+                    if((j+1) % 5 == 0 && j+1 < i)
+                        printf("\n");
+                }
+
+                int empate = sequencia_array(num, 0, i, 0, MD_EMP);
+                if(empate){
+                    int maior_quant = sequencia_array(num, 0, i, 0, MD_QUANT);
+
+                    printf("\n\nMaiores sequ�ncias: \n");
+
+                    for(int j = 0; j < i; j++)
+                    {
+                        int pos_maior_seq = sequencia_array(num, j, i, maior_quant, MD_POS_CUSTOM);
+                        if (pos_maior_seq != -1)
+                        {
+                            int k = pos_maior_seq;
+                            for(; *(num + k) == *(num + pos_maior_seq); k++)
+                                printf("%d ", *(num + k));
+                            printf("\n");
+                            j = k - 1;
+                        } else 
+                        {
+                            j = i;
+                        }
+                    }
+                } else 
+                {
+                    int pos_maior_seq = sequencia_array(num, 0, i, 0, MD_POS);
+
+                    printf("\n\nMaior sequ�ncia: \n");
+
+                    if(pos_maior_seq == -1)
+                    {
+                        printf("Nenhuma sequ�ncia encontrada!");
+                    }                    else
+                    for(int j = pos_maior_seq; *(num + j) == *(num + pos_maior_seq); j++)
+                    {   
+                        printf("%d ", *(num + j));
+                    }
+                }
+
+                printf("\n\nPressione 1 para continuar ou qualquer outra tecla para voltar ao menu...");
+                resp1 = getch();
+            }
+        }
+        else if(resp == '2')
+        {
+            char resp2 = '1';
+            while(resp2 == '1')
+            {
+                int num[50];
+                limparTela();
+                input_array2(num, 50);
+
+                limparTela();
+                printf("Vetor apresentado:\n");
+                mostrar_array(num, 50);
+
+                InfoVet res = maior_dif(num, 50);
+                printf("\nA maior diferen�a encontrada foi %d. Isto pela subtra��o do elemento de posi��o %d (o n�mero %d) com o elemento de posi��o %d (o n�mero %d).", res.dif, res.pos1 + 1, num[res.pos1], res.pos2 + 1, num[res.pos2]);
+
+                printf("\n\nPressione 1 para continuar ou qualquer outra tecla para voltar ao menu...");
+                resp2 = getch();
+            }
+        }
+        else if(resp == '3')
+        {
+            limparTela();
+            Sleep(150);
+            printf("Fim de programa...\n");
+            Sleep(200);
+            printf("\n\nAcabou...Tchau...Obrigado...");
+        }
+    }
+    return 0;
+}
