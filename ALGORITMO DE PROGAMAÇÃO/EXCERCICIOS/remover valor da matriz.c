@@ -49,8 +49,11 @@ void finalizar ()
 //===============================================================
 int main()
 {
-    int opc;
+    //VARIAVEIS 
+    int opc = 0;
 
+    //MENU DE OPÇÕES 
+    limpatl();
     while(opc == 3)
     {
         printf("\n---------- MENU PRINCIPAL ----------");
@@ -71,7 +74,7 @@ int main()
             finalizar();
         }  else if (opc == 1)
         {
-            
+            carregar();
         } 
     }
 }
