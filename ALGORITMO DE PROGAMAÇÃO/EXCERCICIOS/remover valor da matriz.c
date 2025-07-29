@@ -19,6 +19,8 @@
 #include <conio.h>
 #include <windows.h>
 #include <time.h>
+#define x 5
+#define y 5
 
 //===============================================================
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
@@ -47,11 +49,30 @@ void finalizar ()
     printf("\n\n\nAcabou...Tchau...Obrigado... \n\n");
 }
 //===============================================================
+void gerarmt (int i,int j,int mt[x][y])
+{
+   for(i = 0;i < x ;i++)
+   {
+        for(j = 0;j < y;j++)
+        {
+            mt[i][j] = rand() % 100 + 1;
+            scanf("%d",&mt[i][j]);
+        }
+   }
+}
 //===============================================================
 int main()
 {
+    //VARIAVEIS DO MENU PRINCIPAL
     int opc = 0;
 
+    //VARIAVEIS DE OPC 1 E OPC 2
+    int mt[x][y];
+    int i,j;
+    //GERADOR DE NUMEROS RANDOMICOS 
+    srand(time(NULL));
+
+    //MENU PRINCIPAL
     while(opc != 3)
     {
         printf("\n---------- MENU PRINCIPAL ----------");
@@ -73,6 +94,7 @@ int main()
         } else if (opc == 1)
         {
             carregar();
+            gerarmt(mt,i,j);
         }
     }
     return 0;
