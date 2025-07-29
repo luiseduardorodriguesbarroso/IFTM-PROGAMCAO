@@ -43,38 +43,37 @@ void limpatl ()
 //===============================================================
 void finalizar ()
 {
-    printf("\n\nAcabou...Tchau...Obriado... \n\n");
+    Sleep(350);
+    printf("\n\n\nAcabou...Tchau...Obrigado... \n\n");
 }
 //===============================================================
 //===============================================================
 int main()
 {
-    //VARIAVEIS 
     int opc = 0;
 
-    //MENU DE OPÇÕES 
-    limpatl();
-    while(opc == 3)
+    while(opc != 3)
     {
         printf("\n---------- MENU PRINCIPAL ----------");
         printf("\n1- Remover valor da matriz... ");
-        printf("\n2 Adicionar valor na matriz... ");
-        printf("\n3- Finalizar progama... ");
-        printf("\nINfrome uma das opcoes do menu acima ...: ");
+        printf("\n2- Adicionar valor na matriz... ");
+        printf("\n3- Finalizar programa... ");
+        printf("\nInforme uma das opcoes do menu acima ...: ");
         fflush(stdin);
-        scanf("%d",&opc);
+        scanf("%d", &opc);
 
         if(opc > 3 || opc < 1)
         {
             carregar();
-            printf("\nErro! inaforme uma das opcoes do menu ...\n\n");
-        }  else if (opc == 3)
+            printf("\nErro! Informe uma das opcoes do menu principal...\n\n");
+        } else if (opc == 3)
         {
             carregar();
             finalizar();
-        }  else if (opc == 1)
+        } else if (opc == 1)
         {
             carregar();
-        } 
+        }
     }
+    return 0;
 }
