@@ -57,7 +57,9 @@ void gerarmt (int i,int j,int mt[x][y])
         {
             mt[i][j] = rand() % 100 + 1;
             scanf("%d",&mt[i][j]);
+            printf("%d",mt[i][j]);
         }
+        printf("\n");
    }
 }
 //===============================================================
