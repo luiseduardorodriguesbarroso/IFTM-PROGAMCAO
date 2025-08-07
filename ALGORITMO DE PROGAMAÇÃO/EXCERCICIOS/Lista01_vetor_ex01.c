@@ -4,68 +4,70 @@
     1º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2025
     Prof. Ernani Claudio Borges
-    data: 06/08/2025
+    DATA: 06/08/2025
 */
-//===============================================================
 //===============================================================
 //======== LOCAL PARA DECLARAR AS INCLUDES E VARS GLOBAIS =======
 //===============================================================
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
-#include <math.h>
-#include <time.h>
 #include <windows.h>
 #define TAM 10
-//===============================================================
-//============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
-//===============================================================
-void limpartl ();
-
-
-
-
 
 //===============================================================
-//============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
+//============== LOCAL PARA DECLARAR OS PROTÓTIPOS ==============
 //===============================================================
-void limpartl ()
+void limpartl();
+void recebervl(int vt[TAM]);
+void mostrarvl(int vt[TAM]);
+
+//===============================================================
+//========== LOCAL PARA CRIAR OS MÓDULOS DAS FUNÇÕES ============
+//===============================================================
+void limpartl()
 {
-    system("cls");
+    system("cls"); // Limpa a tela no Windows
 }
-//===============================================================
-void recebervl (int vt [TAM],int i)
+
+//---------------------------------------------------------------
+void recebervl(int vt[TAM])
 {
-    for(i=0;i<TAM;i++);
+    int i;
+    for(i = 0; i < TAM; i++)
     {
-        printf("\nInforme o valor do vetor na posicao[%d]...: ",i);
-        fflush(stdin);
-        scanf("%d",&vt[i]);
+        printf("\nInforme o valor do vetor na posicao [%d]...: ", i);
+        scanf("%d", &vt[i]);
     }
 }
-//===============================================================
+
+//---------------------------------------------------------------
+void mostrarvl(int vt[TAM])
+{
+    int i;
+    printf("\nValores armazenados no vetor:\n\n");
+    for(i = 0; i < TAM; i++)
+    {
+        printf("Posicao [%d] = %d\n", i, vt[i]);
+    }
+}
 
 //===============================================================
-
-//===============================================================
-
-//===============================================================
-//==============  CODIGO PRINCIPAL ==============================
+//==================== CÓDIGO PRINCIPAL =========================
 //===============================================================
 int main()
 {
-    //CRIAR VARIAVEIS
+    //====== DECLARAR VARIÁVEIS ======
     int vt[TAM];
-    int i;
-    //INICIALIZAR VARIAVEIS
-    
-    
-    
-    //FINALIZAR PROGRAMA
+
+    //====== RECEBER E MOSTRAR VALORES ======
     limpartl();
-    printf("\nFinalizando progama...\n");
-    Sleep(500);
-    printf ("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
+    recebervl(vt);
+    limpartl();
+    mostrarvl(vt);
+    
+    //====== FINALIZAR PROGRAMA ======
+    printf("\n\nFinalizando programa...\n");
+    Sleep(500); // pausa de 0,5s
+    printf("\n\nAcabou... Tchau... Obrigado...\n\n");
     return 0;
 }
