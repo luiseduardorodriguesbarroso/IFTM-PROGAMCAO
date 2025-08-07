@@ -35,7 +35,15 @@ void limpartl ()
     system("cls");
 }
 //===============================================================
-
+void recebervl (int vt [TAM],int i)
+{
+    for(i=0;i<TAM;i++);
+    {
+        printf("\nInforme o valor do vetor na posicao[%d]...: ",i);
+        fflush(stdin);
+        scanf("%d",&vt[i]);
+    }
+}
 //===============================================================
 
 //===============================================================
@@ -51,12 +59,7 @@ int main()
     int vt[TAM];
     int i;
     //INICIALIZAR VARIAVEIS
-    for(i=0;i<TAM;i++);
-    {
-        printf("\nInforme o valor do vetor na posicao[%d]...: ",i);
-        fflush(stdin);
-        scanf("%d",&vt);
-    }
+    
     
     
     //FINALIZAR PROGRAMA
