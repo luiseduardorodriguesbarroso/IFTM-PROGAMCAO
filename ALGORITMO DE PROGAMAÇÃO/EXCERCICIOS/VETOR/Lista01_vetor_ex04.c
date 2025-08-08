@@ -17,7 +17,7 @@
 #include <math.h>
 #include <time.h>
 #include <windows.h>
-#define tam 5
+#define tam 15
 
 //===============================================================
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
@@ -58,7 +58,7 @@ void Processar()
 //===============================================================
 void mostrarvt (int a [tam], int b [tam])
 {
-    printf("\n\nVlores do vetor A informado.... \n");
+    printf("\n\nValores do vetor A informado.... \n");
     pouse();
     int i=0;
     for(i=0;i<tam;i++) 
@@ -66,7 +66,7 @@ void mostrarvt (int a [tam], int b [tam])
         printf("%6d",a[i]);
         pouse();
     } 
-    printf("\n\nVlores do vetor B.... \n");
+    printf("\n\nValores do vetor B.... \n");
     for(i=0;i<tam;i++) 
     {
         b[i] = a[i] * a[i];
@@ -94,7 +94,7 @@ int main()
     
     
     //FINALIZAR PROGRAMA
-    printf("\nFinalizando progama...\n");
+    printf("\n\nFinalizando progama...\n");
     Sleep(500);
     printf ("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
