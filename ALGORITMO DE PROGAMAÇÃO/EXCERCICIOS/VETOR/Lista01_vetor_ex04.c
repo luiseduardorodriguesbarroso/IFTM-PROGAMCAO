@@ -41,7 +41,7 @@ void recebervt (int a[tam])
     int i=0;
     for(i=0;i<tam;i++)
     {
-        printf("Informe o valor do vetor na pocicao[%d]...: ",i);
+        printf("Informe o valor do vetor na pocicao [%d]...: ",i);
         fflush(stdin);
         scanf("%d",&a[i]);
     }
