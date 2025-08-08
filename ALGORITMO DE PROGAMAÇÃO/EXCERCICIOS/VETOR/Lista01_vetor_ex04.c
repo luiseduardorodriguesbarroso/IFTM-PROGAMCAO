@@ -23,10 +23,10 @@
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
 //===============================================================
 void limpartl ();
-
-
-
-
+void recebervt (int a[tam]);
+void Processar();
+void mostrarvt (int a [tam], int b [tam]);
+void pouse ();
 
 //===============================================================
 //============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
@@ -45,23 +45,52 @@ void recebervt (int a[tam])
         fflush(stdin);
         scanf("%d",&a[i]);
     }
+    Processar();
 }
 //===============================================================
-
+void Processar()
+{
+    limpartl();
+    printf("\nProcessando os dados recebidos.... \n");
+    Sleep(840);
+    limpartl();
+}
 //===============================================================
-
+void mostrarvt (int a [tam], int b [tam])
+{
+    printf("\n\nVlores do vetor A informado.... \n");
+    pouse();
+    int i=0;
+    for(i=0;i<tam;i++) 
+    {
+        printf("%6d",a[i]);
+        pouse();
+    } 
+    printf("\n\nVlores do vetor B.... \n");
+    for(i=0;i<tam;i++) 
+    {
+        b[i] = a[i] * a[i];
+        printf("%6d",b[i]);
+        pouse();
+    }
+}
 //===============================================================
-
+void pouse ()
+{
+    Sleep(200);
+}
 //===============================================================
 //==============  CODIGO PRINCIPAL ==============================
 //===============================================================
 int main()
 {
     //CRIAR VARIAVEIS
-    int a [tam];
+    int a [tam],b[tam];
     
     //INICIALIZAR VARIAVEIS
-    
+    limpartl();
+    recebervt(a);
+    mostrarvt(a,b);
     
     
     //FINALIZAR PROGRAMA
