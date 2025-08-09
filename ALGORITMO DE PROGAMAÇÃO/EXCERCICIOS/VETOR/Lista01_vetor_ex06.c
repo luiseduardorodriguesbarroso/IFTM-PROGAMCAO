@@ -24,7 +24,8 @@
 void limpartl ();
 void pouse ();
 void processar ();
-
+void recebervt (int a[tam],int b[tam]);
+void mostrarvt (int a[tam],int b[tam],int c[tam]);
 
 
 
@@ -70,7 +71,29 @@ void recebervt (int a[tam],int b[tam])
     }
 }
 //===============================================================
-
+void mostrarvt (int a[tam],int b[tam],int c[tam])
+{
+    int i=0;
+    printf("\nVetor A ...\n");
+    for(i=0;i<tam;i++)
+    {
+        printf("%6d",a[i]);
+        pouse();
+    }
+    printf("\nVetor B ...\n");
+    for(i=0;i<tam;i++)
+    {
+        printf("%6d",b[i]);
+        pouse();
+    }
+    printf("\nVetor C ...\n");
+    for(i=0;i<tam;i++)
+    {
+        c[i] = a[i] * b[i]; 
+        printf("%6d",c[i]);
+        pouse();
+    }
+}
 //===============================================================
 //==============  CODIGO PRINCIPAL ==============================
 //===============================================================
@@ -80,11 +103,13 @@ int main()
     int a[tam], b[tam],c[tam];
     
     //INICIALIZAR VARIAVEIS
-    
+    limpartl();
+    recebervt(a,b);
+    mostrarvt(a,b,c);
     
     
     //FINALIZAR PROGRAMA
-    printf("\nFinalizando progama...\n");
+    printf("\n\nFinalizando progama...\n");
     Sleep(500);
     printf ("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
