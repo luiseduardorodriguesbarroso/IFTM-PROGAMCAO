@@ -100,7 +100,7 @@ void mostrarvt (int a[tam],int b[tam],int c[tam])
 int main()
 {
     //CRIAR VARIAVEIS
-    int a[tam], b[tam],c[tam];
+    int a[tam], b[tam],c[tam]; //MEUS VETORES A,B,C...
     
     //INICIALIZAR VARIAVEIS
     limpartl();
