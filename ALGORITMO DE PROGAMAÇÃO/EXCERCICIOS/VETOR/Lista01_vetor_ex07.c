@@ -49,18 +49,21 @@ void pouse ()
     Sleep(200);
 }
 //===============================================================
-receber_nomes (int aluno[tam])
+receber_nomes (char aluno[tam])
 {
     int i=0;
     for(i=0;i<tam;i++)
     {
         printf("\nInforme o nome do aluno [%d] ...: ",i);
         fflush(stdin);
-        scanf("%d",&aluno);
+        gets(aluno);
     }
 }
 //===============================================================
-
+void receber_notas (int n1[tam],int n2[tam],int n3[tam],int n4[tam],int md[tam],char aluno[tam])
+{
+    
+}
 //===============================================================
 //==============  CODIGO PRINCIPAL ==============================
 //===============================================================
