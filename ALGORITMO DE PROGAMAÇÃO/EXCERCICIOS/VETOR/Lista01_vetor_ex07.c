@@ -35,11 +35,30 @@ void limpartl ()
     system("cls");
 }
 //===============================================================
+void processar ()
+{
+    limpartl();
+    printf("\nProcessando os dados obtidos... \n\n");
+    Sleep(850);
+    limpartl();
 
+}
 //===============================================================
-
+void pouse ()
+{
+    Sleep(200);
+}
 //===============================================================
-
+receber_nomes (int aluno[tam])
+{
+    int i=0;
+    for(i=0;i<tam;i++)
+    {
+        printf("\nInforme o nome do aluno [%d] ...: ",i);
+        fflush(stdin);
+        scanf("%d",&aluno);
+    }
+}
 //===============================================================
 
 //===============================================================
@@ -48,8 +67,8 @@ void limpartl ()
 int main()
 {
     //CRIAR VARIAVEIS
-    
-    
+    int n1[tam],n2[tam],n3[tam],n4[tam],md[tam]; //TODOS MEUS VETORES 
+    char aluno[tam];
     //INICIALIZAR VARIAVEIS
     
     
