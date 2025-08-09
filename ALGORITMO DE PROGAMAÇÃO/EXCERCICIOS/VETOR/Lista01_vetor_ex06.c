@@ -50,7 +50,25 @@ void processar ()
 
 }
 //===============================================================
-
+void recebervt (int a[tam],int b[tam])
+{
+    int i=0;
+    printf("\nInforme o valor do vetor A... \n");
+    for(i=0;i<tam;i++)
+    {
+        printf("Informe o valor do vetor na pocicao [%d]...: ",i);
+        fflush(stdin);
+        scanf("%d",&a[i]);
+    }
+    processar();    //carrega mensagem de processamento de dados...
+    printf("\nInforme os valores do vetor B....\n");
+    for(i=0;i<tam;i++)
+    {
+        printf("Informe o valor do vetor na pocicao [%d]...: ",i);
+        fflush(stdin);
+        scanf("%d",&b[i]);
+    }
+}
 //===============================================================
 
 //===============================================================
@@ -59,7 +77,7 @@ void processar ()
 int main()
 {
     //CRIAR VARIAVEIS
-    
+    int a[tam], b[tam],c[tam];
     
     //INICIALIZAR VARIAVEIS
     
