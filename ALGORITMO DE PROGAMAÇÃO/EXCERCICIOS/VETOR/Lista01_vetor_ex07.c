@@ -22,9 +22,9 @@
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
 //===============================================================
 void limpartl ();
-
-
-
+void processar ();
+void pouse ();
+receber_nomes (char aluno[tam]);
 
 
 //===============================================================
