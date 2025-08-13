@@ -1,3 +1,8 @@
+/*----------------RELATORIO DO CÓDIGO----------------
+*
+* Obs: Com base no codé prime 1.0, a velocidade foi melhorada de 150 RPM para 160 e o alcance de ataque foi de 10 para 15 cm. Ele continua se mantendo estável na arena, funcionando perfeitamente, porém ainda pode ser melhorado muito mais…
+*
+*/
 #include <Ultrasonic.h>
 Ultrasonic ultrasonic(8, 7); // TRIG = 8, ECHO = 7
 
