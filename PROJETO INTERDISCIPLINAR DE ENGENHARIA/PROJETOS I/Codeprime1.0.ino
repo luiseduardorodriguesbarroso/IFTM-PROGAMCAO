@@ -1,6 +1,6 @@
 /*----------------RELATORIO DO CÓDIGO----------------
 *
-* Obs: Código bom não sai da arena porem dem varios defises como principalmente velocidade de ataque movimento porem o terrorista não cai de nehuma forma da arena...   
+* Obs: Código bom não sai da arena, porém tem vários defeitos, como principalmente velocidade de ataque, movimento, porém o terrorista não cai de nenhuma forma da arena… 
 *
 */
 #include <Ultrasonic.h>
