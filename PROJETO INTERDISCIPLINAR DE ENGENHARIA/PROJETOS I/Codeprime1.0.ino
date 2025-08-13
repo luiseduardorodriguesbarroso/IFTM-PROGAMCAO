@@ -1,3 +1,8 @@
+/*----------------RELATORIO DO CÓDIGO----------------
+*
+* Obs: Código bom não sai da arena porem dem varios defises como principalmente velocidade de ataque movimento porem o terrorista não cai de nehuma forma da arena...   
+*
+*/
 #include <Ultrasonic.h>
 Ultrasonic ultrasonic(8, 7); // TRIG = 8, ECHO = 7
 
