@@ -17,7 +17,7 @@
 #include <math.h>
 #include <time.h>
 #include <windows.h>
-#define tam 6 
+#define tam 10
 
 //===============================================================
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
@@ -68,12 +68,24 @@ void mostra_vl (int vt[tam])
 //===============================================================
 void maior_vt (int vt[tam])
 {
-    
+    int i=0;
+    int metade = tam / 2; //ou seja só vai verficar a metade do meu tam...
+    printf("\nO menor valor existente entre os 20 primeiros\n");
+    for (i=0;i<metade;i++)
+    {
+
+    }
 }
 //===============================================================
 void menor_vt (int vt[tam])
 {
-    
+    int i=0;
+    int metade = tam / 2; //sempore vai ser a metade de tam...
+    printf("\nO maior valor existente entre os 20 últimos\n");
+    for (i=metade;i<tam;i++)
+    {
+
+    }
 }
 //===============================================================
 //==============  CODIGO PRINCIPAL ==============================
