@@ -4,7 +4,7 @@
     1º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2025
     Prof. Ernani Claudio Borges
-    data: 23/08/2025
+    data: 24/08/2025
 */
 //===============================================================
 //===============================================================
@@ -23,7 +23,6 @@
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
 //===============================================================
 void limpartl ();
-void pouse ();
 void receber_vl (int vt[tam]);
 void mostra_vl (int vt[tam]);
 void maior_vt (int vt[tam]);
@@ -35,11 +34,6 @@ void menor_vt (int vt[tam]);
 void limpartl ()
 {
     system("cls");
-}
-//===============================================================
-void pouse ()
-{
-    sleep(200);//Pausa a tela por 0,2 segundos...
 }
 //===============================================================
 void receber_vl (int vt[tam])
@@ -61,31 +55,39 @@ void mostra_vl (int vt[tam])
     printf("\nTodos os valores do vetor informadas...\n");
     for (i=0;i<tam;i++)
     {
-        print("%6d",vt[i]);
-        pouse();
+        printf("%6d",vt[i]);
     }    
 }
 //===============================================================
-void maior_vt (int vt[tam])
+void maior_vt(int vt[tam])
 {
-    int i=0;
-    int metade = tam / 2; //ou seja só vai verficar a metade do meu tam...
-    printf("\nO menor valor existente entre os 20 primeiros\n");
-    for (i=0;i<metade;i++)
+    int metade = tam / 2;
+    int maior = vt[metade]; // Começa com o 21º valor como referência
+    int i = metade + 1;
+    for (i = i; i < tam; i++)
     {
-
+        if (vt[i] > maior)
+        {
+            maior = vt[i];
+        }
     }
+    printf("\nO maior valor entre os %d ultimos e: %d\n",metade, maior);
 }
 //===============================================================
-void menor_vt (int vt[tam])
+void menor_vt(int vt[tam])
 {
-    int i=0;
-    int metade = tam / 2; //sempore vai ser a metade de tam...
-    printf("\nO maior valor existente entre os 20 últimos\n");
-    for (i=metade;i<tam;i++)
+    int i;
+    int metade = tam / 2;
+    int menor = vt[0]; // Começa com o primeiro valor como referência
+    int limite = metade;   // Vamos comparar os 20 primeiros
+    for (i = 1; i < limite; i++)
     {
-
+        if (vt[i] < menor)
+        {
+            menor = vt[i];
+        }
     }
+    printf("\nO menor valor entre os %d primeiros e: %d\n", limite, menor);
 }
 //===============================================================
 //==============  CODIGO PRINCIPAL ==============================
@@ -96,9 +98,11 @@ int main()
     int vt[tam];
     
     //INICIALIZAR VARIAVEIS
-    
-    
-    
+    receber_vl(vt);
+    mostra_vl(vt);
+    maior_vt(vt);
+    menor_vt(vt);
+
     //FINALIZAR PROGRAMA
     printf("\nFinalizando progama...\n");
     Sleep(500);
