@@ -4,7 +4,7 @@
     1º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2025
     Prof. Ernani Claudio Borges
-    data: 06/08/2025
+    data: 29/08/2025
 */
 //===============================================================
 //===============================================================
@@ -17,13 +17,13 @@
 #include <math.h>
 #include <time.h>
 #include <windows.h>
-
+#define tam 6
 //===============================================================
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
 //===============================================================
 void limpartl ();
-
-
+void pouse ();
+void receber_vt (int vt[tam]);
 
 
 
@@ -35,11 +35,41 @@ void limpartl ()
     system("cls");
 }
 //===============================================================
-
+void pouse ()
+{
+    Sleep(200);
+}
 //===============================================================
-
+void receber_vt (int vt[tam])
+{
+    int i;
+    for (i=0;i<tam;i++)
+    {
+        printf("\nInforme o valor do vetor na posicao[%d]: ",i);
+        fflush(stdin);
+        scanf("%d", &vt[i]);
+    }
+    limpartl();
+    printf("\n\nValor Informado dos vetores...\n");//mostra os valores informado acima do meu vt...
+    pouse();//pausa de 200 milísegundos...
+    for (i=0;i<tam;i++)//vai corer o meu vt mostrarndo todos os seus valores recebidos...
+    {
+        printf("%6d",vt[i]);
+    }
+}
 //===============================================================
+void comparar (int vt[tam])
+{
+    int i = 0,maior = 0,menor = 0;
+    for (i=0;i<tam;i++)
+    {
+        
+    } 
+    for (i=0;i<tam;i++)
+    {
 
+    }
+}
 //===============================================================
 
 //===============================================================
@@ -48,10 +78,10 @@ void limpartl ()
 int main()
 {
     //CRIAR VARIAVEIS
-    
+    int vt[tam];
     
     //INICIALIZAR VARIAVEIS
-    
+    receber_vt(vt);
     
     
     //FINALIZAR PROGRAMA
