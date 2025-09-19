@@ -1,7 +1,7 @@
 /*===================================
 NOME: lUÍS EDUARDO RODRIGUES BARROSO
 CURSO:  ENGENHARIA DA COMPUTAÇÃO
-CPF:    705.916.916-47
+CPF:    ***.***.***-**
 DATA:   03/06/2025
 ===================================*/
 
