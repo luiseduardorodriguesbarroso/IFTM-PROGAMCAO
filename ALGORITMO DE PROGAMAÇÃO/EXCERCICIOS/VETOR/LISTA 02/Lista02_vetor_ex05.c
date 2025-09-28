@@ -48,7 +48,7 @@ void limpartl ()
 int main()
 {
     //CRIAR VARIAVEIS
-    
+
     
     //INICIALIZAR VARIAVEIS
     
