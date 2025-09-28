@@ -17,7 +17,7 @@
 #include <math.h>
 #include <time.h>
 #include <windows.h>
-#define tam 3
+#define tam 15
 //===============================================================
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
 //===============================================================
