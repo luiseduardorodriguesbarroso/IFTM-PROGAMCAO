@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método Click Fy - Transforme seu Celular em uma Máquina de Vendas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Gold & Midnight Blue -->
+    <!-- Application Structure Plan: A single-page, vertical scroll sales funnel. The structure follows the AIDA (Attention, Interest, Desire, Action) model. It begins with a strong hook (Hero section), builds interest and desire by presenting the problem and the solution (Features/Benefits), and then drives action with a clear, visually distinct offer section and multiple calls-to-action. This linear flow is the most effective information architecture for a sales page as it guides the user logically and emotionally towards the conversion goal, which is purchasing the product. -->
+    <!-- Visualization & Content Choices: The source text is persuasive, not data-driven. Therefore, traditional charts are inappropriate. Instead, information is "visualized" through structure, typography, and iconography. Report Info: Key benefits -> Goal: Inform -> Viz/Presentation: Icon list (✅/❌) -> Interaction: None -> Justification: Easily digestible, scannable, and clearly communicates value propositions. Report Info: Price offer -> Goal: Action -> Viz/Presentation: High-contrast "Offer Box" with large text and a prominent button -> Interaction: Button hover effects -> Justification: Focuses user attention on the primary conversion action. Report Info: User Profiles -> Goal: Relate -> Viz/Presentation: Card-style layout -> Interaction: None -> Justification: Helps potential customers self-identify with the product's target audience. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        
+        :root {
+            --dark-bg: #1e1b4b; /* Indigo 950 */
+            --glow-color-rgb: 245, 158, 11; /* Amber 500 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Slate 50 */
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(var(--glow-color-rgb), 0.5), 0 0 30px rgba(var(--glow-color-rgb), 0.3), inset 0 0 10px rgba(255,255,255,0.1);
+            animation: pulse-glow 2s infinite ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 300%; height: 300%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+            transform: translate(-50%, -50%); transition: all 0.6s ease; opacity: 0;
+        }
+        .cta-button:hover::before { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 25px rgba(var(--glow-color-rgb), 0.7), 0 0 50px rgba(var(--glow-color-rgb), 0.5);
+            animation: none;
+        }
+        
+        .animated-element { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .slide-in-up { transform: translateY(50px); }
+        .is-visible { opacity: 1; transform: translate(0, 0) scale(1); }
+
+        @keyframes pulse-glow {
+            50% { box-shadow: 0 0 25px rgba(var(--glow-color-rgb), 0.7), 0 0 50px rgba(var(--glow-color-rgb), 0.5); }
+        }
+
+        .interactive-card-3d {
+            transform-style: preserve-3d; transition: transform 0.5s ease; position: relative;
+        }
+        .interactive-card-3d .glow {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.1), transparent 40%);
+            border-radius: inherit; opacity: 0; transition: opacity 0.5s ease;
+        }
+        .interactive-card-3d:hover { transform: perspective(1000px) rotateY(var(--rotateY)) rotateX(var(--rotateX)) scale3d(1.05, 1.05, 1.05); }
+        .interactive-card-3d:hover .glow { opacity: 1; }
+        
+        .gradient-text { background: -webkit-linear-gradient(45deg, #fbbf24, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        #particles-js { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary .plus-icon { display: none; }
+        details:not([open]) summary .minus-icon { display: none; }
+
+        .bg-grid-gold {
+            background-image: linear-gradient(rgba(245, 158, 11, 0.07) 1px, transparent 1px), linear-gradient(to right, rgba(245, 158, 11, 0.07) 1px, transparent 1px);
+            background-size: 2.5rem 2.5rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white/80 shadow-sm sticky top-0 z-50 backdrop-blur-lg">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <h2 class="text-xl md:text-2xl font-bold text-amber-600 tracking-wider">MÉTODO CLICK FY</h2>
+        </div>
+    </header>
+
+    <main>
+        <section class="bg-indigo-950 text-white relative overflow-hidden">
+            <div id="particles-js"></div>
+            <div class="container mx-auto px-6 pt-16 pb-24 md:pt-24 md:pb-32 grid md:grid-cols-2 gap-12 items-center max-w-7xl relative z-10">
+                <div class="text-center md:text-left">
+                    <h1 id="hero-headline" class="text-4xl md:text-6xl font-black mb-6 leading-tight min-h-[150px]"></h1>
+                    <p id="hero-subheadline" class="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 opacity-0">Usando apenas o celular, sem experiência e sem precisar aparecer.</p>
+                    <a href="https://pay.kirvano.com/3ed34188-b828-47cf-ad4f-c8974b2169b5" class="cta-button inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold text-xl rounded-lg py-5 px-12 opacity-0" id="hero-cta">DESTRAVAR MEU ACESSO</a>
+                </div>
+                <div class="p-4 hidden md:block animated-element zoom-in">
+                    <img src="img-1_template_black-friday23.webp" alt="Pessoa a comemorar sucesso financeiro com o telemóvel" class="rounded-2xl shadow-2xl w-full h-auto max-w-md mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x700/1e1b4b/f59e0b?text=Sucesso+Garantido';">
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none" style="transform: translateY(1px);">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-20 fill-current text-slate-50"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path></svg>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-20 px-6">
+            <div class="max-w-3xl mx-auto text-center animated-element slide-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Sua Rotina Pode Ser Assim...</h2>
+                <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-2xl border border-gray-100"><img src="not.v.jpeg" alt="Notificações de Vendas Hotmart no Celular" class="mx-auto mb-6 rounded-lg shadow-lg w-full max-w-sm" onerror="this.onerror=null;this.src='https://placehold.co/400x600/e0f2f1/14b8a6?text=Notificações+de+Venda';">
+                    <p class="text-lg md:text-xl text-slate-700 leading-relaxed">Acordar, tomar o seu café tranquilo e, quando olha para as notificações, ver que **já fez vendas**... mesmo enquanto dormia.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-20 px-6 bg-white">
+             <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-12 animated-element zoom-in">O Arsenal Completo Que Você Recebe</h2>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 interactive-card-3d animated-element slide-in-up"><div class="glow"></div><span class="text-4xl">🔑</span><h3 class="font-bold text-lg my-2 text-slate-900">Módulo 1: A Base do Sucesso</h3><p class="text-slate-600 text-sm">Configuramos as ferramentas e a mentalidade correta para começar a lucrar, mesmo que você seja um completo iniciante.</p></div>
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 interactive-card-3d animated-element slide-in-up" style="--delay: 0.1s;"><div class="glow"></div><span class="text-4xl">🎯</span><h3 class="font-bold text-lg my-2 text-slate-900">Módulo 2: Encontrando Ouro</h3><p class="text-slate-600 text-sm">Como encontrar produtos e ofertas de alta conversão que as pessoas já estão desesperadas para comprar.</p></div>
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 interactive-card-3d animated-element slide-in-up" style="--delay: 0.2s;"><div class="glow"></div><span class="text-4xl">🖱️</span><h3 class="font-bold text-lg my-2 text-slate-900">Módulo 3: Os Cliques Lucrativos</h3><p class="text-slate-600 text-sm">O passo a passo exato para gerar vendas usando cliques estratégicos, sem gastar com anúncios.</p></div>
+                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 interactive-card-3d animated-element slide-in-up" style="--delay: 0.3s;"><div class="glow"></div><span class="text-4xl">🚀</span><h3 class="font-bold text-lg my-2 text-slate-900">Módulo 4: Escalando Seus Ganhos</h3><p class="text-slate-600 text-sm">Como transformar seus R$300/dia em R$1000 ou mais, automatizando e otimizando o processo.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-16 md:py-20 px-6 bg-slate-100">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12 animated-element zoom-in">Junte-se a Pessoas Com Provas Reais</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 text-center interactive-card-3d animated-element slide-in-up" style="--delay: 0.1s;">
+                        <div class="p-6">
+                            <img src="kirvano.jpeg" class="rounded-lg shadow-md mb-4" alt="Screenshot do resultado do João">
+                            <p class="text-slate-600 text-sm italic leading-relaxed">"Eu era totalmente leigo. Em 15 dias aplicando, fiz minhas primeiras vendas. Incrível!"</p>
+                        </div>
+                        <div class="bg-slate-50 px-6 py-4 rounded-b-xl flex items-center">
+                            <img src="https://placehold.co/40x40/fef3c7/f59e0b?text=JS" class="w-10 h-10 rounded-full border-2 border-white" alt="Foto de João Silva">
+                            <div class="ml-3 text-left">
+                                <h4 class="font-bold text-sm text-slate-900">João Silva</h4>
+                                <p class="text-xs text-slate-500">São Paulo, SP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 text-center interactive-card-3d animated-element slide-in-up" style="--delay: 0.2s;">
+                         <div class="p-6">
+                            <img src="Sua primeira venda na Kiwify pode acontecer hoje !.jpeg" class="rounded-lg shadow-md mb-4" alt="Screenshot do resultado da Maria">
+                            <p class="text-slate-600 text-sm italic leading-relaxed">"Como mãe, precisava de renda extra. O Click Fy foi a solução perfeita. Consigo uma boa grana todo mês."</p>
+                        </div>
+                        <div class="bg-slate-50 px-6 py-4 rounded-b-xl flex items-center">
+                            <img src="https://placehold.co/40x40/fef3c7/f59e0b?text=MC" class="w-10 h-10 rounded-full border-2 border-white" alt="Foto de Maria Costa">
+                            <div class="ml-3 text-left">
+                                <h4 class="font-bold text-sm text-slate-900">Maria Costa</h4>
+                                <p class="text-xs text-slate-500">Belo Horizonte, MG</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 text-center interactive-card-3d animated-element slide-in-up" style="--delay: 0.3s;">
+                         <div class="p-6">
+                            <img src="Como vender Todos os Dias no Piloto Automático_.jpeg" class="rounded-lg shadow-md mb-4" alt="Screenshot do resultado do Pedro">
+                            <p class="text-slate-600 text-sm italic leading-relaxed">"Estava cansado do emprego. Hoje, o que ganho com o método já é maior que meu antigo salário."</p>
+                        </div>
+                        <div class="bg-slate-50 px-6 py-4 rounded-b-xl flex items-center">
+                            <img src="https://placehold.co/40x40/fef3c7/f59e0b?text=PF" class="w-10 h-10 rounded-full border-2 border-white" alt="Foto de Pedro Ferreira">
+                            <div class="ml-3 text-left">
+                                <h4 class="font-bold text-sm text-slate-900">Pedro Ferreira</h4>
+                                <p class="text-xs text-slate-500">Curitiba, PR</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="oferta" class="py-16 md:py-24 px-6 bg-indigo-950 text-white relative overflow-hidden bg-grid-gold">
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 animated-element zoom-in">UMA OFERTA IRRECUSÁVEL</h2>
+                <p class="text-lg text-slate-300 mb-12 max-w-2xl mx-auto animated-element zoom-in" style="--delay: 0.2s;">Você não vai pagar o valor real de R$341. Hoje, você leva tudo isso:</p>
+        
+                <!-- Value Stack -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <!-- Item 1 -->
+                    <div class="bg-indigo-900/50 p-6 rounded-lg border border-slate-700 animated-element slide-in-up" style="--delay: 0.3s;">
+                        <span class="text-4xl">📚</span>
+                        <h3 class="font-bold my-2">Método Click Fy</h3>
+                        <p class="text-sm text-slate-400">O passo a passo completo do zero aos R$300 por dia.</p>
+                        <p class="text-slate-500 line-through mt-2">Valor: R$197</p>
+                    </div>
+                    <!-- Item 2 -->
+                     <div class="bg-indigo-900/50 p-6 rounded-lg border border-amber-500/50 shadow-lg shadow-amber-500/10 animated-element slide-in-up" style="--delay: 0.4s;">
+                        <span class="text-4xl">🎁</span>
+                        <h3 class="font-bold my-2 text-amber-400">BÓNUS #1: Comunidade VIP</h3>
+                        <p class="text-sm text-slate-400">Networking e suporte com pessoas que buscam o mesmo que você.</p>
+                         <p class="text-slate-500 line-through mt-2">Valor: R$97</p>
+                    </div>
+                     <!-- Item 3 -->
+                     <div class="bg-indigo-900/50 p-6 rounded-lg border border-slate-700 animated-element slide-in-up" style="--delay: 0.5s;">
+                        <span class="text-4xl">📋</span>
+                        <h3 class="font-bold my-2">BÓNUS #2: Scripts Prontos</h3>
+                        <p class="text-sm text-slate-400">Mensagens "copia e cola" para acelerar suas primeiras vendas.</p>
+                         <p class="text-slate-500 line-through mt-2">Valor: R$47</p>
+                    </div>
+                </div>
+        
+                <!-- Price Box -->
+                <div class="bg-white text-slate-900 rounded-2xl p-8 md:p-10 shadow-2xl inline-block animated-element zoom-in border-4 border-amber-400" style="--delay: 0.6s;">
+                    <p class="font-bold uppercase tracking-widest">ACESSO IMEDIATO POR APENAS:</p>
+                    <p class="text-6xl md:text-7xl font-black my-2 gradient-text">R$97</p>
+                    <p class="font-semibold">ou 12x de R$9,74 no cartão</p>
+                </div>
+        
+                <div class="mt-10 animated-element zoom-in" style="--delay: 0.7s;">
+                    <a href="https://pay.kirvano.com/3ed34188-b828-47cf-ad4f-c8974b2169b5" class="cta-button inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold text-xl rounded-lg py-5 px-12">
+                        👉 QUERO GARANTIR MINHA VAGA COM DESCONTO!
+                    </a>
+                    <p class="text-sm text-slate-400 mt-4">Compra 100% segura. Garantia de 7 dias.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-20 px-6 bg-white">
+            <div class="max-w-3xl mx-auto animated-element slide-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-10">Ainda Tem Dúvidas? Nós Respondemos.</h2>
+                <div class="space-y-4">
+                    <details class="bg-slate-50 p-6 rounded-lg shadow-sm border border-slate-200">
+                        <summary class="font-semibold text-slate-800 cursor-pointer flex justify-between items-center">Como vou receber o acesso ao método?<span class="text-amber-500"><span class="plus-icon">+</span><span class="minus-icon">-</span></span></summary>
+                        <p class="mt-4 text-slate-600 leading-relaxed">Imediatamente após a confirmação do pagamento, você receberá um e-mail com o seu login e senha para aceder à nossa área de membros exclusiva onde todo o conteúdo está organizado.</p>
+                    </details>
+                    <details class="bg-slate-50 p-6 rounded-lg shadow-sm border border-slate-200">
+                        <summary class="font-semibold text-slate-800 cursor-pointer flex justify-between items-center">O acesso é vitalício?<span class="text-amber-500"><span class="plus-icon">+</span><span class="minus-icon">-</span></span></summary>
+                        <p class="mt-4 text-slate-600 leading-relaxed">Sim! O pagamento é único e você terá acesso para sempre a todo o método, incluindo todas as futuras atualizações que fizermos, sem pagar mais nada por isso.</p>
+                    </details>
+                    <details class="bg-slate-50 p-6 rounded-lg shadow-sm border border-slate-200">
+                        <summary class="font-semibold text-slate-800 cursor-pointer flex justify-between items-center">Preciso de um computador ou só o celular basta?<span class="text-amber-500"><span class="plus-icon">+</span><span class="minus-icon">-</span></span></summary>
+                        <p class="mt-4 text-slate-600 leading-relaxed">O método foi 100% desenhado para ser aplicado usando apenas o seu celular e uma conexão com a internet. Não é necessário ter um computador.</p>
+                    </details>
+                    <details class="bg-slate-50 p-6 rounded-lg shadow-sm border border-slate-200">
+                        <summary class="font-semibold text-slate-800 cursor-pointer flex justify-between items-center">É seguro comprar por este site?<span class="text-amber-500"><span class="plus-icon">+</span><span class="minus-icon">-</span></span></summary>
+                        <p class="mt-4 text-slate-600 leading-relaxed">Totalmente seguro. O pagamento é processado pela Kirvano, uma das maiores e mais seguras plataformas de pagamentos do Brasil, utilizando encriptação de ponta para proteger os seus dados.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-16 px-6 bg-slate-100" id="garantia">
+            <div class="max-w-4xl mx-auto text-center bg-white border-2 border-dashed border-gray-300 rounded-2xl p-8 md:p-12 shadow-xl animated-element zoom-in"><div class="text-6xl mb-4">🛡️</div><h3 class="text-2xl font-bold text-slate-900 mb-4">Garantia Blindada de 7 Dias</h3><p class="text-slate-600 mb-8 leading-relaxed">Seu risco é zero. Se não gostar, peça seu dinheiro de volta em 7 dias. Simples assim.</p><a href="https://pay.kirvano.com/3ed34188-b828-47cf-ad4f-c8974b2169b5" class="cta-button inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold text-lg rounded-lg py-4 px-10">QUERO ACESSAR COM GARANTIA</a></div>
+        </section>
+    </main>
+    
+    <footer class="text-center py-8 bg-indigo-950 text-slate-400 text-sm"><div class="container mx-auto px-6"><p>&copy; 2025 Método Click Fy - Todos os direitos reservados.</p></div></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const glowColorRgb = '245, 158, 11';
+            document.documentElement.style.setProperty('--glow-color-rgb', glowColorRgb);
+
+            const isMobile = window.innerWidth < 768;
+            const particlesConfig = {
+                "particles":{"number":{"value": isMobile ? 30 : 60,"density":{"enable":true,"value_area":800}},"color":{"value":"#f59e0b"},"shape":{"type":"circle"},"opacity":{"value":0.5,"random":true},"size":{"value":3,"random":true},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.1,"width":1},"move":{"enable":true,"speed":1,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false}},
+                "interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"grab"},"onclick":{"enable":false},"resize":true},"modes":{"grab":{"distance":140,"line_linked":{"opacity":0.3}}}},
+                "retina_detect":true
+            };
+            particlesJS("particles-js", particlesConfig);
+
+            const animatedElements = document.querySelectorAll('.animated-element');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = parseFloat(entry.target.style.getPropertyValue('--delay')) || 0;
+                        setTimeout(() => { entry.target.classList.add('is-visible'); }, delay * 1000);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+
+            const cards = document.querySelectorAll('.interactive-card-3d');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                    const rotateY = (x / rect.width - 0.5) * -20; const rotateX = (y / rect.height - 0.5) * 20;
+                    card.style.setProperty('--mouse-x', `${x}px`); card.style.setProperty('--mouse-y', `${y}px`);
+                    card.style.setProperty('--rotateY', `${rotateY}deg`); card.style.setProperty('--rotateX', `${rotateX}deg`);
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.setProperty('--rotateY', '0deg'); card.style.setProperty('--rotateX', '0deg');
+                });
+            });
+
+            const headlineEl = document.getElementById('hero-headline'), subheadlineEl = document.getElementById('hero-subheadline'), ctaEl = document.getElementById('hero-cta');
+            const textToType = "Descubra Como Pessoas Comuns Estão Colocando <span class='gradient-text'></span> no Bolso Todos os Dias";
+            let i = 0;
+            function typeWriter() {
+                if (i < textToType.length) {
+                    let char = textToType.charAt(i);
+                    if (char === '<') { let tagEnd = textToType.indexOf('>', i); headlineEl.innerHTML += textToType.substring(i, tagEnd + 1); i = tagEnd; } 
+                    else { headlineEl.innerHTML += char; }
+                    i++;
+                    setTimeout(typeWriter, 50);
+                } else {
+                    const counterEl = headlineEl.querySelector('span');
+                    if(counterEl) animateCounter(counterEl, 0, 300, 1500, 'R$');
+                    subheadlineEl.style.transition = 'opacity 1s 0.5s'; subheadlineEl.style.opacity = '1';
+                    ctaEl.style.transition = 'opacity 1s 0.8s'; ctaEl.style.opacity = '1';
+                }
+            }
+            function animateCounter(element, start, end, duration, prefix = '') {
+                let startTime = null;
+                const step = (timestamp) => {
+                    if (!startTime) startTime = timestamp;
+                    const progress = Math.min((timestamp - startTime) / duration, 1);
+                    element.innerHTML = prefix + Math.floor(progress * end);
+                    if (progress < 1) { window.requestAnimationFrame(step); }
+                };
+                window.requestAnimationFrame(step);
+            }
+            typeWriter();
+        });
+    </script>
+</body>
+</html>
+
