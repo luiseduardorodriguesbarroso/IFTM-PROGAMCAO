@@ -46,5 +46,44 @@ int main()
     limpartl(); // Limpa a tela para melhorar a amostragem do codigo
 
     //VARIAVEIS 
-    int opc; //Variavel para movimentar dentro do menu de opc...
+    int v1 [10],v2[5];// Meus 2 vetores para receber valores 
+    int i; // Vai ser minha forma de movimentar dendro dos vetores v1 e v2...
+    int R1[10],R2[10]; //R1 e R2 irão ser usados como nossos resultantes...
+
+    //RECEBENDO OS VALORES DOS VETORES 
+    for(i=0;i<10;i++)
+    {
+        printf("\nInforme o valor do vetor V1 na posicao [%d]...: ",i);
+        fflush(stdin);
+        scanf("%d",&v1[i]);
+
+    }
+    for(i=0;i<5;i++)
+    {
+        printf("\nInforme o valor do vetor V2 na posicao [%d]...: ",i);
+        fflush(stdin);
+        scanf("%d",&v2[i]);
+
+    }    
+    //Calculando os valores dos resultantes de R1...
+    int soma = 0;//Res vai ser = a soma de tdos os valores do vetor V2 
+    for(i=0;i<5;i++)
+    {
+        soma = soma + v2[i];
+    }
+    for (i=0;i<10;i++)
+    {
+        if(v1[i] % 2 == 0)
+        {
+            soma = v1[i] + soma;
+            printf("\n%d",soma);
+        }
+        else 
+        {
+            soma = 0;
+            printf("\n%d",soma);
+        }
+    }
+
+    
 }
