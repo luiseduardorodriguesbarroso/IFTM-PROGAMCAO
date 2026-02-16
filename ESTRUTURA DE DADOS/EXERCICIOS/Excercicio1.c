@@ -88,7 +88,6 @@ int main()
     //CRIAR VARIAVEIS
     int x;
    
-
     //INICIALIZAR VARIAVEIS
     printf("\n Informe um numero...: ");
     x = lerint();
