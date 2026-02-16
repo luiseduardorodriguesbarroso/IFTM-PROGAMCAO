@@ -25,17 +25,17 @@ char vt[255]; // Minha variavel global para receber dados via texto...
 //===============================================================
 void limpa_tl();
 float lerfloat();
-float tranformador_de_temperatura(float x);
+float transformarFahrenheit(float x);
 //===============================================================
 //============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
 //===============================================================
 void limpa_tl()
 {
-    #ifdef _WIN32
-    system("cls");
-    #else
-    system("clear");
-    #endif
+   #ifdef _WIN32
+   system("cls");
+   #else
+   system("clear");
+   #endif
 }
 //===============================================================
 float lerfloat()
@@ -46,12 +46,11 @@ float lerfloat()
     return numero;
 }
 //===============================================================
-float tranformador_de_temperatura(float x)
+float transformarFahrenheit(float x)
 {
-    float Fahrenheit;
-    //Tranformando graus celcius em Fahrenheit
-    Fahrenheit = ((x * 1.8) +32);
-    return Fahrenheit;
+    float celcios;
+    celcios = (x-32)*(5.0/9.0);//5.0 e 9.0 pq em c quando vc divide 2 inteiros  o computador entende que o resultado tem que ser inteiro tambem e ele iguinora o resto 
+    return celcios;
 }
 //===============================================================
 
@@ -63,14 +62,14 @@ int main()
     limpa_tl();
     //CRIAR VARIAVEIS
     float x;
-    
+
     //INICIALIZAR VARIAVEIS
-    printf("\n Informe a temperatura...: ");
+    printf("\n Informe a temperatura em Fahrenheit...: ");
     x = lerfloat();
 
-    //MOSTRAR RESSULTADO 
-    printf("\n\n A temperatura em Fahrenheit e: %.2f ",tranformador_de_temperatura(x));
-
+    //Mostrar ressultado
+    printf("\n\n A temperatura em graus celcios e: %.2f",transformarFahrenheit(x));
+    
     //FINALIZAR PROGRAMA
     printf ("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
