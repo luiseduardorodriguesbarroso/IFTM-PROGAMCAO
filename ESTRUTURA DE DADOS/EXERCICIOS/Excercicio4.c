@@ -48,9 +48,9 @@ float lerfloat()
 //===============================================================
 float transformarFahrenheit(float x)
 {
-    float celcios;
-    celcios = (x-32)*(5.0/9.0);//5.0 e 9.0 pq em c quando vc divide 2 inteiros  o computador entende que o resultado tem que ser inteiro tambem e ele iguinora o resto 
-    return celcios;
+    float celsius;
+    celsius = (x-32)*(5.0/9.0);//5.0 e 9.0 pq em c quando vc divide 2 inteiros  o computador entende que o resultado tem que ser inteiro tambem e ele iguinora o resto 
+    return celsius;
 }
 //===============================================================
 
@@ -68,8 +68,8 @@ int main()
     x = lerfloat();
 
     //Mostrar ressultado
-    printf("\n\n A temperatura em graus celcios e: %.2f",transformarFahrenheit(x));
-    
+    printf("\n\n A temperatura em graus celsius e: %.2f",transformarFahrenheit(x));
+
     //FINALIZAR PROGRAMA
     printf ("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
