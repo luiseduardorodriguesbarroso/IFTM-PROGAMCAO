@@ -24,6 +24,7 @@ char vt[255]; // Minha variavel global para receber dados via texto...
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
 //===============================================================
 void limpa_tl();
+int lerint();
 
 //===============================================================
 //============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
@@ -37,9 +38,21 @@ void limpa_tl()
     #endif
 }
 //===============================================================
-
+int lerint()
+{
+    int numero;
+    fgets(vt,255,stdin);
+    sscanf(vt,"%d",&numero);
+    return numero;
+}
 //===============================================================
-
+int vld_bisexto(int x)
+{
+    if(x % 4 == 0 && x % 100 != 0 || x % 400 == 0)
+        return 1;
+     else
+        return 0;    
+}
 //===============================================================
 
 //===============================================================
@@ -49,11 +62,13 @@ int main()
 {
     limpa_tl();
     //CRIAR VARIAVEIS
-   
+    int x;
    
     //INICIALIZAR VARIAVEIS
-
+    printf("\n Informe o ano...: ");
+    x=lerint();
    
+    vld_bisexto(x);
     //FINALIZAR PROGRAMA
     printf ("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
