@@ -5,7 +5,7 @@
     1º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     2 SEMESTRE 2025
     Prof. Rafael Orbolato
-    Data: 05/02/2026
+    Data: 15/02/2026
 */
 //===============================================================
 //===============================================================
@@ -19,12 +19,12 @@
 #include <time.h>
 #include <unistd.h>
 
-
+char vt[255]; // Minha variavel global para receber dados via texto...
 //===============================================================
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
 //===============================================================
 void limpa_tl();
-
+int lerint ();
 
 
 //===============================================================
@@ -35,9 +35,18 @@ void limpa_tl()
     system("clear");//Vai limpar a minha tela
 }
 //===============================================================
-
+int lerint ()
+{
+    int numero;
+    fgets(vt, 255, stdin);
+    sscanf(vt,"%d",&numero);
+    return numero;
+}
 //===============================================================
+int vrfc_primo()
+{
 
+}
 //===============================================================
 
 //===============================================================
@@ -48,10 +57,14 @@ void limpa_tl()
 int main()
 {
     //CRIAR VARIAVEIS
+    int x;
    
 
     //INICIALIZAR VARIAVEIS
-   
+    printf("\n Informe um numero...: ");
+    x = lerint();
+
+    printf("\n %d",x);
 
     //CALCULO DA SOMA DAS VARIAVEIS 
    
