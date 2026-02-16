@@ -25,7 +25,7 @@ char vt[255]; // Minha variavel global para receber dados via texto...
 //===============================================================
 void limpa_tl();
 int lerint();
-
+int vld_bisexto(int x);
 //===============================================================
 //============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
 //===============================================================
@@ -68,7 +68,15 @@ int main()
     printf("\n Informe o ano...: ");
     x=lerint();
    
-    vld_bisexto(x);
+    //VALIDANDO DADOS
+    vld_bisexto(x); //vaçida se x e bisexto ou não e me retorna 1 ou 0
+    
+    //RESULTADO FINAL
+    if (vld_bisexto(x) == 1) //verifica se e verdadeiro o que minha função respondeu
+        printf("\n %d e um ano bisexto ",x);
+    else 
+        printf("\n %d nao e um ano bisexto",x);
+
     //FINALIZAR PROGRAMA
     printf ("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
