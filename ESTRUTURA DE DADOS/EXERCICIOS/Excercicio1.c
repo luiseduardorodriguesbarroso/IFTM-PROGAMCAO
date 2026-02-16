@@ -32,8 +32,11 @@ void vrfc_primo(int x);
 //===============================================================
 void limpa_tl()
 {
-    system("cls");//limpa a tela no windows
-    system("clear");//Vai limpar a minha tela
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 }
 //===============================================================
 int lerint ()
