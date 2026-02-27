@@ -28,6 +28,7 @@ void limpa_tl();
 int lerint();
 void processando();
 void pouse();
+int dia_da_semana(int dia, int mes, int ano);
 //===============================================================
 //============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
 //===============================================================
