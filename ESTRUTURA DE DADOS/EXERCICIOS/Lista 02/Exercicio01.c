@@ -25,7 +25,8 @@ char vt[255]; // Minha variavel global para receber dados via texto...
 //============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
 //===============================================================
 void limpa_tl();
-
+struct restaurante();
+struct Restaurante listarestaurante();
 //===============================================================
 //============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
 //===============================================================
@@ -64,7 +65,7 @@ struct Restaurante listarestaurante()
     fgets(r.tipodecomida, 250, stdin);
 
     return r;
-}
+};
 //===============================================================
 
 //===============================================================
