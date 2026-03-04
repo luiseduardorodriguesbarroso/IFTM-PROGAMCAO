@@ -38,9 +38,33 @@ void limpa_tl()
     #endif
 }
 //===============================================================
-
+struct restaurante()
+{
+    char nome[250];
+    char endereço [250];
+    float preço_medio;
+    char tipodecomida[250];
+};
 //===============================================================
+struct Restaurante listarestaurante()
+{
+    struct Restaurante r;
 
+    printf("\n Informe o nome do restaurante...: ");
+    fgets(r.nome, 250, stdin);
+
+    printf("\n Informe o endereco...: ");
+    fgets(r.endereco, 250, stdin);
+
+    printf("\n Informe o preco medio...: ");
+    scanf("%f", &r.preco_medio);
+    getchar(); // limpa o ENTER
+
+    printf("\n Informe o tipo de comida...: ");
+    fgets(r.tipodecomida, 250, stdin);
+
+    return r;
+}
 //===============================================================
 
 //===============================================================
