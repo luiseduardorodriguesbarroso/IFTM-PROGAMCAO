@@ -1,9 +1,9 @@
 /*===============================================================
 
-    CURSO: ENGENHARIA DE COMPUTAÇÃO
+    CCURSO: ENGENHARIA DE COMPUTAÇÃO
     Nome: Luís Eduardo Rodrigues Barroso
-    1º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
-    2 SEMESTRE 2025
+    3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
+    1 SEMESTRE 2026
     Prof. Rafael Orbolato
     Data: 16/02/2026
 */
