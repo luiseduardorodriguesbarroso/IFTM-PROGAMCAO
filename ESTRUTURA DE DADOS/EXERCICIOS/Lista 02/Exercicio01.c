@@ -28,17 +28,36 @@ char vt[255]; // Minha variavel global para receber dados via texto...
 //===============================================================
 //==============              STRUCTS              ==============
 //===============================================================
-struct restaurante()
+struct Restaurante
 {
     char nome[250];
-    char endereço [250];
-    float preço_medio;
-    char tipodecomida[250];
+    char endereco[250];
+    float preco_medio;
+    char tipodecomida[250]; 
 };
 //===============================================================
-struct Restaurante listarestaurante()
+//==================== PROTOTIPOS ===============================
+//===============================================================
+void limpa_tl();
+struct Restaurante lerRestaurante();
+void  mostrarrestaurantes ();
+
+
+//===============================================================
+//============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
+//===============================================================
+void limpa_tl()
 {
-    struct Restaurante r
+    #ifdef _WIN32
+    system("cls");
+    #else
+    system("clear");
+    #endif
+}
+//===============================================================
+struct Restaurante lerRestaurante ()
+{
+    struct Restaurante r;
 
     printf("\n Informe o nome do restaurante...: ");
     fgets(r.nome, 250, stdin);
@@ -54,36 +73,14 @@ struct Restaurante listarestaurante()
     fgets(r.tipodecomida, 250, stdin);
 
     return r;
-};
-//===============================================================
-
-//===============================================================
-
-//===============================================================
-
-//===============================================================
-//============== LOCAL PARA DECLARAR OS PROTOTIPOS ==============
-//===============================================================
-void limpa_tl();
-
-
-
-
-//===============================================================
-//============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
-//===============================================================
-void limpa_tl()
-{
-    #ifdef _WIN32
-    system("cls");
-    #else
-    system("clear");
-    #endif
 }
 //===============================================================
-
-//===============================================================
-
+void  mostrarrestaurantes ()
+{
+    printf("\n ---------------------------------------------- ");
+    printf(" ---------- Restaurantes Cadastrados ---------- \n");
+    printf("\n ---------------------------------------------- ");
+}
 //===============================================================
 
 //===============================================================
@@ -93,12 +90,14 @@ void limpa_tl()
 //===============================================================
 int main()
 {
-    limpa_tl();
-    //CRIAR VARIAVEIS
+    limpa_tl(); //Limpa a tela para uma melhor amostragem 
     
+    struct Restaurante r1;
+    r1 = lerRestaurante();
 
-    //INICIALIZAR VARIAVEIS
+    printf("\nCadastro realizado com sucesso!\n");
 
+    mostrarrestaurantes();
 
     //FINALIZAR PROGRAMA
     printf ("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
