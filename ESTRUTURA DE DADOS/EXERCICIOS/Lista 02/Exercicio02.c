@@ -67,6 +67,7 @@ struct armazenar receberdados ()
 
     printf("\n Informe a quantidade de calorias da porcao...: ");
     scanf("%f", &x.calorias);
+    
 }
 //===============================================================
 
