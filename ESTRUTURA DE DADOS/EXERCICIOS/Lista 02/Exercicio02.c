@@ -5,7 +5,7 @@
     3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2026
     Prof. Rafael Orbolato
-    Data: 05/03/2026
+    Data: 11/03/2026
 */
 //===============================================================
 //===============================================================
@@ -28,6 +28,11 @@ char vt[255]; // Minha variavel global para receber dados via texto...
 //===============================================================
 //==============              STRUCTS              ==============
 //===============================================================
+struct armazenar
+{
+    char nome_dieta[250], nome_comida[250];
+    float peso, calorias;
+};
 
 //===============================================================
 //==================== PROTOTIPOS ===============================
@@ -47,7 +52,22 @@ void limpa_tl()
     #endif
 }
 //===============================================================
+struct armazenar receberdados ()
+{
+    struct armazenar x;
+    
+    printf("\n Informe o Nome da sua dieta...: ");
+    fgets(x.nome_dieta, 250, stdin);
 
+    printf("\n Informe o nome da Comida...: ");
+    fgets(x.nome_comida, 250, stdin);
+
+    printf("\n Informe o Peso de uma porcao...: ");
+    scanf("%f", &x.peso);
+
+    printf("\n Informe a quantidade de calorias da porcao...: ");
+    scanf("%f", &x.calorias);
+}
 //===============================================================
 
 //===============================================================
