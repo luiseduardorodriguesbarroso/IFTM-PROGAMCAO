@@ -118,11 +118,9 @@ int main()
         }else
         {
             limpa_tl();
-        }
-        
+        }   
     }
-    
-    
+   
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
