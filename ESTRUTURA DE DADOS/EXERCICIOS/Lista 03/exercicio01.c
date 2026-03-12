@@ -58,7 +58,7 @@ void limpa_tl()
 int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
-    
+    int x;
     
     
     //FINALIZAR PROGRAMA
