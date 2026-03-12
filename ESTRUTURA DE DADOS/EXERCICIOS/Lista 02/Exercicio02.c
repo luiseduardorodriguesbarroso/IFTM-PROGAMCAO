@@ -38,7 +38,7 @@ struct armazenar
 //==================== PROTOTIPOS ===============================
 //===============================================================
 void limpa_tl();
-
+struct armazenar receberdados ();
 
 //===============================================================
 //============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
@@ -62,7 +62,7 @@ struct armazenar receberdados ()
     printf("\n Informe o nome da Comida...: ");
     fgets(x.nome_comida, 250, stdin);
 
-    printf("\n Informe o Peso de uma porcao...: ");
+    printf("\n Informe o Peso de uma porcao em kg...: ");
     scanf("%f", &x.peso);
 
     printf("\n Informe a quantidade de calorias da porcao...: ");
@@ -79,7 +79,7 @@ struct armazenar receberdados ()
 int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
-    
+    receberdados(); // Estou chamando a minha função  para receber os dados e depois processalos...
     
     
     //FINALIZAR PROGRAMA
