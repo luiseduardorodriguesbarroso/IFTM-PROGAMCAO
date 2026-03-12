@@ -67,7 +67,7 @@ struct armazenar receberdados ()
 
     printf("\n Informe a quantidade de calorias da porcao...: ");
     scanf("%f", &x.calorias);
-    
+    return x;
 }
 //===============================================================
 
@@ -78,8 +78,49 @@ struct armazenar receberdados ()
 //===============================================================
 int main()
 {
-    limpa_tl(); //Limpa a tela para uma melhor amostragem 
-    receberdados(); // Estou chamando a minha função  para receber os dados e depois processalos...
+    int x=0,j=0;
+    struct armazenar r[100]; 
+    limpa_tl(); //Limpa a tela para uma melhor amostragem
+
+    while (x != 3)
+    {
+        printf("\n ------------ MENU PRINCIPAL ------------ \n");
+        printf(" 1- Cadastrar dietas...\n");
+        printf(" 2- Receitas cadastradas...\n");
+        printf(" 3- Finalizar progama...\n");
+        printf("\n Informe uma das opcoes do menu  principal...: ");
+        scanf("%d", &x);
+        if (x == 1)
+        {
+            limpa_tl();
+            printf("\n Informe quantas dietas deseja cadastrar hj ...: ");
+            scanf("%d", &j); // estou recebendo quantos cadastros ele deseja realizar...
+            for (int i = 0; i < j; i++)
+            {
+                r[i] = receberdados(); // Estou chamando a minha função  para receber os dados e depois processalos... 
+            }
+        } else if (x == 2)
+        {
+            limpa_tl();
+           for (int i = 0; i < j; i++)
+            {
+              printf(" Nome da Dieta...: %s \n",r[i].nome_dieta); 
+              printf(" Nome do prato...: %s \n", r[i].nome_comida);
+              printf(" Peso da porcao...: %f\n",r[i].peso);
+              printf(" Qnatidade de kalorias...: %f \n\n",r[i].calorias);
+            }  
+        } else if (x == 3)
+        {
+            limpa_tl();
+            printf("\n\n Finalizando progama...");
+            Sleep(200);
+            limpa_tl();
+        }else
+        {
+            limpa_tl();
+        }
+        
+    }
     
     
     //FINALIZAR PROGRAMA
