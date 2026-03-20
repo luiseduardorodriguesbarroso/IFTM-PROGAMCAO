@@ -53,8 +53,11 @@ float converter_temperatura(float *temp, int *op)
         // 1: Fahrenheit para Celsius
         return (*temp - 32.0) * (5.0 / 9.0);
     }
-    
-    return 0.0;
+    if (*op < 0 || *op > 1) 
+    {
+        printf("\n Opcao Invalida! Retornando 0.0\n");
+        return 0.0; // Retorna 0.0 para opções inválidas
+    }
 }
 //===============================================================
 //==============  CODIGO PRINCIPAL ==============================
