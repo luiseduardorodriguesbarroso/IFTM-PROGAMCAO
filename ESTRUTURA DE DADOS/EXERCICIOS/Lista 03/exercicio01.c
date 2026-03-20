@@ -5,7 +5,7 @@
     3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2026
     Prof. Rafael Orbolato
-    Data: 12/03/2026
+    Data: 20/03/2026
 */
 //===============================================================
 //===============================================================
@@ -47,9 +47,15 @@ void limpa_tl()
     #endif
 }
 //===============================================================
+void  Fahrenheit()
+{
 
+}
 //===============================================================
+void Celsius ()
+{
 
+}
 //===============================================================
 
 //===============================================================
@@ -58,9 +64,26 @@ void limpa_tl()
 int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
-    int x;
-    
-    
+   int opc;
+    while(opc != 2)
+    {
+        printf("\n 0- Converter temperatura de Celsius para Fahrenheit");
+        printd("\n 1- Converter temperatura de Fahrenheit para Celsius");
+        printf("\n Informe qual das opcoes vc deseja ultilizar...: ");
+        scanf("%d",&opc);
+        
+        if (opc == 0)
+        {
+            Fahrenheit();
+        }   else if (opc == 1)
+        {
+            Celsius();
+        }   else if (opc > 1 || opc < 0)
+        {
+            limpa_tl();
+        }
+    }    
+
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
