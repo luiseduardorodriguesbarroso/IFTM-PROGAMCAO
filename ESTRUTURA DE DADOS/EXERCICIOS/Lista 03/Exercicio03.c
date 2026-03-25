@@ -1,0 +1,87 @@
+/*===============================================================
+
+    CURSO: ENGENHARIA DE COMPUTAÇÃO
+    Nome: Luís Eduardo Rodrigues Barroso
+    3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
+    1 SEMESTRE 2026
+    Prof. Rafael Orbolato
+    Data: 05/03/2026
+*/
+//===============================================================
+//===============================================================
+//======== LOCAL PARA DECLARAR AS INCLUDES E VARS GLOBAIS =======
+//===============================================================
+#include <stdio.h>      
+#include <stdlib.h>     
+#include <string.h>     
+#include <ctype.h>      
+#include <math.h>      
+#include <time.h>       
+#include <unistd.h>     
+#include <stdbool.h>    
+#include <limits.h>     
+#include <float.h>      
+#include <stdint.h>     
+#include <assert.h>     
+#define tam 10
+
+//===============================================================
+//==============         VARIAVEIS GLOBAIS         ==============
+//===============================================================
+
+
+
+//===============================================================
+//==============              STRUCTS              ==============
+//===============================================================
+
+//===============================================================
+//==================== PROTOTIPOS ===============================
+//===============================================================
+void limpa_tl();
+
+
+//===============================================================
+//============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
+//===============================================================
+void limpa_tl()
+{
+    #ifdef _WIN32
+    system("cls");
+    #else
+    system("clear");
+    #endif
+}
+//===============================================================
+int gerador (int min, int max)
+{
+    return min + rand() % (max - min + 1);
+}
+//===============================================================
+
+//===============================================================
+
+//===============================================================
+//==============  CODIGO PRINCIPAL ==============================
+//===============================================================
+int main()
+{
+    limpa_tl(); //Limpa a tela para uma melhor amostragem 
+    //CRIANDO VARIAVEIS 
+    int nuu[tam];
+    srand(time(NULL));//Gera numeros aleatorios sem repetir numeros...
+
+    for(int i=0;i< tam;i++)
+    {
+        nuu[i] = gerador(40,50);
+        printf("%5d",nuu[i]);
+    }
+    
+
+
+
+    
+    //FINALIZAR PROGRAMA
+    printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
+    return 0;
+}
