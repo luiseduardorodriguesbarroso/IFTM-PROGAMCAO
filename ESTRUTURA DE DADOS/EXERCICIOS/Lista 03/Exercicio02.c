@@ -30,11 +30,9 @@
     //===============================================================
     void mostrar (int *vt, int tamanho)
     {
-        int x; //Mihha variavel para printar o numero do elemento 
         for (int i = 0;i< tamanho;i++)
         {
-            x=i;//x=(posição do meu vetor)
-            printf("\n Elemento %d: %5d",x, *(vt + i));
+            printf("Elemento %d: %5d\n",i, *(vt + i));
         }
     }
     //===============================================================
