@@ -4,7 +4,7 @@
         3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
         1 SEMESTRE 2026
         Prof. Rafael Orbolato
-        Data: 23/03/2026
+        Data: 25/03/2026
     */
     //===============================================================
     #include <stdio.h>
