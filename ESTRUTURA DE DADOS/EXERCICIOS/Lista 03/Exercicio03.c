@@ -77,9 +77,6 @@ int main()
         printf("%5d",nuu[i]);
     }
     
-
-
-
     
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
