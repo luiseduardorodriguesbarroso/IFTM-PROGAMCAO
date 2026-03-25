@@ -14,7 +14,7 @@
     #include <math.h>
     #include <time.h>
     #include <unistd.h>
-    #define tam 15 //minha variavel global que vai fazer com que eu altere o tamanho do meu vetor de forma mais simples 
+    #define tam 15 //Minha variavel global que vai fazer com que eu altere o tamanho do meu vetor de forma mais simples 
     //===============================================================
     //==============         VARIAVEIS GLOBAIS         ==============
     //===============================================================
@@ -30,9 +30,11 @@
     //===============================================================
     void mostrar (int *vt, int tamanho)
     {
+        int x; //Mihha variavel para printar o numero do elemento 
         for (int i = 0;i< tamanho;i++)
         {
-            printf("%5d", *(vt + i));
+            x=i;//x=(posição do meu vetor)
+            printf("\n Elemento %d: %5d",x, *(vt + i));
         }
     }
     //===============================================================
