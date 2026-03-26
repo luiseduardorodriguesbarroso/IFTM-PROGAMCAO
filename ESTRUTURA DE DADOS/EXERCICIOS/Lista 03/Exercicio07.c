@@ -5,7 +5,7 @@
     3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2026
     Prof. Rafael Orbolato
-    Data: 26/03/2026
+    Data: 00/00/0000
 */
 //===============================================================
 //===============================================================
@@ -47,7 +47,7 @@
 //==================== PROTOTIPOS ===============================
 //===============================================================
 void limpa_tl();
-int caçador (int *vt,int tamanho);
+
 
 
 
@@ -63,18 +63,7 @@ void limpa_tl()
     #endif
 }
 //===============================================================
-int caçador (int *vt,int tamanho)
-{
-    int y = 0; //Vou assumir que meu menor valor começa na posição 0
-    for (int i = 1; i < tamanho; i++)
-    {
-        if (*(vt+i) < *(vt+y))
-        {
-            y = i;
-        } 
-    }
-    return y; //Retorna a posição
-}
+
 //===============================================================
 
 //===============================================================
@@ -97,9 +86,8 @@ int caçador (int *vt,int tamanho)
 int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
-    int vz[10]={15,26,31,78,3,2,9,53,44,22};
-    //Mostrar resultado 
-    printf("\n %d", caçador(vz,10));
+
+
 
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
