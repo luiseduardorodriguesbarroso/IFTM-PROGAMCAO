@@ -5,7 +5,7 @@
     3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2026
     Prof. Rafael Orbolato
-    Data:26/03/2026
+    Data: 00/00/0000
 */
 //===============================================================
 //===============================================================
@@ -47,7 +47,7 @@
 //==================== PROTOTIPOS ===============================
 //===============================================================
 void limpa_tl();
-float medias (int *vt, float tamanho);
+
 
 
 
@@ -63,16 +63,7 @@ void limpa_tl()
     #endif
 }
 //===============================================================
-float medias (int *vt, float tamanho)
-{
-    float soma = 0, media = 0;
-    for (int i = 0; i < tamanho; i++)
-    {
-        soma = *(vt+i) + soma;
-    }
-    media = soma / tamanho;
-    return media;
-}
+
 //===============================================================
 
 //===============================================================
@@ -95,9 +86,8 @@ float medias (int *vt, float tamanho)
 int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
-    int xl[11]= {1,2,3,4,5,15,97,31,5,4,6}; 
-    //Mostrar resultado
-    printf("\n %.2f",medias(xl,11));
+
+
 
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
