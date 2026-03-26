@@ -47,7 +47,7 @@
 //==================== PROTOTIPOS ===============================
 //===============================================================
 void limpa_tl();
-
+int caçadorderep (int *vt, int tamanho);
 
 
 
@@ -63,7 +63,10 @@ void limpa_tl()
     #endif
 }
 //===============================================================
+int caçadorderep (int *vt, int tamanho)
+{
 
+}
 //===============================================================
 
 //===============================================================
@@ -86,7 +89,9 @@ void limpa_tl()
 int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
-
+    int ls[13] = {15,15,5,3,6,8,7,10,98,75,62,34};
+    //Mostra resultado 
+    printf("\n %d", caçadorderep(ls,13));
 
 
     //FINALIZAR PROGRAMA
