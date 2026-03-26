@@ -47,7 +47,7 @@
 //==================== PROTOTIPOS ===============================
 //===============================================================
 void limpa_tl();
-int caçador (int *vt,int tamanho);
+
 
 
 
@@ -63,18 +63,7 @@ void limpa_tl()
     #endif
 }
 //===============================================================
-int caçador (int *vt,int tamanho)
-{
-    int x = 0; //Vou assumir que meu maior valor começa na posição 0
-    for (int i = 1; i < tamanho; i++)
-    {
-        if (*(vt+i) > *(vt+x))
-        {
-            x = i;
-        } 
-    }
-    return x; //Retorna a posição
-}
+
 //===============================================================
 
 //===============================================================
@@ -97,9 +86,8 @@ int caçador (int *vt,int tamanho)
 int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
-    int jpk[9]={31,40,18,16,3,2,88,73,55};
-    //Mostrar Resultado
-    printf("\n Indice do maior valor: %d",caçador(jpk,9));
+
+
 
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
