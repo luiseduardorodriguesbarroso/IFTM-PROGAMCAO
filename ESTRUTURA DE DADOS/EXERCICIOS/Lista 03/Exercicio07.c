@@ -5,7 +5,7 @@
     3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2026
     Prof. Rafael Orbolato
-    Data: 26/03/2026
+    Data: 28/03/2026
 */
 //===============================================================
 //===============================================================
@@ -92,8 +92,6 @@ int main()
     int ls[13] = {15,15,5,3,6,8,7,10,98,75,62,34};
     //Mostra resultado 
     printf("\n %d", caçadorderep(ls,13));
-
-
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
