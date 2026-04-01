@@ -47,7 +47,7 @@
 //==================== PROTOTIPOS ===============================
 //===============================================================
 void limpa_tl();
-int caçadorderep (int *vt, int tamanho);
+int verificador (int *vt, int tamanho);
 
 
 
@@ -63,9 +63,19 @@ void limpa_tl()
     #endif
 }
 //===============================================================
-int caçadorderep (int *vt, int tamanho)
+int verificador (int *vt, int tamanho)
 {
-
+    for (int x = 0; x < tamanho; x++)
+    {
+        for (int y = x + 1; y < tamanho; y++)
+        {
+            if (vt[x] == vt[y])
+            {
+                return 1;
+            }
+        }
+    }
+    return 0;
 }
 //===============================================================
 
@@ -89,9 +99,9 @@ int caçadorderep (int *vt, int tamanho)
 int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
-    int ls[13] = {15,15,5,3,6,8,7,10,98,75,62,34};
+    int xlmax[13] = {15,15,5,3,6,8,7,10,98,75,62,34,57};
     //Mostra resultado 
-    printf("\n %d", caçadorderep(ls,13));
+    printf("\n %d", verificador(xlmax,13));
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;

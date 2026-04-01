@@ -14,9 +14,14 @@
 int main ()
 {
     system("cls");
-    float nuulll;
-    printf("\n Informe o valor que vc deseja calcular a raiz quadrada...: ");
-    scanf("%f", &nuulll);
-    nuulll = sqrt(nuulll);
-    printf("\n A raiz quadrada eh: %.2f",nuulll);
+    float nuu[10];
+    for (int i =0;i<10;i++)
+    {
+        printf("\n Infrome a nota do aluno %d: ",i);
+        scanf("%f",&nuu[i]);
+    }
+    for (int i =0;i<10;i++)
+    {
+        printf("\n Nota do aluno %d %10.2f",i,nuu[i]);
+    }
 }
