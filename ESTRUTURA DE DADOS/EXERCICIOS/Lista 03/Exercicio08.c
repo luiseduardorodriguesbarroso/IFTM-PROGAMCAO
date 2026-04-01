@@ -5,7 +5,7 @@
     3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2026
     Prof. Rafael Orbolato
-    Data: 31/03/2026
+    Data: 01/04/2026
 */
 //===============================================================
 //===============================================================
@@ -23,6 +23,7 @@
 #include <float.h>
 #include <stdint.h>
 #include <assert.h>
+#include <windows.h>
 //===============================================================
 //==============         VARIAVEIS GLOBAIS         ==============
 //===============================================================
@@ -47,7 +48,7 @@
 //==================== PROTOTIPOS ===============================
 //===============================================================
 void limpa_tl();
-int verificador (int *vt, int tamanho);
+
 
 
 
@@ -63,20 +64,7 @@ void limpa_tl()
     #endif
 }
 //===============================================================
-int verificador (int *vt, int tamanho)
-{
-    for (int x = 0; x < tamanho; x++)
-    {
-        for (int y = x + 1; y < tamanho; y++)
-        {
-            if (vt[x] == vt[y])
-            {
-                return 1;
-            }
-        }
-    }
-    return 0;
-}
+
 //===============================================================
 
 //===============================================================
@@ -99,9 +87,9 @@ int verificador (int *vt, int tamanho)
 int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
-    int xlmax[13] = {15,15,5,3,6,8,7,10,98,75,62,34,57};
-    //Mostra resultado 
-    printf("\n %d", verificador(xlmax,13));
+
+
+
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;

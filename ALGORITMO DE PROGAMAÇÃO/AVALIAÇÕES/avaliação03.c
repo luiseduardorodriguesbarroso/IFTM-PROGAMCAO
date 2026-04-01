@@ -34,7 +34,7 @@ void pouse();
 void limpa_tl();
 //===============================================================================================
 
-// ==================== FUN  ES DA OP = 1 =========================
+// ==================== FUNÇOES DA OP = 1 =========================
 
 void quadrado(char m[][TAM2], int lin, int col)
 {
@@ -104,7 +104,7 @@ void triangulodsc(char m[][TAM2], int lin, int col)
     }
 }
 
-// ==================== FUN  ES DA OP = 2  =========================
+// ==================== FUNÇOES DA OP = 2  =========================
 
 int existe(int m[][TAM2], int linAtual, int colAtual, int valor)
 {
