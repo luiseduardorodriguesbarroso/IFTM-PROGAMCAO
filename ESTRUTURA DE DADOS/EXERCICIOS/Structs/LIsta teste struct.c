@@ -40,6 +40,7 @@ typedef struct cadastro
     char sexo[50];
     char cpf[15];
     float altura;
+    float salario;
 
 } cadastro;
 //===============================================================
@@ -57,7 +58,7 @@ typedef struct cadastro
 //===============================================================
 void limpa_tl();
 void cadastroluiz ();
-void mostarcadastro (char nome[255],int idade,char cpf[15],char sexo[50], float altura);
+void mostarcadastro (char nome[255],int idade,char cpf[15],char sexo[50], float altura,float salario);
 
 
 //===============================================================
@@ -80,6 +81,7 @@ void cadastroluiz ()
     strcpy(luiz.cpf,"123.456.789-10");
     strcpy(luiz.sexo,"Masculino");
     strcpy(luiz.nome, "Luis Henrique Leao Camargo");
+    luiz.salario = 1856.76;
 
     cadastro camila; //Cadastro teste da Camila
     camila.idade = 29;
@@ -87,14 +89,15 @@ void cadastroluiz ()
     strcpy(camila.cpf,"735.456.000-37");
     strcpy(camila.sexo, "Femenino");
     strcpy(camila.nome,"Camila Alves Jardin Santos");
+    camila.salario = 2164.56;
 
-    mostarcadastro(luiz.nome,luiz.idade,luiz.sexo,luiz.cpf,luiz.altura); //Mostra o cadastro do Luiz
-    mostarcadastro(camila.nome,camila.idade,camila.sexo,camila.cpf,camila.altura); //Mostra o cadastro da Camila 
+    mostarcadastro(luiz.nome,luiz.idade,luiz.sexo,luiz.cpf,luiz.altura,luiz.salario); //Mostra o cadastro do Luiz
+    mostarcadastro(camila.nome,camila.idade,camila.sexo,camila.cpf,camila.altura,camila.salario); //Mostra o cadastro da Camila 
 }
 //===============================================================
-void mostarcadastro (char nome[255],int idade,char cpf[15],char sexo[50], float altura)
+void mostarcadastro (char nome[255],int idade,char cpf[15],char sexo[50], float altura, float salario)
 {
-    printf("\nNome:%s \nIdade:%d \nSexo:%s \nCPF:%s \nAltura:%.2fcm\n",nome,idade,sexo,cpf,altura);
+    printf("\nNome:%s \nIdade:%d \nSexo:%s \nCPF:%s \nAltura:%.2fcm\n",nome,idade,sexo,cpf,altura,salario);
 }
 //===============================================================
 
