@@ -31,13 +31,6 @@ void testearray ()
         printf("%5d",pontero[i]);
     }
 }
-   void mostrar (int *vt, int tamanho)
-    {
-        for (int i = 0;i< tamanho;i++)
-        {
-            printf("Elemento %d: %5d\n",i, *(vt + i));
-        }
-    }
 void testedeponteiro ()
 {
     int cavalo = 99,policarpio = 12;
