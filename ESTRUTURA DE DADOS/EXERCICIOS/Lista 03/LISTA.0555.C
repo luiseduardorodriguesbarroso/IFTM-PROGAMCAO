@@ -30,7 +30,7 @@ void testearray ()
     int *pontero = array; //*pontero = ao primeiro elemento do meu array ou seja = array[0]   
     for (int i=0;i<5;i++)
     {
-        printf("%5d",pontero[i]);
+        printf("%5d",pontero[i]);//hjj
     }
 }
 void testedeponteiro ()
