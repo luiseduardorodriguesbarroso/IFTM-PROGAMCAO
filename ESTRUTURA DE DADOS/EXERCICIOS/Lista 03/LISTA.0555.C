@@ -16,14 +16,14 @@ void mostrararray (int *pontero,int tamanho);
 
 int main ()
 {
-    int array[5] = {1,2,3,4,5};
+    int array[10] = {1,2,3,4,5,6,7,8,9,10};
     int *pontero = array; //*pontero = ao primeiro elemento do meu array ou seja = array[0]
-    mostrararray(pontero,5);
+    mostrararray(pontero,10);
     return 0;
 }
 void mostrararray (int *pontero,int tamanho)
 {
-    for (int i=0;i<5;i++)
+    for (int i=0;i<tamanho;i++)
     {
         printf("%5d",pontero[i]); //Esta mostrando na tela todos os elementos do meu array
     }
