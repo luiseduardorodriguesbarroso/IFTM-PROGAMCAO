@@ -11,17 +11,37 @@
 #include <stdint.h>
 #include <assert.h>
 
+void testedeponteiro();
+void testearray ();
+
+
+
+
 int main ()
 {
-    system("cls");
-    float nuu[10];
-    for (int i =0;i<10;i++)
+    testearray();
+    
+
+    return 0;
+}
+void testearray ()
+{
+    int array[5] = {1,2,3,4,5};
+    int *pontero = array; //*pontero = ao primeiro elemento do meu array ou seja = array[0]   
+    for (int i=0;i<5;i++)
     {
-        printf("\n Infrome a nota do aluno %d: ",i);
-        scanf("%f",&nuu[i]);
+        printf("%5d",pontero[i]);
     }
-    for (int i =0;i<10;i++)
-    {
-        printf("\n Nota do aluno %d %10.2f",i,nuu[i]);
-    }
+}
+void testedeponteiro ()
+{
+    int cavalo = 99,policarpio = 12;
+    int *pont;
+    pont = &cavalo;
+    printf("\n %d %p",cavalo,pont);
+    *pont = 55;
+    printf("\n %d %p",cavalo,pont);
+    *pont = policarpio;
+    printf("\n %d %p",cavalo,pont);
+
 }
