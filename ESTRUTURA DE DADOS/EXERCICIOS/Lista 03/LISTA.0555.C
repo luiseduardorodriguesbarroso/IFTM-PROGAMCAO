@@ -9,18 +9,18 @@
 #include <limits.h>
 #include <float.h>
 #include <stdint.h>
-#include <assert.h>
-
+#include <assert.h>\
+//local de declaração de funções 
 void testedeponteiro();
 void mostrararray (int *pontero,int tamanho);
 
 int main ()
 {
     int array[10] = {1,2,3,4,5,6,7,8,9,10};
-    int *pontero = array; //*pontero = ao primeiro elemento do meu array ou seja = array[0]
-    mostrararray(pontero,10);
+    mostrararray(array,10);//Passo o meu array como se fosse o meu ponteiro
     return 0;
 }
+//local de criação das funções
 void mostrararray (int *pontero,int tamanho)
 {
     for (int i=0;i<tamanho;i++)
