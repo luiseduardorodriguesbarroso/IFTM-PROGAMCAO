@@ -23,9 +23,15 @@ int main ()
 //local de criação das funções
 void mostrararray (int *pontero,int tamanho)
 {
-    for (int i=0;i<tamanho;i++)
+    if (pontero != NULL) //Verifica se eu estou passando parametro com valor para minha função
     {
-        printf("%5d",pontero[i]); //Esta mostrando na tela todos os elementos do meu array
+        for (int i=0;i<tamanho;i++)
+        {
+            printf("%5d",pontero[i]); //Esta mostrando na tela todos os elementos do meu array
+        }
+    } else 
+    {
+        printf("\nArray informado e nulo!");
     }
 } 
 void testedeponteiro ()
