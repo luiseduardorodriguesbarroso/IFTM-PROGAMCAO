@@ -12,25 +12,22 @@
 #include <assert.h>
 
 void testedeponteiro();
-void testearray ();
-
+void mostrararray (int *pontero,int tamanho);
 
 int main ()
 {
-    testearray();
-    
-
+    int array[5] = {1,2,3,4,5};
+    int *pontero = array; //*pontero = ao primeiro elemento do meu array ou seja = array[0]
+    mostrararray(pontero,5);
     return 0;
 }
-void testearray ()
+void mostrararray (int *pontero,int tamanho)
 {
-    int array[5] = {1,2,3,4,5};
-    int *pontero = array; //*pontero = ao primeiro elemento do meu array ou seja = array[0]   
     for (int i=0;i<5;i++)
     {
-        printf("%5d",pontero[i]); //Esta mostrando na minha tela todos os elementos do meu array
+        printf("%5d",pontero[i]); //Esta mostrando na tela todos os elementos do meu array
     }
-}
+} 
 void testedeponteiro ()
 {
     int cavalo = 99,policarpio = 12;
