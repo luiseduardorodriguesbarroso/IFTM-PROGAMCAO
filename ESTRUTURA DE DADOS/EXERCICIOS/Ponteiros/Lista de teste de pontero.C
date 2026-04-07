@@ -20,17 +20,19 @@
     typedef struct aluno
     {
         cadastro dados_pessoais;
-        int nt1,nt2,nt3,nt4;
+        int nt1,nt2,nt3,nt4,nt_total;
         
     }aluno;
 
     //local de declaração de funções 
     void testedeponteiro();
     void mostrararray (int *pontero,int tamanho);
-    void mostrar_cadastro (char nome[250],int idade, char CPF[20], int nt1, int nt2,int nt3,int nt4);
+    void mostrar_cadastro (char nome[250],int idade, char CPF[20], int nt1, int nt2,int nt3,int nt4,int total);
+    void limpa_tl();
 
     int main ()
     {
+        limpa_tl(); //Limpa a tela para uma melhor amostrgem
         int array[10] = {1,2,3,4,5,6,7,8,9,10};
         //mostrararray(array,10);//Passo o meu array como se fosse o meu ponteiro
         
@@ -43,8 +45,9 @@
         Kaique.nt2 = 17;
         Kaique.nt3 = 11;
         Kaique.nt4 = 27;
+        Kaique.nt_total = Kaique.nt1 + Kaique.nt2 + Kaique.nt3 + Kaique.nt4;
 
-        mostrar_cadastro(Kaique.dados_pessoais.nome,Kaique.dados_pessoais.idade,Kaique.dados_pessoais.CPF,Kaique.nt1,Kaique.nt2,Kaique.nt3,Kaique.nt4);
+        mostrar_cadastro(Kaique.dados_pessoais.nome,Kaique.dados_pessoais.idade,Kaique.dados_pessoais.CPF,Kaique.nt1,Kaique.nt2,Kaique.nt3,Kaique.nt4,Kaique.nt_total);
     }
     //local de criação das funções
     void mostrararray (int *pontero,int tamanho)
@@ -72,8 +75,16 @@
         printf("\n %d %p",cavalo,pont);
 
     }
-    void mostrar_cadastro (char nome[250],int idade, char CPF[20], int nt1, int nt2,int nt3,int nt4)
+    void mostrar_cadastro (char nome[250],int idade, char CPF[20], int nt1, int nt2,int nt3,int nt4,int total)
     {
         printf("\n--------------- DADOS DO ALUNO ---------------");
-        printf("\nNome: %s\nIdade: %d\nCPF: %s\nNota 01: %d\nNota 02: %d\nNota 03: %d\nNota 04: %d  ",nome,idade,CPF,nt1,nt2,nt3,nt4);
+        printf("\nNome: %s\nIdade: %d\nCPF: %s\nNota 01: %d\nNota 02: %d\nNota 03: %d\nNota 04: %d\nNota total: %d\n",nome,idade,CPF,nt1,nt2,nt3,nt4,total);
+    }
+    void limpa_tl()
+    {
+        #ifdef _WIN32
+        system("cls");
+        #else
+        system("clear");
+        #endif
     }
