@@ -23,7 +23,6 @@
 #include <float.h>
 #include <stdint.h>
 #include <assert.h>
-#include <windows.h>
 //===============================================================
 //==============         VARIAVEIS GLOBAIS         ==============
 //===============================================================
@@ -31,7 +30,7 @@
 
 
 //===============================================================
-//==============              STRUCTS              ==============
+//==============               STRUCTS               ==============
 //===============================================================
 
 //===============================================================
@@ -152,13 +151,40 @@ int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
     int vt[20] = {1,3,7,9,11,15,27,0,73,85};
-    gerador_aleatorio(vt,20,100,1);
+    
+    gerador_aleatorio(vt,20,100,1);// Preenche a segunda metade com números aleatórios
+    
+    printf("Valores do Vetor:"); // Mostra todos os valores na tela
     mostrar_valoresvt(vt,20);
-    cal_media(vt,20);
-    mostrar_maior_menor(vt,20);
+    
+    cal_media(vt,20); // Calcula e imprime a média
+    
+    mostrar_maior_menor(vt,20);// Encontra e imprime o maior e o menor
 
-    ordem_crescente(vt,20);
-
+    // ==========================================
+    // NOVA PARTE: Solicita e busca um valor
+    // ==========================================
+    int numero_procurado;
+    int posicao;
+    
+    printf("\n\nDigite um numero inteiro para buscar no vetor: ");
+    scanf("%d", &numero_procurado);
+    
+    posicao = buscar_valor(vt, 20, numero_procurado);
+    
+    if (posicao != -1) {
+        printf("-> O valor %d foi encontrado no indice %d!\n", numero_procurado, posicao);
+    } else {
+        printf("-> O valor %d NAO existe no vetor.\n", numero_procurado);
+    }
+    // ==========================================
+    // NOVA PARTE: Verifica e imprime a ordem
+    // ==========================================
+    if (ordem_crescente(vt, 20) == 1) {
+        printf("\n-> Resultado da analise: O vetor ESTA em ordem crescente.\n");
+    } else {
+        printf("\n-> Resultado da analise: O vetor NAO esta em ordem crescente.\n");
+    }
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
