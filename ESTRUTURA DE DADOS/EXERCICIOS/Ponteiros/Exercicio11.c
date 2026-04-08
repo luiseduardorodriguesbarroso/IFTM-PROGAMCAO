@@ -5,7 +5,7 @@
     3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2026
     Prof. Rafael Orbolato
-    Data: 00/00/0000
+    Data: 07/06/2026
 */
 //===============================================================
 //===============================================================
@@ -51,8 +51,9 @@ void limpa_tl();
 void gerador_aleatorio (int *vt,int tamanho, int maximo, int minimo);
 void mostrar_valoresvt (int *nene, int tamanho);
 void cal_media (int *vt,int tamanho);
-void menor_vl (int *vt,  int tamanho);
-void maior_vl (int *vt,  int tamanho);
+void mostrar_maior_menor(int *vt, int tamanho);
+int buscar_valor(int *vt, int tamanho, int valor_buscado);
+int ordem_crescente(int *vt, int tamanho);
 
 //===============================================================
 //============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
@@ -92,20 +93,52 @@ void cal_media (int *vt,int tamanho)
         media = *(vt + i) + media;
     }
     media = media / tamanho;
-    printf("\n\n\n A media dos valores do meu vetor eh: %.2f",media);
+    printf("\n\nA media dos valores do meu vetor eh: %.2f",media);
 }
 //===============================================================
-void menor_vl (int *vt,  int tamanho)
+void mostrar_maior_menor(int *vt, int tamanho) 
 {
-
+    int maior = *vt; 
+    int menor = *vt; 
+    for (int i = 1; i < tamanho; i++) //o laço começa do 1 para pegar a posição 0 como referencia 
+    {
+        if (*(vt + i) > maior) 
+        {
+            maior = *(vt + i); 
+        }
+        if (*(vt + i) < menor) 
+        {
+            menor = *(vt + i); 
+        }
+    }
+    printf("\nO maior valor encontrado foi: %d", maior);
+    printf("\nO menor valor encontrado foi: %d", menor);
 }
 //===============================================================
-void maior_vl (int *vt,  int tamanho)
+int buscar_valor(int *vt, int tamanho, int valor_buscado) 
 {
-
+    for (int i = 0; i < tamanho; i++) 
+    {
+        if (*(vt + i) == valor_buscado) 
+        {
+            return i; 
+        }
+    }
+    return -1;
 }
 //===============================================================
-
+int ordem_crescente(int *vt, int tamanho) 
+{
+    for (int i = 0; i < tamanho - 1; i++) 
+    {
+        //se o número atual for MAIOR que o próximo, a fila bagunçou!
+        if (*(vt + i) > *(vt + i + 1))
+        {
+            return 0; //falso (não está em ordem crescente)
+        }
+    }
+    return 1; //esta em ordem crescente
+}
 //===============================================================
 
 //===============================================================
@@ -117,11 +150,14 @@ void maior_vl (int *vt,  int tamanho)
 //===============================================================
 int main()
 {
-    //limpa_tl(); //Limpa a tela para uma melhor amostragem 
+    limpa_tl(); //Limpa a tela para uma melhor amostragem 
     int vt[20] = {1,3,7,9,11,15,27,0,73,85};
     gerador_aleatorio(vt,20,100,1);
     mostrar_valoresvt(vt,20);
     cal_media(vt,20);
+    mostrar_maior_menor(vt,20);
+
+    ordem_crescente(vt,20);
 
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
