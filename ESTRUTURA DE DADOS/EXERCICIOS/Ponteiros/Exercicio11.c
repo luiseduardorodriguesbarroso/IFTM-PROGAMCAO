@@ -50,7 +50,9 @@
 void limpa_tl();
 void gerador_aleatorio (int *vt,int tamanho, int maximo, int minimo);
 void mostrar_valoresvt (int *nene, int tamanho);
-
+void cal_media (int *vt,int tamanho);
+void menor_vl (int *vt,  int tamanho);
+void maior_vl (int *vt,  int tamanho);
 
 //===============================================================
 //============== LOCAL PARA CRIAR OS MÓDULOS DE FUNÇÕES =========
@@ -93,9 +95,15 @@ void cal_media (int *vt,int tamanho)
     printf("\n\n\n A media dos valores do meu vetor eh: %.2f",media);
 }
 //===============================================================
+void menor_vl (int *vt,  int tamanho)
+{
 
+}
 //===============================================================
+void maior_vl (int *vt,  int tamanho)
+{
 
+}
 //===============================================================
 
 //===============================================================
