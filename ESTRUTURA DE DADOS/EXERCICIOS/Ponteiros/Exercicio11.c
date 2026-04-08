@@ -90,7 +90,7 @@ void cal_media (int *vt,int tamanho)
         media = *(vt + i) + media;
     }
     media = media / tamanho;
-    printf("\n A media dos valores do meu vetor eh: %.2f",media);
+    printf("\n\n\n A media dos valores do meu vetor eh: %.2f",media);
 }
 //===============================================================
 
@@ -113,7 +113,7 @@ int main()
     int vt[20] = {1,3,7,9,11,15,27,0,73,85};
     gerador_aleatorio(vt,20,100,1);
     mostrar_valoresvt(vt,20);
-
+    cal_media(vt,20);
 
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
