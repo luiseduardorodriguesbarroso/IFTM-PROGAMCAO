@@ -82,7 +82,16 @@ void mostrar_valoresvt (int *nene, int tamanho)
     }
 }
 //===============================================================
-
+void cal_media (int *vt,int tamanho)
+{
+    float media = 0;
+    for(int i = 0; i < tamanho; i++)
+    {
+        media = *(vt + i) + media;
+    }
+    media = media / tamanho;
+    printf("\n A media dos valores do meu vetor eh: %.2f",media);
+}
 //===============================================================
 
 //===============================================================
@@ -104,7 +113,7 @@ int main()
     int vt[20] = {1,3,7,9,11,15,27,0,73,85};
     gerador_aleatorio(vt,20,100,1);
     mostrar_valoresvt(vt,20);
-    
+
 
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
