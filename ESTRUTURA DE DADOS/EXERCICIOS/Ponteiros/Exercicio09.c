@@ -23,7 +23,7 @@
 #include <float.h>
 #include <stdint.h>
 #include <assert.h>
-#include <windows.h>
+//#include <windows.h>
 //===============================================================
 //==============         VARIAVEIS GLOBAIS         ==============
 //===============================================================
@@ -75,7 +75,6 @@ int validador (int *vt, int tamanho)
                 return 1;
             }   
         }
-       
     }
 }
 //===============================================================
@@ -101,6 +100,7 @@ int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
     int x[10] ={1,2,3,4,5,6,7,8,9,10};
+    validador(x,10);
 
 
     //FINALIZAR PROGRAMA
