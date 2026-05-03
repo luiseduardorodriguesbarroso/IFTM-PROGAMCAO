@@ -16,7 +16,7 @@ No* criarLista() {
 No* inserirInicio(No *lista, int valor) {
     No *novo = (No*) malloc(sizeof(No));
 
-    if (novo == NULL) {
+    if (novo == NULL) { 
         printf("Erro de alocacao!\n");
         exit(1);
     }
@@ -117,7 +117,7 @@ int tamanho(No *lista) {
     }
     return cont;
 }
-
+    
 // Exemplo de uso
 int main() {
     No *lista = criarLista();
