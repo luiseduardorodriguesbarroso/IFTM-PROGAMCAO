@@ -5,7 +5,7 @@
     3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2026
     Prof. Rafael Orbolato
-    Data: 00/00/0000
+    Data: 03/04/2026
 */
 //===============================================================
 //===============================================================
@@ -82,7 +82,7 @@ void faca_cad ()
     printf("\n Idade: ");
     scanf("%s", &x.idade);
 
-    printf("\n Sexo; ");
+    printf("\n Sexo: ");
     fgets(x.sexo,20,stdin);
 
     printf("\n CPF: ");
@@ -93,8 +93,8 @@ void faca_cad ()
     
     printf("\n E-mail: ");
     fgets(x.email,250,stdin);
+
     mostrar_cad(x.nome,x.idade,x.sexo,x.CPF,x.dt_nascimento,x.email);
-    
 }
 //===============================================================
 void mostrar_cad (char nome,int idade,char sexo,char CPF,char dt_nascimento,char email)
@@ -122,6 +122,7 @@ int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
 
+    faca_cad();
 
 
     //FINALIZAR PROGRAMA
