@@ -5,7 +5,7 @@
     3º PERÍODO - DISCIPLINA DE LINGUAGEM DE PROGRAMAÇÃO 
     1 SEMESTRE 2026
     Prof. Rafael Orbolato
-    Data: 03/04/2026
+    Data: 03/05/2026
 */
 //===============================================================
 //===============================================================
@@ -57,7 +57,7 @@ typedef struct dados_cadastrais
 //===============================================================
 void limpa_tl();
 void faca_cad ();
-void mostrar_cad (char nome,int idade,char sexo,char CPF,char dt_nascimento,char email);
+void mostrar_cad (char *nome,int idade,char *sexo,char *CPF,char *dt_nascimento,char *email);
 
 
 //===============================================================
@@ -78,28 +78,44 @@ void faca_cad ()
 
     printf("\n Nome: ");
     fgets(x.nome,250,stdin);
+    x.nome[strcspn(x.nome, "\n")] = 0;
     
     printf("\n Idade: ");
-    scanf("%s", &x.idade);
+    scanf("%d", &x.idade);
+    
+    getchar(); // LIMPA O BUFFER: Consome o "Enter" deixado pelo scanf
 
     printf("\n Sexo: ");
     fgets(x.sexo,20,stdin);
+    x.sexo[strcspn(x.sexo, "\n")] = 0;
 
     printf("\n CPF: ");
     fgets(x.CPF,20,stdin);
+    x.CPF[strcspn(x.CPF, "\n")] = 0;
     
     printf("\n Data de nascimento: ");
     fgets(x.dt_nascimento,20,stdin);
+    x.dt_nascimento[strcspn(x.dt_nascimento, "\n")] = 0;
     
     printf("\n E-mail: ");
     fgets(x.email,250,stdin);
+    x.email[strcspn(x.email, "\n")] = 0;
 
     mostrar_cad(x.nome,x.idade,x.sexo,x.CPF,x.dt_nascimento,x.email);
 }
 //===============================================================
-void mostrar_cad (char nome,int idade,char sexo,char CPF,char dt_nascimento,char email)
+void mostrar_cad (char *nome,int idade,char *sexo,char *CPF,char *dt_nascimento,char *email)
 {
-    printf("\n Nome:%s \n Idade:%d  \n Sexo:%s \n CPF:%s \nData de nascimento:%s \n E-mail:%s ");
+    printf("\n ========================================");
+    printf("\n DADOS CADASTRADOS:");
+    printf("\n ========================================");
+    printf("\n Nome: %s", nome);
+    printf("\n Idade: %d", idade);
+    printf("\n Sexo: %s", sexo);
+    printf("\n CPF: %s", CPF);
+    printf("\n Data de nascimento: %s", dt_nascimento);
+    printf("\n E-mail: %s", email);
+    printf("\n ========================================\n");
 }
 //===============================================================
 
