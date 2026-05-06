@@ -106,6 +106,7 @@ void faca_cad ()
 //===============================================================
 void mostrar_cad (char *nome,int idade,char *sexo,char *CPF,char *dt_nascimento,char *email)
 {
+    limpa_tl();
     printf("\n ========================================");
     printf("\n DADOS CADASTRADOS:");
     printf("\n ========================================");
