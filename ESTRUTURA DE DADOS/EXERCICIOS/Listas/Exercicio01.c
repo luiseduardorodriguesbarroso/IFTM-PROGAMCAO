@@ -64,7 +64,12 @@ void limpa_tl()
     #endif
 }
 //===============================================================
-
+char *mostrarr_teste()
+{
+    char *teste = malloc(10 * sizeof(char));
+    strcpy(teste,"teste");
+    return teste;
+}
 //===============================================================
 
 //===============================================================
@@ -88,7 +93,7 @@ int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
 
-
+    printf("\n Texto:%s",mostrarr_teste());
 
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
