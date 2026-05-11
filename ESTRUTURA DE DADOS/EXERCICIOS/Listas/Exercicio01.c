@@ -48,7 +48,7 @@
 //==================== PROTOTIPOS ===============================
 //===============================================================
 void limpa_tl();
-
+char *mostrarr_teste();
 
 
 
@@ -68,6 +68,7 @@ char *mostrarr_teste()
 {
     char *teste = malloc(10 * sizeof(char));
     strcpy(teste,"teste");
+    free(teste);
     return teste;
 }
 //===============================================================
@@ -93,8 +94,27 @@ int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
 
-    printf("\n Texto:%s",mostrarr_teste());
+    //printf("\n Texto:%s",mostrarr_teste());
 
+    int* x = malloc(30 * sizeof(int));
+    x[0]=12;
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    int* aux  = realloc(x, 60 * sizeof(int));
+    if(aux)
+    {
+        printf("\nAlocou! %d",x[0]);
+        x = aux;
+    }
+    else
+    {
+        printf("\nNao alocou! %d",x[0]);
+    }
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
