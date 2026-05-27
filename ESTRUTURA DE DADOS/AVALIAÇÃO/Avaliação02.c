@@ -10,7 +10,7 @@
 //===============================================================
 //======== LOCAL PARA DECLARAR AS INCLUDES E VARS GLOBAIS =======
 //===============================================================
-#include "questoes.h"
+//#include "questoes.h"
 #include <stdio.h>
 #include <stdlib.h>
 
