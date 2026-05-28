@@ -82,7 +82,7 @@ void inicializa_veiculo(Veiculo *v, int id, float cap_max)
     v->carga_atual = 0.0;
     v->capacidade_maxima = cap_max;
     v->atual.latitude = 0.0;
-    v->atual.longitude = 0.0;
+    v->atual.longitude = 0.0; 
 }
 //===============================================================
 int carrega_veiculo(Veiculo *v, float quantidade_carga, float *carga_rejeitada)
