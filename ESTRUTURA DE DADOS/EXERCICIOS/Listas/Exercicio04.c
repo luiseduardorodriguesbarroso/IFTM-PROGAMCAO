@@ -20,12 +20,10 @@
 #include <stdint.h>
 #include <assert.h>
 
+
 int main()
 {
-
     
-    
-
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
     return 0;
