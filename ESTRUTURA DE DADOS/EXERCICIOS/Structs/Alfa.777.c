@@ -23,7 +23,7 @@
 #include <float.h>
 #include <stdint.h>
 #include <assert.h>
-#include <windows.h>
+//#include <windows.h>
 //===============================================================
 //==============         VARIAVEIS GLOBAIS         ==============
 //===============================================================
