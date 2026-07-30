@@ -87,7 +87,7 @@ int main()
 {
     limpa_tl(); //Limpa a tela para uma melhor amostragem 
 
-
+    
 
     //FINALIZAR PROGRAMA
     printf("\n\n\n Acabou ... Tchau ... obrigado ... \n\n\n");
