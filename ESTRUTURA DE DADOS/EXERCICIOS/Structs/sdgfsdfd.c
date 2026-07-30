@@ -56,7 +56,7 @@ void limpa_tl();
 //===============================================================
 void limpa_tl()
 {
-    #ifdef _WIN32
+    #ifdef _WIN32   
     system("cls");
     #else
     system("clear");
