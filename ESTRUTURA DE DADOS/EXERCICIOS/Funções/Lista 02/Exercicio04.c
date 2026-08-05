@@ -10,17 +10,16 @@
 #include <float.h>
 #include <stdint.h>
 #include <assert.h>
-//Crie uma função em C que recebe como parâmetros um vetor de inteiros e seu tamanho. A função deve calcular e retornar a média dos valores do vetor.
-void calcularmedia(int vetor[],int tamanho, int min, int max);
+
+//Crie uma função em C que recebe como parâmetros um vetor de inteiros e seu tamanho. A função deve encontrar e retornar o índice do maior valor do vetor.
+void procurarmaior(int vetor[],int tamanho, int min, int max);
 
 int main() {
-    srand(time(NULL));
-    int vt[10];
-    calcularmedia(vt,8,2,50);
+
     return 0;
 }
 
-void calcularmedia(int vetor[], int tamanho, int min, int max) {
+void procurarmaior(int vetor[],int tamanho, int min, int max){
     for (int i = 0; i < tamanho; i++) {
         vetor[i] = rand() % (max - min + 1) + min;
     }
@@ -30,11 +29,10 @@ void calcularmedia(int vetor[], int tamanho, int min, int max) {
     }
     printf("\n");
 
-    float media=0;
+    int maior;
     for (int i = 0; i < tamanho; i++)
     {
-        media += vetor[i]; 
+        
     }
-    media = media / tamanho;
-    printf("Media do Vetor: %.2f",media);
+    
 }
