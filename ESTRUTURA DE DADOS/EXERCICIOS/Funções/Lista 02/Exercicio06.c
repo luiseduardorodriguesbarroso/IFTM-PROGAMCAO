@@ -41,6 +41,5 @@ int procurar_repetidos(int vetor[],int tamanho, int min, int max){
             }
         }
     }
-    return 0;
-    
+    return 0;   
 }
