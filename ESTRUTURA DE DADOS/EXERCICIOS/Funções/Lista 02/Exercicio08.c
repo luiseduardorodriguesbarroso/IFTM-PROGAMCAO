@@ -56,7 +56,6 @@ int verificarordem(int vetor[], int tamanho, int min, int max) {
         if (vetor[i] > vetor[i + 1]) {
             crescente = 0;
         }
-
         if (vetor[i] < vetor[i + 1]) {
             decrescente = 0;
         }
