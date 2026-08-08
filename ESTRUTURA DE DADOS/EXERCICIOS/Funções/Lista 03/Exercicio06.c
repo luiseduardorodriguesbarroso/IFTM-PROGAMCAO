@@ -11,6 +11,9 @@
 #include <stdint.h>
 #include <assert.h>
 
+//Crie uma função que receba como parâmetro uma matriz 3x3 de inteiros. A função deve calcular e retornar o determinante dessa matriz.
+
+
 int main() {
     
     return 0;

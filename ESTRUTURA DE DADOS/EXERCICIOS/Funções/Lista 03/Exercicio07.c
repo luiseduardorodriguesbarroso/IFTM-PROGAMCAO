@@ -11,6 +11,9 @@
 #include <stdint.h>
 #include <assert.h>
 
+//Crie uma função que receba como parâmetros três matrizes 3x3 de inteiros. A função deve somar a 1a e a 2a matrizes na 3a.
+
+
 int main() {
     
     return 0;

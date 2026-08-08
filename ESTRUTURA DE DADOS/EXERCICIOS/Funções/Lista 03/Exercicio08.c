@@ -11,6 +11,9 @@
 #include <stdint.h>
 #include <assert.h>
 
+//Crie uma função que receba como parâmetros três matrizes 3x3 de inteiros. A função deve multiplicar a 1a matriz pela 2a matriz na 3a.
+
+
 int main() {
     
     return 0;
