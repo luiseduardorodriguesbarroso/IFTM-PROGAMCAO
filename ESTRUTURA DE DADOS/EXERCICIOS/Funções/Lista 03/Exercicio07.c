@@ -15,7 +15,9 @@
 void somar_matrizes(int mt[3][3],int mt2[3][3],int mt3[3][3],int min, int max);
 
 int main() {
-    
+    int mt[3][3], mt2[3][3],mt3[3][3];
+    srand(time(NULL));
+    somar_matrizes(mt,mt2,mt3,2,20);
     return 0;
 }
 
@@ -30,13 +32,14 @@ void somar_matrizes(int mt[3][3],int mt2[3][3],int mt3[3][3],int min, int max){
             mt2[i][j] = rand() % (max - min + 1) + min;
         }
     }//Mostrando mt1
-    printf("Matrriz ");
+    printf("Matrriz 01:\n");
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf("%5d",mt[i][j]);
         }
         printf("\n");
     }//Mostrando mt2
+    printf("\nMatrriz 02:\n");
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf("%5d",mt2[i][j]);
@@ -56,6 +59,7 @@ void somar_matrizes(int mt[3][3],int mt2[3][3],int mt3[3][3],int min, int max){
     mt3 [2][1] = mt[2][1] + mt2[2][1];
     mt3 [2][2] = mt[2][2] + mt2[2][2];
 
+    printf("\nMatrriz 03:\n");
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf("%5d",mt3[i][j]);
