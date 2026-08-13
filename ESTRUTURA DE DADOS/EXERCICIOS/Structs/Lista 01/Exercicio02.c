@@ -47,7 +47,6 @@ cadastro receber_dados (){
     printf("\nInforme o nome do restalrante:");
     fgets(a.nome,100,stdin);
 
-    
     printf("\nInforme o endereço do restalrante:");
     fgets(a.endereco,200,stdin);
     
