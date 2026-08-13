@@ -16,22 +16,7 @@ void mudardobro (int *pont);
 void mostrarelementosarray (int *array,int tamanho);
 
 
-void mudarpara12 (int *pont){
-    *pont = 12;
-}
-void mudardobro (int *pont){
-    *pont = *pont * 2;
-}
-void mostrarelementosarray (int *array,int tamanho){
-    if (array != NULL)
-    {
-        for (int i = 0; i < tamanho; i++)
-        {
-            printf("%5d",array[i]);
-        }
-    } else 
-        printf("Array vazio!");
-}
+
 int main() {
     int cavalo = 99;
     int array [7] = {1,2,3,4,5,6,7};
@@ -46,4 +31,23 @@ int main() {
     //printf("%d ",*ponteiro);
     
     return 0;
+}
+
+void mudarpara12 (int *pont){
+    *pont = 12;
+}
+
+void mudardobro (int *pont){
+    *pont = *pont * 2;
+}
+
+void mostrarelementosarray (int *array,int tamanho){
+    if (array != NULL)
+    {
+        for (int i = 0; i < tamanho; i++)
+        {
+            printf("%5d",array[i]);
+        }
+    } else 
+        printf("Array vazio!");
 }
