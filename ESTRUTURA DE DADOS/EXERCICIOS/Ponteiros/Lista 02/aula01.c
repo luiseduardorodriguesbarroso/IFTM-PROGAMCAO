@@ -14,16 +14,6 @@
 void mostrararray (int *pont,int tamanho);
 
 
-void mostrararray (int *pont,int tamanho){
-   if (pont != NULL){
-        for (int i = 0; i < tamanho; i++)
-        {
-            printf("%5d",pont[i]);
-        }
-   } else 
-        printf("Deu merda, seu bosta!"); 
-}
-
 int main() {
     /*int abacaxi [5] = {1,2,3,4,5};
     int *ponteiro = abacaxi;
@@ -32,6 +22,7 @@ int main() {
     int melao = 179;
     int *fruteira = &melao;
     int *cozinha = fruteira;
+    int *casa = cozinha;
     printf("%d\n",melao);
     printf("%d\n",*fruteira);
     printf("%d\n",*cozinha);
@@ -39,6 +30,21 @@ int main() {
     printf("%d\n",*cozinha);
     printf("%d\n",melao);
     printf("%d\n",*fruteira);
+    *casa = *cozinha / 2;
+    printf("%d\n",*casa);
+    printf("%d\n",*cozinha);
+    printf("%d\n",melao);
+    printf("%d\n",*fruteira);
     //mostrararray(abacaxi,5);
     return 0;
+}
+
+void mostrararray (int *pont,int tamanho){
+   if (pont != NULL){
+        for (int i = 0; i < tamanho; i++)
+        {
+            printf("%5d",pont[i]);
+        }
+   } else 
+        printf("Deu merda, seu bosta!"); 
 }
