@@ -12,12 +12,12 @@
 #include <assert.h>
 
 /*Crie uma estrutura para descrever restaurantes. Os membros devem armazenar o nome, o endereço, o preço médio e o tipo de comida.
-- Crie uma função que obtém os dados de uma estrutura restaurante pelo teclado e a retorna.
-- Crie uma função que recebe uma estrutura restaurante como parâmetro e escreve seus dados na tela.
-- Crie uma função que recebe um vetor de estruturas restaurante e a quantidade de restaurantes válidos no vetor como parâmetros e os imprime na tela.
-- Crie uma função que recebe um vetor de estruturas restaurantes, a quantidade de restaurantes válidos no vetor e valores mínimo e máximo de preço como parâmetros. A função deve imprimir os restaurantes com valor médio de preço nesse intervalo.
-- Crie uma função que recebe um vetor de estruturas restaurantes, a quantidade de restaurantes válidos no vetor e um tipo de comida como parâmetros. A função deve imprimir os restaurantes com tipo de comida desse tipo.
-- Crie um programa principal que crie uma matriz de 50 estruturas restaurante; pergunte a quantidade de restaurantes a serem lidos; leia os dados desses restaurantes no vetor; mostre os dados dos restaurantes lidos; pergunte uma faixa de valores de preço; mostre os restaurantes com preço médio nessa faixa; pergunte um tipo de comida; mostre os restaurantes com esse tipo de comida.*/
+A) Crie uma função que obtém os dados de uma estrutura restaurante pelo teclado e a retorna.
+B) Crie uma função que recebe uma estrutura restaurante como parâmetro e escreve seus dados na tela.
+C) Crie uma função que recebe um vetor de estruturas restaurante e a quantidade de restaurantes válidos no vetor como parâmetros e os imprime na tela.
+D) Crie uma função que recebe um vetor de estruturas restaurantes, a quantidade de restaurantes válidos no vetor e valores mínimo e máximo de preço como parâmetros. A função deve imprimir os restaurantes com valor médio de preço nesse intervalo.
+E) Crie uma função que recebe um vetor de estruturas restaurantes, a quantidade de restaurantes válidos no vetor e um tipo de comida como parâmetros. A função deve imprimir os restaurantes com tipo de comida desse tipo.
+F) Crie um programa principal que crie uma matriz de 50 estruturas restaurante; pergunte a quantidade de restaurantes a serem lidos; leia os dados desses restaurantes no vetor; mostre os dados dos restaurantes lidos; pergunte uma faixa de valores de preço; mostre os restaurantes com preço médio nessa faixa; pergunte um tipo de comida; mostre os restaurantes com esse tipo de comida.*/
 
 typedef struct {
     char nome[100];
