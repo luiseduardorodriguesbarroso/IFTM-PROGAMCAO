@@ -24,13 +24,28 @@ typedef struct {
     float peso;
     float calorias;
 }Dieta;
+
+
 void limpa_tl();
 void cadastrar_dieta (Dieta x[]);
+
+
+
+
+
+
 int main() {
+    
     Dieta a[10];
+
     cadastrar_dieta(a);
+    
     return 0;
 }
+
+
+
+
 
 void cadastrar_dieta (Dieta x[]){
     int tamanho; limpa_tl();
