@@ -28,7 +28,7 @@ typedef struct {
 
 void limpa_tl();
 void cadastrar_dieta (Dieta x[]);
-
+void mostrar_dados (Dieta x[],int quantidade);
 
 
 
@@ -40,6 +40,7 @@ int main() {
 
     cadastrar_dieta(a);
     
+    //mostrar_dados(a,2);
     return 0;
 }
 
@@ -66,6 +67,20 @@ void cadastrar_dieta (Dieta x[]){
         scanf("%f",&x[i].calorias);
         limpa_tl();
     }
+    //Vou chamar a fução Mostrar dados detro da minha propia função de coletar dados para que eu não precise passar os parametros de tamanho no meu int main()
+    mostrar_dados(x,tamanho);
+}
+
+void mostrar_dados (Dieta x[],int quantidade){
+    printf("\n====== Dietas cadastradas ======\n");
+    for (int i = 0; i < quantidade; i++)
+    {
+        printf("\nNome da dieta:%s",x[i].name_comida);
+        printf("\nPeso:%2.f",x[i].peso);
+        printf("\nQuantidade de calorias:%2.f\n",x[i].calorias);
+    }
+    
+   
 }
 
 void limpa_tl()
