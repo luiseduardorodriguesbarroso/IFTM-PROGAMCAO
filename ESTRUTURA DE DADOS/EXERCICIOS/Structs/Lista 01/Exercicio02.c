@@ -78,10 +78,9 @@ void mostrar_dados (Dieta x[],int quantidade){
         printf("\nNome da dieta:%s",x[i].name_comida);
         printf("\nPeso:%2.f",x[i].peso);
         printf("\nQuantidade de calorias:%2.f\n",x[i].calorias);
-    }
-    
-   
+    }  
 }
+
 
 void limpa_tl()
 {
