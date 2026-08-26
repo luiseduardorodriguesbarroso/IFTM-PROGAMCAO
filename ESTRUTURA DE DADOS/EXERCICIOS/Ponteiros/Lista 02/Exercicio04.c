@@ -17,7 +17,7 @@ float media_vet(int *vet,int tamanho);
 
 int main() {
     
-    int vet[10] = {1,2,3,4,5,6,7,8,9,10};
+    int vet[10] = {15,20,78,9,7,3,88,22,37,21}; //Medía tem que ser 30
 
     srand(time(NULL));
 
