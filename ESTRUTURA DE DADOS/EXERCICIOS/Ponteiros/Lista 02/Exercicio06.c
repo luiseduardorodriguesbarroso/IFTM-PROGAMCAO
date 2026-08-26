@@ -18,8 +18,6 @@ int menor_lemento_vet(int *vet,int tamanho);
 int main() {
     
     int vet[5] = {10,5,90,1,45};
-    
-    srand(time(NULL));
 
     printf("Menor elemento do vet: %d",menor_lemento_vet(vet,5));
 

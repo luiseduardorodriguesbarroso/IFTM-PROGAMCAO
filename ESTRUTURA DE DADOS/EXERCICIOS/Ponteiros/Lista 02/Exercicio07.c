@@ -17,10 +17,22 @@ int Verificar_rep(int *vet,int tamanho);
 
 int main() {
     
+    int vet[10] = {1,2,3,7,5,6,9,8,10,2};
+    
+    printf("%d",Verificar_rep(vet,10));
     return 0;
 }
 
 int Verificar_rep(int *vet,int tamanho){
 
-    
+    for (int i = 0; i < tamanho; i++)
+    {
+        for (int x = i + 1; x < tamanho; x++)
+        {
+            if(*(vet + x) == *(vet + i)){
+                return 1;  
+            } 
+        }
+    }
+    return 0;
 }

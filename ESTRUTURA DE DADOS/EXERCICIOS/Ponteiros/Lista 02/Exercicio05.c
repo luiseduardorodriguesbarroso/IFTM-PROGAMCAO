@@ -18,8 +18,6 @@ int maior_lemento_vet(int *vet,int tamanho);
 int main() {
     
     int vet[5] = {10,5,90,7,45};
-    
-    srand(time(NULL));
 
     printf("Maior elemento do vet: %d",maior_lemento_vet(vet,5));
 
