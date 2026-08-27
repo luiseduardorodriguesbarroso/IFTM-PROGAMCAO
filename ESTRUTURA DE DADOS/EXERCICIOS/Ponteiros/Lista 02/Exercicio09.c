@@ -17,9 +17,35 @@ int verificar_orden(int *vet,int tamanho);
 
 int main() {
     
+    int vet1[5] = {1,2,3,4,5};
+    int vet2[5] = {5,4,3,2,1};
+    int vet3[5] = {7,5,6,3,8};
+
+    printf("%d\n",verificar_orden(vet1,5)); //Ordem decrescente - 1
+    printf("%d\n",verificar_orden(vet2,5)); //Orrdem decrescente - 2
+    printf("%d\n",verificar_orden(vet3,5)); //Fora de ordem - 0
     return 0;
 }
+int verificar_orden(int *vet, int tamanho) {
 
-int verificar_orden(int *vet,int tamanho) {
-    
+    int crescente = 1;
+    int decrescente = 1;
+
+    for (int i = 0; i < tamanho - 1; i++) {
+        if (*vet > *(vet + 1)) {
+            crescente = 0;
+        }
+        if (*vet < *(vet + 1)) {
+            decrescente = 0;
+        }
+        vet++;
+    }
+
+    if (crescente == 1) {
+        return 1;
+    } else if (decrescente == 1) {
+        return 2;
+    }
+
+    return 0;
 }
