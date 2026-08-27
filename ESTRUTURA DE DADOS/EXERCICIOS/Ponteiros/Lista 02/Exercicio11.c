@@ -77,7 +77,27 @@ void Mostrar_dados_viapont (cliente *r){
 
 // d) Crie uma função que receba um vetor de estruturas cliente via ponteiro e a quantidade de clientes válidos no vetor como parâmetros e os imprime na tela. Use aritmética de ponteiros sem alterar o ponteiro e com o operador seta.
 
+void Mostrar_validadar_pont(cliente *r,int validos);
+
+void Mostrar_validadar_pont(cliente *r,int validos){
+    
+    if (validos > 0) {
+        printf("\n---------- Cliente cadastrado com sucesso ----------\n");
+        for (int i = 0; i < validos; i++){
+            printf("\nNome:%s",(r+i)->nome);
+            printf("CPF:%s",(r+i)->cpf);
+            printf("Telefone:%s",(r+i)->phone);
+            printf("Idade:%s\n",(r+i)->idade);
+        }
+    }  else {
+        printf("Erro, numero de cadastros informados invalidos!\n");
+    } 
+}
+
+
 // e) Crie uma função que receba um vetor de estruturas cliente via ponteiro, a quantidade de clientes válidos no vetor e um CPF de cliente como parâmetros. A função deve retornar a posição no vetor que tem um cliente com esse CPF ou -1 caso ele não exista. Use aritmética de ponteiros sem alterar o ponteiro e sem o operador seta.
+
+
 
 // f) Crie uma função que receba um vetor de estruturas cliente via ponteiro, a quantidade de clientes válidos no vetor, um valor mínimo de idade e um valor máximo de idade como parâmetros. A função deve imprimir os dados de todos os clientes que tiverem idade dentro da faixa recebida como parâmetro. Use aritmética de ponteiros alterando o ponteiro e com o operador seta.
 
@@ -96,6 +116,7 @@ int main() {
     cliente x;
     //receber_dados(x);
     receber_dados_viapont(&x);
-    Mostrar_dados_viapont(&x);
+    //Mostrar_dados_viapont(&x);
+    Mostrar_validadar_pont(&x,1);
     return 0;
 }
