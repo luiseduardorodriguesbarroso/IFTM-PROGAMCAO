@@ -97,7 +97,7 @@ void Mostrar_validadar_pont(cliente *r,int validos){
 
 // e) Crie uma função que receba um vetor de estruturas cliente via ponteiro, a quantidade de clientes válidos no vetor e um CPF de cliente como parâmetros. A função deve retornar a posição no vetor que tem um cliente com esse CPF ou -1 caso ele não exista. Use aritmética de ponteiros sem alterar o ponteiro e sem o operador seta.
 
-
+void procurar_cpf_novet(cliente *r,int validos,char proc_cpf[15]);
 
 // f) Crie uma função que receba um vetor de estruturas cliente via ponteiro, a quantidade de clientes válidos no vetor, um valor mínimo de idade e um valor máximo de idade como parâmetros. A função deve imprimir os dados de todos os clientes que tiverem idade dentro da faixa recebida como parâmetro. Use aritmética de ponteiros alterando o ponteiro e com o operador seta.
 
