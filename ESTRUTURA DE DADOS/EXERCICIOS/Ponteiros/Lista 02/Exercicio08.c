@@ -30,6 +30,5 @@ int verificaador(int *vet,int taamanho,int procurar){
        if(procurar == vet[i])
             return procurar = i; 
     }
-    return -1;
-    
+    return -1;  
 }
