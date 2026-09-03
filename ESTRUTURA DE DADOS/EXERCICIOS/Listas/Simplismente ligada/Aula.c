@@ -24,13 +24,15 @@ typedef struct listasimples_int {
 } ListaSLI;
 
 // ================= PROTÓTIPOS =================
+
 ListaSLI* criarListaSLI();
 NoSLI* criarNoSLI(int valor, NoSLI *proximo);
 void mostrarListaSLI(ListaSLI *pontLista);
 void inserirFimSLI(int valor, ListaSLI *pontLista);
 void InserirInicioSLI(int valor, ListaSLI *pontLista);
 void espaco();
-void obtervalordoinicioLSLI(ListaSLI *pontlista);
+int obtervalordoinicioLSLI(ListaSLI *pontlista);
+int obtervalordoFimLSLI(ListaSLI *pontlista);
 
 // ================= FUNÇÕES AUXILIARES =================
 void espaco() {
@@ -94,10 +96,29 @@ void InserirInicioSLI(int valor, ListaSLI *pontLista) {
     pontLista->tamanho++; 
 }
 
-void obtervalordoinicioLSLI(ListaSLI *pontlista){
-    
+int obtervalordoinicioLSLI(ListaSLI *pontlista){
+    if(pontlista->inicio == NULL)
+    {
+        printf("Lista vazia!\n");
+        return 0;
+    } else {
+        return pontlista->inicio->valor;
+    }
 }
 
+int obtervalordoFimLSLI(ListaSLI *pontlista){
+    if(pontlista->inicio == NULL)
+    {
+        printf("Lista vazia!\n");
+        return 0;
+    } else {
+        NoSLI *aux = pontlista->inicio;
+        while (aux->proximo != NULL){
+            aux= aux->proximo;
+        }
+        return aux->valor;
+    }
+}
 int main() {
     ListaSLI * lista = criarListaSLI();
     espaco();
@@ -131,6 +152,7 @@ int main() {
 
     InserirInicioSLI(55, lista);
     mostrarListaSLI(lista);
+    obtervalordoinicioLSLI(lista);
     espaco();
 
     InserirInicioSLI(67, lista);
@@ -140,6 +162,10 @@ int main() {
     InserirInicioSLI(100, lista);
     mostrarListaSLI(lista);
     espaco();
+
+    printf("Mostrando o Inicio da Lista: %d\n",obtervalordoinicioLSLI(lista));
+    
+    printf("Fim da Lista: %d \n",obtervalordoFimLSLI(lista));
 
     return 0;
 }
