@@ -30,6 +30,7 @@ void mostrarListaSLI(ListaSLI *pontLista);
 void inserirFimSLI(int valor, ListaSLI *pontLista);
 void InserirInicioSLI(int valor, ListaSLI *pontLista);
 void espaco();
+void obtervalordoinicioLSLI(ListaSLI *pontlista);
 
 // ================= FUNÇÕES AUXILIARES =================
 void espaco() {
@@ -91,6 +92,10 @@ void InserirInicioSLI(int valor, ListaSLI *pontLista) {
         pontLista->inicio = novo; 
     }
     pontLista->tamanho++; 
+}
+
+void obtervalordoinicioLSLI(ListaSLI *pontlista){
+    
 }
 
 int main() {
