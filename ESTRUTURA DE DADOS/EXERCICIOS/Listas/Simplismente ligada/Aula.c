@@ -33,6 +33,7 @@ void InserirInicioSLI(int valor, ListaSLI *pontLista);
 void espaco();
 int obtervalordoinicioLSLI(ListaSLI *pontlista);
 int obtervalordoFimLSLI(ListaSLI *pontlista);
+int removerinicioLSLI(ListaSLI *pontlista);
 
 // ================= FUNÇÕES AUXILIARES =================
 void espaco() {
@@ -119,6 +120,17 @@ int obtervalordoFimLSLI(ListaSLI *pontlista){
         return aux->valor;
     }
 }
+
+int removerinicioLSLI(ListaSLI *pontlista){
+    if(pontlista->inicio == NULL)
+    {
+        printf("Lista vazia!\n");
+        return 0;
+    } else if (pontlista->tamanho == 1) {
+        NoSLI *aux = pontlista->inicio;
+    }
+}
+
 int main() {
     ListaSLI * lista = criarListaSLI();
     espaco();
