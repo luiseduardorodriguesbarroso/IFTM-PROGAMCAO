@@ -127,15 +127,15 @@ int removerinicioLSLI(ListaSLI *pontlista){
         printf("Lista vazia!\n");
         return 0;
     } 
-    NoSLI *aux = pontlista->inicio;
+    NoSLI *aux = pontlista->inicio; 
 
-    int valor = aux->valor;
+    int valor = aux->valor; //Aponta para o valor do endereço do meu aux
 
     pontlista->inicio = pontlista->inicio->proximo; //Estou pegando o segundo elemnto da lista 
 
-    free(aux);
+    free(aux); //Lipando o Primeiro elemento
 
-    pontlista->tamanho--;
+    pontlista->tamanho--; //Reduzindo o tamanho da minha Lista 
 
     return valor;
 }
