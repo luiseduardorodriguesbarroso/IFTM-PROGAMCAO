@@ -126,9 +126,18 @@ int removerinicioLSLI(ListaSLI *pontlista){
     {
         printf("Lista vazia!\n");
         return 0;
-    } else if (pontlista->tamanho == 1) {
-        NoSLI *aux = pontlista->inicio;
-    }
+    } 
+    NoSLI *aux = pontlista->inicio;
+
+    int valor = aux->valor;
+
+    pontlista->inicio = pontlista->inicio->proximo; //Estou pegando o segundo elemnto da lista 
+
+    free(aux);
+
+    pontlista->tamanho--;
+
+    return valor;
 }
 
 int main() {
@@ -175,9 +184,11 @@ int main() {
     mostrarListaSLI(lista);
     espaco();
 
-    printf("Mostrando o Inicio da Lista: %d\n",obtervalordoinicioLSLI(lista));
+    printf("Mostrando o Inicio da Lista: %d\n",obtervalordoinicioLSLI(lista)); //mostrar o primeiro elemento da lista 
     
-    printf("Fim da Lista: %d \n",obtervalordoFimLSLI(lista));
+    printf("\nFim da Lista: %d \n",obtervalordoFimLSLI(lista));  //mostrar o ultimo elemto da lista 
 
+    printf("\nRemovendo o Primeiro elemento da lista: %d\n", removerinicioLSLI(lista)); //Removendo o primeiro elemento da Lista 
+    mostrarListaSLI(lista);
     return 0;
 }
