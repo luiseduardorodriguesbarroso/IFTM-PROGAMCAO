@@ -36,7 +36,7 @@ int obtervalordoFimLSLI(ListaSLI *pontlista);
 int removerinicioLSLI(ListaSLI *pontlista);
 int removerFimLSLI(ListaSLI *pontlista);
 int apagarLSLI(ListaSLI *pontlista);
-void excluirlista(ListaSLI *potlist);
+void excluirlista(ListaSLI *pontlist);
 
 // ================= FUNÇÕES AUXILIARES =================
 void espaco() {
@@ -188,13 +188,14 @@ int apagarLSLI(ListaSLI *pontlista){
     }
 }
 
-void excluirlista(ListaSLI *potlist){
-    if(potlist->inicio == NULL){
-        
-    }  else {
+void excluirlista(ListaSLI *pontlist){
+    if (pontlist == NULL){
         
     }
+    apagarLSLI(pontlist);
+    free(pontlist);
 }
+
 int main() {
     ListaSLI * lista = criarListaSLI();
     espaco();
