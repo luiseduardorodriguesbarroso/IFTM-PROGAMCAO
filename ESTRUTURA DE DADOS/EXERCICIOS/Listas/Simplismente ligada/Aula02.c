@@ -189,11 +189,14 @@ int apagarLSLI(ListaSLI *pontlista){
 }
 
 void excluirlista(ListaSLI *pontlist){
-    if (pontlist == NULL){
-        
-    }
-    apagarLSLI(pontlist);
-    free(pontlist);
+    NoSLI *pontlist
+    if (pontlist != NULL){
+        apagarLSLI(pontlist);
+        free(pontlist);
+        pontlist = NULL;
+
+    } 
+
 }
 
 int main() {
