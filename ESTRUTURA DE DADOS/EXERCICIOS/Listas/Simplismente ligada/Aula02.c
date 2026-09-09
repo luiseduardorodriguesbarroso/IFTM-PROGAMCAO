@@ -36,6 +36,7 @@
     int removerinicioLSLI(ListaSLI *pontlista);
     int removerFimLSLI(ListaSLI *pontlista);
     int apagarLSLI(ListaSLI *pontlista);
+    void excluirlista(ListaSLI *pontlista);
 
     // ================= FUNÇÕES AUXILIARES =================
     void espaco() {
