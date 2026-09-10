@@ -37,7 +37,7 @@ int removerinicioLSLI(ListaSLI *pontlista);
 int removerFimLSLI(ListaSLI *pontlista);
 int apagarLSLI(ListaSLI *pontlista);
 void excluirlista(ListaSLI **pontlist);
-int trocarvl_1elemento(ListaSLI *pontlista,int valor);
+int trocarvl_1elemento(ListaSLI *pontlista,int *valor);
 
 // ================= FUNÇÕES AUXILIARES =================
 void espaco() {
@@ -167,7 +167,6 @@ int removerFimLSLI(ListaSLI *pontlista){
     return valor;
 }
 
-
 int apagarLSLI(ListaSLI *pontlista){
 
     if (pontlista->inicio == NULL){ //vazia
@@ -188,14 +187,22 @@ int apagarLSLI(ListaSLI *pontlista){
         return 1;
     }
 }
+
 void excluirlista(ListaSLI **pontlist) {
     apagarLSLI(pontlist);
     free(pontlist);
     *pontlist = NULL;
 }
 
-int trocarvl_1elemento(ListaSLI *pontlista,int valor){
-    
+int trocarvl_1elemento(ListaSLI *pontlista,int *valor){
+    if (pontlista->inicio == NULL){
+        printf("Lista esta Vazia!");
+        return 0;
+    } 
+    NoSLI *aux = &pontlista->inicio->valor;
+
+    valor = &pontlista->inicio->valor;
+    return valor;
 }
 
 int main() {
@@ -258,6 +265,9 @@ int main() {
     //excluirlista(&lista);
     //mostrarListaSLI(lista);
 
-
+    printf("\nTrocando o primeiro elemento\n");
+    mostrarListaSLI(lista);
+    trocarvl_1elemento(lista,15);
+    mostrarListaSLI(lista);
     return 0;
 }
