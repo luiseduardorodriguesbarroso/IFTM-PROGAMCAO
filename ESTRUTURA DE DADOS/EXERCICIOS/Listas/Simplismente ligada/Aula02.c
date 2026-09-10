@@ -36,7 +36,8 @@ int obtervalordoFimLSLI(ListaSLI *pontlista);
 int removerinicioLSLI(ListaSLI *pontlista);
 int removerFimLSLI(ListaSLI *pontlista);
 int apagarLSLI(ListaSLI *pontlista);
-void excluirlista(ListaSLI *pontlist);
+void excluirlista(ListaSLI **pontlist);
+int trocarvl_1elemento(ListaSLI *pontlista,int valor);
 
 // ================= FUNÇÕES AUXILIARES =================
 void espaco() {
@@ -187,16 +188,14 @@ int apagarLSLI(ListaSLI *pontlista){
         return 1;
     }
 }
+void excluirlista(ListaSLI **pontlist) {
+    apagarLSLI(pontlist);
+    free(pontlist);
+    *pontlist = NULL;
+}
 
-void excluirlista(ListaSLI *pontlist){
-    NoSLI *pontlist
-    if (pontlist != NULL){
-        apagarLSLI(pontlist);
-        free(pontlist);
-        pontlist = NULL;
-
-    } 
-
+int trocarvl_1elemento(ListaSLI *pontlista,int valor){
+    
 }
 
 int main() {
@@ -253,8 +252,11 @@ int main() {
     printf("\nRemovendo o ultimo elemento da lista: %d\n", removerFimLSLI(lista)); //Removendo o e ultimo elemento da lista
     mostrarListaSLI(lista);
     
-    apagarLSLI(lista); //Apagando todos os elementos da lista 
-    mostrarListaSLI(lista); //Mostrando a lista vazia 
+    //apagarLSLI(lista); //Apagando todos os elementos da lista 
+    //mostrarListaSLI(lista); //Mostrando a lista vazia 
+
+    //excluirlista(&lista);
+    //mostrarListaSLI(lista);
 
 
     return 0;
