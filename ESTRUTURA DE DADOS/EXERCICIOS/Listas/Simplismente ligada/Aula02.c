@@ -35,9 +35,10 @@ int obtervalordoinicioLSLI(ListaSLI *pontlista);
 int obtervalordoFimLSLI(ListaSLI *pontlista);
 int removerinicioLSLI(ListaSLI *pontlista);
 int removerFimLSLI(ListaSLI *pontlista);
-int apagarLSLI(ListaSLI *pontlista);
+void apagarLSLI(ListaSLI *pontlista);
 void excluirlista(ListaSLI **pontlist);
-int trocarvl_1elemento(ListaSLI *pontlista,int *valor);
+int trocarvl_primeiro_elemento(ListaSLI *pontlista,int valor);
+int trocarvl_ultimo_elemento(ListaSLI *pontlista, int valor);
 
 // ================= FUNÇÕES AUXILIARES =================
 void espaco() {
@@ -60,6 +61,9 @@ ListaSLI * criarListaSLI() {
 }
 
 void mostrarListaSLI(ListaSLI *pontLista) {
+    if (pontLista == NULL){ //se a lista for Excluida ou NULL ela avisa
+        printf("\nLista Vazia\n");
+    }
     printf("Tamanho da Lista = %d\n", pontLista->tamanho);
     
     if (pontLista->tamanho == 0) {
@@ -116,13 +120,15 @@ int obtervalordoFimLSLI(ListaSLI *pontlista){
     {
         printf("Lista vazia!\n");
         return 0;
-    } else {
-        NoSLI *aux = pontlista->inicio;
-        while (aux->proximo != NULL){
-            aux= aux->proximo;
-        }
-        return aux->valor;
     }
+    NoSLI *aux = pontlista->inicio;
+    
+    while (aux->proximo != NULL)
+    {
+        aux= aux->proximo;
+    }
+    
+    return aux->valor;
 }
 
 int removerinicioLSLI(ListaSLI *pontlista){
@@ -167,42 +173,60 @@ int removerFimLSLI(ListaSLI *pontlista){
     return valor;
 }
 
-int apagarLSLI(ListaSLI *pontlista){
+void apagarLSLI(ListaSLI *pontlista){
 
     if (pontlista->inicio == NULL){ //vazia
         printf("Lista vaizia!");
-        return 0;
     }
-    else {
+    else if (pontlista->tamanho == 1){
+        free(pontlista->inicio);
+        pontlista->inicio = NULL;
+        pontlista->tamanho = 0;
+    }
+    else  {
         NoSLI *aux = pontlista->inicio; // aux aponta para o inicio 
         NoSLI *anterior = aux->proximo; //anterior vai apostar para proximo do aux 
 
-        while(anterior->proximo != NULL){ 
+        while(anterior != NULL){ 
             free(aux);  //limpa o inicio
             aux = anterior; //igualo o auxiliar igual anterior onde ("anterior->proximo") do aux
             anterior = anterior->proximo; //Ando para o proximo 
         }
         free(aux); //limpo o ultimo elemento 
         pontlista->tamanho = 0;
-        return 1;
     }
 }
 
 void excluirlista(ListaSLI **pontlist) {
-    apagarLSLI(pontlist);
-    free(pontlist);
+    apagarLSLI(*pontlist);
+    free(*pontlist);
     *pontlist = NULL;
 }
 
-int trocarvl_1elemento(ListaSLI *pontlista,int *valor){
-    if (pontlista->inicio == NULL){
-        printf("Lista esta Vazia!");
+int trocarvl_primeiro_elemento(ListaSLI *pontlista,int valor){
+    if (pontlista == NULL)
+    {
+        printf("Aviso: Lista vazia\n");
         return 0;
-    } 
-    NoSLI *aux = &pontlista->inicio->valor;
+    }   
+    pontlista->inicio->valor = valor; 
+    return 1;
+}
 
-    valor = &pontlista->inicio->valor;
-    return valor;
+int trocarvl_ultimo_elemento(ListaSLI *pontlista, int valor){
+    if(pontlista == NULL) {
+        printf("Aviso: Lista vazia\n");
+        return 0;
+    }   
+    NoSLI *aux = pontlista->inicio;
+
+    while (aux->proximo != NULL) //Vejo se a proxima posição e nula
+    {
+        aux = aux->proximo; //Faço auxiliar andar para proximo
+    }
+
+    aux->valor = valor; //troco o valor do ultimo elemento
+    return 1;
 }
 
 int main() {
@@ -265,9 +289,14 @@ int main() {
     //excluirlista(&lista);
     //mostrarListaSLI(lista);
 
-    printf("\nTrocando o primeiro elemento\n");
+    printf("\nTrocando o valor do primeiro elemento da lista\n");
+    trocarvl_primeiro_elemento(lista,5); //Troca o valor do primeiro elemento da lista, desde que a lista não seja nula
+    mostrarListaSLI(lista);    
+
+    printf("\nTrocando o valor do ultimo elemento da lista\n");
+    trocarvl_ultimo_elemento(lista,197);
     mostrarListaSLI(lista);
-    trocarvl_1elemento(lista,15);
-    mostrarListaSLI(lista);
+
+
     return 0;
 }
