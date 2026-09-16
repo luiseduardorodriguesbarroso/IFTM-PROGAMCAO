@@ -339,8 +339,14 @@ int main() {
     trocarvl_ultimo_elemento(lista,197);
     mostrarListaSLI(lista);
 
-    printf("\nTrocando valor na posição x\n");
+    printf("\nTrocando valor na posição x\n"); //Trucando valor na posição x
     trocar_na_posicao(lista,3,38);
     mostrarListaSLI(lista);
+
+
+    printf("Inserindo um novo no na posição x");
+    adicionar_na_posicao(lista,2,88);
+    mostrarListaSLI(lista);
+
     return 0;
 }
