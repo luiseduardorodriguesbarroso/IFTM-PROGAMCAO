@@ -39,6 +39,8 @@ void apagarLSLI(ListaSLI *pontlista);
 void excluirlista(ListaSLI **pontlist);
 int trocarvl_primeiro_elemento(ListaSLI *pontlista,int valor);
 int trocarvl_ultimo_elemento(ListaSLI *pontlista, int valor);
+int trocar_na_posicao(ListaSLI *pontlista,int posição, int valor);
+int adicionar_na_posicao(ListaSLI *pontlista,int posição,int valor);
 
 // ================= FUNÇÕES AUXILIARES =================
 void espaco() {
@@ -229,6 +231,44 @@ int trocarvl_ultimo_elemento(ListaSLI *pontlista, int valor){
     return 1;
 }
 
+int trocar_na_posicao(ListaSLI *pontlista,int posição, int valor){
+    if (pontlista == NULL){
+        printf("Aviso: Lista vazia ou nula");
+        return 0;
+    }
+    
+    if (posição < 0){
+        printf("Aviso: não e possivevel ir em uma posição < 0");
+        return 0;
+    }
+    
+    if (posição == 0){
+        pontlista->inicio->valor = valor;
+        return 1;
+    }
+
+    NoSLI *aux = pontlista->inicio;
+
+    int contador = 0;
+
+    while (aux->proximo != NULL && contador < posição)
+    {
+        aux = aux->proximo;
+        contador++;
+    }
+    
+    if(aux !=  NULL && contador == posição){       
+        aux->valor = valor;
+        return 1;
+    }
+    else {
+        printf("Aviso: Não foi possivel inserir nessa possição pois La lista nessa posição esta vazia ou nula\n");
+        return 0 ;
+    }  
+}
+
+int adicionar_na_posicao(ListaSLI *pontlista,int posição,int valor);
+
 int main() {
     ListaSLI * lista = criarListaSLI();
     espaco();
@@ -297,5 +337,8 @@ int main() {
     trocarvl_ultimo_elemento(lista,197);
     mostrarListaSLI(lista);
 
+    printf("\nTrocando valor na posição x\n");
+    trocar_na_posicao(lista,3,38);
+    mostrarListaSLI(lista);
     return 0;
 }
