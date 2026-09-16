@@ -281,8 +281,7 @@ int adicionar_na_posicao(ListaSLI *pontlista,int posição,int valor){
         aux1 = aux1->proximo;
         contador++;
     }
-    
-    
+
 }
 
 int main() {
