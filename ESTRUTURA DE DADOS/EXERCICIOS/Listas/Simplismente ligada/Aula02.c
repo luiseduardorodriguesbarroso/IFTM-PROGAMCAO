@@ -274,6 +274,15 @@ int adicionar_na_posicao(ListaSLI *pontlista,int posição,int valor){
     }   
     NoSLI *aux1 = pontlista->inicio;
     NoSLI *aux2 = aux1->proximo;
+    int contador = 0;
+
+    while (aux2 != NULL && posição != contador)
+    {
+        aux1 = aux1->proximo;
+        contador++;
+    }
+    
+    
 }
 
 int main() {
