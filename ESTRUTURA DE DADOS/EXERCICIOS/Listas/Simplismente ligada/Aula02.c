@@ -297,6 +297,5 @@ int main() {
     trocarvl_ultimo_elemento(lista,197);
     mostrarListaSLI(lista);
 
-
     return 0;
 }
