@@ -268,7 +268,12 @@ int trocar_na_posicao(ListaSLI *pontlista,int posição, int valor){
 }
 
 int adicionar_na_posicao(ListaSLI *pontlista,int posição,int valor){
-    
+    if(pontlista->inicio == valor){
+        printf("Aviso: lista esta vazia");
+        return 0;
+    }   
+    NoSLI *aux1 = pontlista->inicio;
+    NoSLI *aux2 = aux1->proximo;
 }
 
 int main() {
@@ -344,7 +349,7 @@ int main() {
     mostrarListaSLI(lista);
 
 
-    printf("Inserindo um novo no na posição x");
+    printf("\nInserindo um novo no na posição x\n");
     adicionar_na_posicao(lista,2,88);
     mostrarListaSLI(lista);
 
