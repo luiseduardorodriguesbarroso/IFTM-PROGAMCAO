@@ -267,7 +267,9 @@ int trocar_na_posicao(ListaSLI *pontlista,int posição, int valor){
     }  
 }
 
-int adicionar_na_posicao(ListaSLI *pontlista,int posição,int valor);
+int adicionar_na_posicao(ListaSLI *pontlista,int posição,int valor){
+    
+}
 
 int main() {
     ListaSLI * lista = criarListaSLI();
