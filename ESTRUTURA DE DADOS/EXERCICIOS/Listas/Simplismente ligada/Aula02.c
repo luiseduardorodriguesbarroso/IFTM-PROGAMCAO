@@ -400,7 +400,6 @@ int main() {
     trocar_na_posicao(lista,3,38);
     mostrarListaSLI(lista);
 
-
     printf("\nInserindo um novo no na posição x\n");
     adicionar_no(lista,1,9999);
     mostrarListaSLI(lista);
