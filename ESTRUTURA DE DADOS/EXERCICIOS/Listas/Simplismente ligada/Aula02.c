@@ -40,7 +40,8 @@ void excluirlista(ListaSLI **pontlist);
 int trocarvl_primeiro_elemento(ListaSLI *pontlista,int valor);
 int trocarvl_ultimo_elemento(ListaSLI *pontlista, int valor);
 int trocar_na_posicao(ListaSLI *pontlista,int posição, int valor);
-int adicionar_na_posicao(ListaSLI *pontlista,int posição,int valor);
+int adicionar_no(ListaSLI *pontlista,int posição,int valor);
+int remover_no(ListaSLI *pontlista, int posição);
 
 // ================= FUNÇÕES AUXILIARES =================
 void espaco() {
@@ -267,22 +268,65 @@ int trocar_na_posicao(ListaSLI *pontlista,int posição, int valor){
     }  
 }
 
-int adicionar_na_posicao(ListaSLI *pontlista,int posição,int valor){
-    if(pontlista->inicio == valor){
+int adicionar_no(ListaSLI *pontlista,int posição,int valor){
+    if(pontlista->inicio == NULL || posição < 0){
         printf("Aviso: lista esta vazia");
         return 0;
-    }   
-    NoSLI *aux1 = pontlista->inicio;
-    NoSLI *aux2 = aux1->proximo;
+    } 
+    if (posição == 0){
+        InserirInicioSLI(valor,pontlista);
+        return 1;
+    }
+    NoSLI *aux = pontlista->inicio;
     int contador = 0;
 
-    while (aux2 != NULL && posição != contador)
-    {
-        aux1 = aux1->proximo;
+    while(aux->proximo != NULL && contador < (posição - 1)){ // (posição - 1) para parar no nó anterior a posição
+        aux = aux->proximo;
         contador++;
     }
 
+    NoSLI *novo_no = criarNoSLI(valor,aux->proximo);
+
+    aux->proximo = novo_no; //aux vai apontar para o novo nó
+
+    pontlista->tamanho++; //Almento 1 na minha lista 
+    return 1;
 }
+
+int remover_no(ListaSLI *pontlista, int posição){
+    if(pontlista->inicio == NULL || posição < 0){
+        printf("Aviso: lista esta vazia");
+        return 0;
+    } 
+    if (posição == 0){
+        removerinicioLSLI(pontlista);
+        return 1;
+    }
+
+    NoSLI *aux = pontlista->inicio;
+    int contador = 0;
+
+    while(aux->proximo != NULL && posição < (contador - 1)) // (contador - 1) vai apontar para o anterior da posição que eu desejo excluir 
+    {
+        aux = aux->proximo;
+        contador++;
+    }
+    if (aux->proximo == NULL) { //Se o aux->proximo for NULL, posição e maior que a lista
+        printf("Aviso: Posição não existe na lista.\n");
+        return 0; 
+    }
+
+    NoSLI *remover = aux->proximo; //*remover aponta para o no que desejo remover
+    
+    aux->proximo = remover->proximo; //aux passa apontar o proximo do no que vou remover
+
+    free(remover);
+
+    pontlista->tamanho--;
+    
+    return 1;
+}
+
 
 int main() {
     ListaSLI * lista = criarListaSLI();
@@ -358,8 +402,10 @@ int main() {
 
 
     printf("\nInserindo um novo no na posição x\n");
-    adicionar_na_posicao(lista,2,88);
+    adicionar_no(lista,1,9999);
     mostrarListaSLI(lista);
 
+    remover_no(lista,2);
+    mostrarListaSLI(lista);
     return 0;
 }
