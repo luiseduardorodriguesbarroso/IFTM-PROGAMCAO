@@ -11,19 +11,7 @@
 #include <stdint.h>
 #include <assert.h>
 
-typedef struct {
-
-    
-}list;
-
-
-void ver_inicio (list *pot,int valor); //querro verificar se existe um valor x na lista e onde ele esta!
-
 int main() {
     
     return 0;
-}
-
-void ver_inicio (list *potlista,int valor){
-
 }
