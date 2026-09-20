@@ -11,7 +11,20 @@
 #include <stdint.h>
 #include <assert.h>
 
+typedef struct no_simpes_int {
+    int valor;
+    struct no_simpes_int *proximo;
+}NoSLI;
+typedef struct listasimples_int{
+    NoSLI *inicio;
+    NoSLI *fim;
+    int tamanho;
+}listaLSI;
+
+
 int main() {
+
+
     
     return 0;
 }
