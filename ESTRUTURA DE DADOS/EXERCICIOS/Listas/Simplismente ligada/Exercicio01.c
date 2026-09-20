@@ -11,26 +11,26 @@
 #include <stdint.h>
 #include <assert.h>
 
-typedef struct no_simpes_int {
-    int valor;
-    struct no_simpes_int *proximo;
-}NoSLI;
-typedef struct listasimples_prod{
-    NoSLI *inicio;
-    NoSLI *fim;
-    int tamanho;
-}listaLSI_Prod;
-typedef struct
-{
-    int codigo; //codigo do produto
-    char nom[50];
-    float preço; 
-}Produto;
-typedef struct{
+typedef struct {
+    int codigo; //codigo do produto 
+    char nome[255];
+    float preco;
+} Produto;
 
-    int valor;
-    NoSLI_Prod *proximo;
-}NoSLI_Prod; //Novo no de Produto
+typedef struct nosimples_prod {
+    Produto valor;
+    struct nosimples_prod *proximo; //proximo produto da lista
+} NoSLProd;
+
+typedef struct listasimples_prod {
+    NoSLProd *inicio;
+    NoSLProd *fim;
+    int tamanho;
+} ListaSLProd;
+
+
+
+
 
 int main() {
 
