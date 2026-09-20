@@ -28,9 +28,39 @@ typedef struct listasimples_prod {
     int tamanho;
 } ListaSLProd;
 
+//-------------------------------------------------
+void inserirnoInicioSLI (ListaSLProd *pontlista, int valor);
+void inserirnoFimSLI (ListaSLProd *pontlista, int valor);
 
 
+//-------------------------------------------------
+void inserirnoInicioSLI (ListaSLProd *pontlista, int valor) {
+    NoSLProd *novo = criarNoSLI(valor,NULL);
 
+    if (pontlista->inicio == 0) {
+        pontlista->inicio = novo; //inicio aponta pro novo e o fim tambem
+        pontlista->fim = novo;
+    }
+    else {
+        novo->proximo = pontlista->inicio;
+        pontlista->inicio = novo;
+    }
+    pontlista->tamanho++;
+}
+
+void inserirnoFimSLI (ListaSLProd *pontlista, int valor) {
+    NoSLProd *novo = criarNoSLI(valor,NULL);
+
+    if (pontlista->fim == NULL) {
+        pontlista->inicio = novo;
+        pontlista->fim = novo;
+    }
+    else   {
+        pontlista->fim->proximo = novo; //Vai no ultimo elemento e anda +1 e inseri novo lá 
+        pontlista->fim = novo; //agr o fim e o novo 
+    }
+    pontlista->tamanho++;
+}
 
 int main() {
 
