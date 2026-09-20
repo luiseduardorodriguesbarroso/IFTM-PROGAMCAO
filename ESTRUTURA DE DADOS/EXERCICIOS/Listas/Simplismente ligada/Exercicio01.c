@@ -15,16 +15,24 @@ typedef struct no_simpes_int {
     int valor;
     struct no_simpes_int *proximo;
 }NoSLI;
-typedef struct listasimples_int{
+typedef struct listasimples_prod{
     NoSLI *inicio;
     NoSLI *fim;
     int tamanho;
-}listaLSI;
+}listaLSI_Prod;
+typedef struct
+{
+    int codigo; //codigo do produto
+    char nom[50];
+    float preço; 
+}Produto;
+typedef struct{
 
+    int valor;
+    NoSLI_Prod *proximo;
+}NoSLI_Prod; //Novo no de Produto
 
 int main() {
 
-
-    
     return 0;
 }
