@@ -54,6 +54,22 @@ NoDSLI *criarNoDLI(int valor, NoDSLI *anterior, NoDSLI *proximo){
     return novo;
 }
 
+listaDLI *criarliataDLI(){
+    
+    listaDLI *nova = (listaDLI*) malloc(sizeof(listaDLI));
+    
+    if (nova == NULL){
+        printf("Ero fatal: Falha na alocação de memoria");
+        exit(1);
+    }
+
+    nova->tamanho = 0;
+    nova->inicio = NULL;
+    nova->fim =NULL;
+    return nova;
+}
+
+
 
 int main() {
     
