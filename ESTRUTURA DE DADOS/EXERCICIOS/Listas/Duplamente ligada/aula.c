@@ -30,7 +30,7 @@ typedef struct listadupla_int{
 //---------------------------------------------------------------
 NoDSLI *criarNoDLI(int valor, NoDSLI *anterior, NoDSLI *proximo);
 listaDLI *criarliataDLI();
-
+int InserirInicioListaDLI();
 
 
 
@@ -69,6 +69,9 @@ listaDLI *criarliataDLI(){
     return nova;
 }
 
+int InserirInicioListaDLI(){
+    
+}
 
 
 int main() {
