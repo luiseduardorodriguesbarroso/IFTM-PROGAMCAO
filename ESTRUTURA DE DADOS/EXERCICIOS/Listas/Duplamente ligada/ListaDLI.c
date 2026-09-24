@@ -204,7 +204,7 @@ void removerelementoListaDLI(int posicao,listaDLI *pontlista) {
 int main() {
     
     listaDLI *lista = criarliataDLI();
-
+/*
     //system("clear"); //limpatl linux
 
     inserirInicioListaDLI(15,lista);
@@ -224,7 +224,7 @@ int main() {
 
     printf("Mostrando a ListaDLI Inversa\n\n");
     MostrarListaInvertida(lista);
-
+*/
     removerelementoListaDLI(3,lista); //remover elemento da lista
     mostrarListaDLI(lista);
 
