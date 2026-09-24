@@ -144,14 +144,30 @@ void limparLDLI(listaDLI *pontlista){
 }
 
 void MostrarListaInvertida(listaDLI *pontlista) {
+    if(pontlista == NULL){
+        printf("Aviso: Sua lista nao existe no sistema!\n");
+    }
+    
+    printf("Tamanho da Lista = %d\n", pontlista->tamanho);
 
+    if (pontlista->tamanho == 0){
+        printf("Lista vazia\n");
+    }
+    NoDSLI *aux = pontlista->fim;
+
+    while (aux != NULL)
+    {
+        printf("%d -> ", aux->valor);
+        aux =aux->anterior;    //aux vai apostar para o anterior do fim 
+    }
+    printf("NULL\n\n");
 }
 
 int main() {
     
     listaDLI *lista = criarliataDLI();
 
-    system("clear"); //limpatl linux
+    //system("clear"); //limpatl linux
 
     inserirInicioListaDLI(15,lista);
     mostrarListaDLI(lista);
@@ -167,6 +183,8 @@ int main() {
     
     inserirFimListaDLS(43,lista);
     mostrarListaDLI(lista);
+
+    MostrarListaInvertida(lista);
 
     limparLDLI(lista); //Apagando a lista
     mostrarListaDLI(lista);
