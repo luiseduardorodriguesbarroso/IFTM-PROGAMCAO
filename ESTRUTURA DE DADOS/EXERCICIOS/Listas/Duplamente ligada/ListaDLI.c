@@ -35,7 +35,7 @@ void inserirInicioListaDLI(int valor, listaDLI *pontlista);
 void inserirFimListaDLS(int valor, listaDLI *pontlista);
 void limparLDLI(listaDLI *pontlista);
 void MostrarListaInvertida(listaDLI *pontlista);
-
+void removerelementoListaDLI(int posicao,listaDLI *pontlista);
 
 
 
@@ -163,6 +163,16 @@ void MostrarListaInvertida(listaDLI *pontlista) {
     printf("NULL\n\n");
 }
 
+void removerelementoListaDLI(int posicao,listaDLI *pontlista) {
+    if (pontlista == NULL)
+    {
+        printf("Avisso: A lista não existe no sistema!\n");
+    }
+    
+    NoDSLI *aux = pontlista->inicio;\
+  
+}
+
 int main() {
     
     listaDLI *lista = criarliataDLI();
@@ -184,9 +194,15 @@ int main() {
     inserirFimListaDLS(43,lista);
     mostrarListaDLI(lista);
 
+    printf("Mostrando a ListaDLI Inversa\n\n");
     MostrarListaInvertida(lista);
 
+    removerelementoListaDLI(1,lista);
+    mostrarListaDLI(lista);
+
+    printf("Apagando a ListaDLI\n");
     limparLDLI(lista); //Apagando a lista
     mostrarListaDLI(lista);
+
     return 0;
 }
