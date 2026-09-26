@@ -56,7 +56,6 @@ typedef struct {
 //==================== PROTOTIPOS ===============================
 //===============================================================
 void limpa_tl();
-void limpa_tl();
 void inicializa_veiculo(Veiculo *v, int id, float cap_max);
 int carrega_veiculo(Veiculo *v, float quantidade_carga, float *carga_rejeitada);
 Veiculo* encontra_veiculo_disponivel(Veiculo frota[], int tamanho_frota, float peso_necessario);
