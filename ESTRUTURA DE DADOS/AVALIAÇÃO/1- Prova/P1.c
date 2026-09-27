@@ -155,7 +155,10 @@ Veiculo* encontra_veiculo_disponivel(Veiculo frota[],int tamanho_frota,float pes
    - soma dos pesos carregados com sucesso.*/
 
 float processa_lote_pacotes(Veiculo *v,float pacotes[],int num_pacotes,int *pacotes_sucesso){
-    
+    if (v == NULL || pacotes == NULL || num_pacotes <= 0, pacotes_sucesso == NULL){
+        printf("Aviso: Informaçoes invalidas\n");
+        return 0;
+    }
 }
 
 int main() {
