@@ -27,6 +27,7 @@ typedef struct {
 void inicializa_veiculo(Veiculo *v, int id, float cap_max);
 int carrega_veiculo(Veiculo *v,float quantidade_carga,float *carga_rejeitada);
 Veiculo* encontra_veiculo_disponivel(Veiculo frota[],int tamanho_frota,float peso_necessario);
+float processa_lote_pacotes(Veiculo *v,float pacotes[],int num_pacotes,int *pacotes_sucesso);
 
 
 //---------------------------------------------------------
@@ -127,8 +128,35 @@ Veiculo* encontra_veiculo_disponivel(Veiculo frota[],int tamanho_frota,float pes
     return NULL;
 }
 
+/*QUESTÃO 4: Vetores de Variáveis Simples e
+   Modificação em Lote
+   Valor: 30%
 
+   Crie uma função que tenta carregar vários pacotes
+   em um único veículo.
 
+   A função recebe:
+   - ponteiro para o veículo;
+   - vetor de pacotes;
+   - quantidade de pacotes;
+   - ponteiro para pacotes_sucesso.
+
+   Funcionamento:
+   - carregar pacote por pacote;
+   - começar do índice 0;
+   - interromper ao ultrapassar a capacidade máxima;
+   - o pacote que exceder NÃO deve ser carregado;
+   - os próximos pacotes também não.
+
+   Atualizar:
+   - pacotes_sucesso com a quantidade carregada.
+
+   Retornar:
+   - soma dos pesos carregados com sucesso.*/
+
+float processa_lote_pacotes(Veiculo *v,float pacotes[],int num_pacotes,int *pacotes_sucesso){
+    
+}
 
 int main() {
     Veiculo *v;
