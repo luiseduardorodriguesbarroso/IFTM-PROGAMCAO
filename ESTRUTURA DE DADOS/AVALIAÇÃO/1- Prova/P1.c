@@ -26,6 +26,7 @@ typedef struct {
 //---------------------------------------------------------
 void inicializa_veiculo(Veiculo *v, int id, float cap_max);
 int carrega_veiculo(Veiculo *v,float quantidade_carga,float *carga_rejeitada);
+Veiculo* encontra_veiculo_disponivel(Veiculo frota[],int tamanho_frota,float peso_necessario);
 
 
 //---------------------------------------------------------
@@ -89,6 +90,45 @@ int carrega_veiculo(Veiculo *v,float quantidade_carga,float *carga_rejeitada){
         return 0;
     }
 }
+
+/*QUESTÃO 3: Vetores de Estruturas e Retorno de Ponteiros
+   Valor: 25%
+
+   Crie uma função que busca em uma frota
+   o primeiro veículo disponível capaz de transportar
+   uma carga específica.
+
+   A função recebe:
+   - vetor frota;
+   - tamanho da frota;
+   - peso necessário.
+
+   Deve retornar:
+   - ponteiro para o primeiro veículo com espaço suficiente;
+   - NULL caso nenhum veículo consiga transportar.
+
+   Espaço livre:
+    - capacidade_maxima - carga_atual
+*/
+
+Veiculo* encontra_veiculo_disponivel(Veiculo frota[],int tamanho_frota,float peso_necessario){
+    
+    if (frota == NULL || tamanho_frota <= 0 || peso_necessario < 0){
+        printf("Avisso: Informaçoes Invalidas, verifique a sua frota!");
+        return NULL;
+    }
+    for (int i = 0; i < tamanho_frota; i++)
+    {
+        float espaço_livre = frota[i].capacidade_maxima - frota[i].carga_atual;
+        if (espaço_livre >= peso_necessario){ //verificando se o espaço livre e maior que o peso necessário
+            return &frota[i]; //retornando o endereçõ do veiculo e para a busca
+        }
+    }
+    return NULL;
+}
+
+
+
 
 int main() {
     Veiculo *v;
