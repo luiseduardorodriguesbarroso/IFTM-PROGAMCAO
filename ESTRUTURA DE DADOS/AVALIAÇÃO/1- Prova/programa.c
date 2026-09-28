@@ -28,8 +28,6 @@ void inicializa_veiculo(Veiculo *v, int id, float cap_max);
 int carrega_veiculo(Veiculo *v,float quantidade_carga,float *carga_rejeitada);
 Veiculo* encontra_veiculo_disponivel(Veiculo frota[],int tamanho_frota,float peso_necessario);
 float processa_lote_pacotes(Veiculo *v,float pacotes[],int num_pacotes,int *pacotes_sucesso);
-
-
 //---------------------------------------------------------
 /*QUESTÃO 1: Ponteiros para Estruturas e Aninhamento
    Valor: 20%
