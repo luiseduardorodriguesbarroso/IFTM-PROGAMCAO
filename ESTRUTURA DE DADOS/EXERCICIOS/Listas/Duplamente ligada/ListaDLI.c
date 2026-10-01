@@ -37,8 +37,8 @@ void limparLDLI(listaDLI *pontlista);
 void MostrarListaInvertida(listaDLI *pontlista);
 void removerelementoListaDLI(int posicao,listaDLI *pontlista);
 void inserir_na_posicaoxListaDLI(int posição,int valor,listaDLI *pontlista);
-
-
+void trocarIniciopelo_FimLDI(listaDLI *pontlista);
+void trocarFimpelo_InicioLDI(listaDLI *pontlista);
 
 //---------------------------------------------------------------
 
@@ -198,7 +198,7 @@ void removerelementoListaDLI(int posicao,listaDLI *pontlista) {
 
 void inserir_na_posicaoxListaDLI(int posição,int valor,listaDLI *pontlista){
     if (pontlista == NULL || pontlista->tamanho == 0){
-        printf("Aviso: Lista esta vazia!");
+        printf("Aviso: Lista esta vazia!\n");
         return 0;
     } else if (posição <= 0) {
         printf("Aviso: Não e possivel inserir na pasição < 0!\n");
@@ -227,6 +227,31 @@ void inserir_na_posicaoxListaDLI(int posição,int valor,listaDLI *pontlista){
         return 1;
     }
 }
+
+void trocarIniciopelo_FimLDI(listaDLI *pontlista){
+    if(pontlista == NULL){
+        printf("Aviso: Lista está vazia!/n");
+        return 0;
+    }
+    int aux = pontlista->inicio->valor;
+
+    pontlista->inicio->valor = pontlista->fim->valor;
+    pontlista->fim->valor = aux;
+    return 1;
+}
+
+void trocarFimpelo_InicioLDI(listaDLI *pontlista){
+    if(pontlista == NULL){
+        printf("Aviso: Lista está vazia!/n");
+        return 0;
+    }
+    int aux = pontlista->fim->valor;
+
+    pontlista->fim->valor = pontlista->inicio->valor;
+    pontlista->inicio->valor = aux;
+    return 1;
+}
+
 
 int main() {
     
@@ -260,6 +285,12 @@ int main() {
     mostrarListaDLI(lista);*/
 
     inserir_na_posicaoxListaDLI(2,89,lista);
+    mostrarListaDLI(lista);
+
+    trocarIniciopelo_FimLDI(lista);
+    mostrarListaDLI(lista);
+
+    trocarFimpelo_InicioLDI(lista);
     mostrarListaDLI(lista);
     return 0;
 }
