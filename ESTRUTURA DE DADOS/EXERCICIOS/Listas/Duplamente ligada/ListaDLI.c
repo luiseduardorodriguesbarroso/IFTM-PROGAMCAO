@@ -207,24 +207,25 @@ void inserir_na_posicaoxListaDLI(int posição,int valor,listaDLI *pontlista){
 
     if (posição == 1){
         inserirInicioListaDLI(valor,pontlista);
+        pontlista->tamanho++;
         return 1;
     } else if ( posição >= pontlista->tamanho){
         inserirFimListaDLS(valor,pontlista);
+        pontlista->tamanho++;
         return 1;
     } else {
         NoDSLI *aux =pontlista->inicio;
-        int i = 0;
-        while (i != posição)
-        {
-            aux = aux->proximo;
-            i++;
+        
+        for (int i = 0; i < posição; i++){
+            aux = aux->proximo; //aux vai parar na posição x
         }
         NoDSLI *novo = criarNoDLI(valor,aux->anterior,aux->proximo);
-        novo = aux;
+        
+        aux->anterior->proximo = novo;
+        aux->anterior = novo;
+        pontlista->tamanho++;
         return 1;
     }
-
-    pontlista->tamanho++;
 }
 
 int main() {
