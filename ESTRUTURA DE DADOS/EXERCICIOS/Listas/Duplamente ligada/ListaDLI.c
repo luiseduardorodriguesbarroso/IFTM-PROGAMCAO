@@ -217,9 +217,9 @@ void inserir_na_posicaoxListaDLI(int posição,int valor,listaDLI *pontlista){
         NoDSLI *aux =pontlista->inicio;
         
         for (int i = 0; i < posição; i++){
-            aux = aux->proximo; //aux vai parar na posição x
+            aux = aux->proximo; //aux vai caminhar até o nó da posição atual
         }
-        NoDSLI *novo = criarNoDLI(valor,aux->anterior,aux->proximo);
+        NoDSLI *novo = criarNoDLI(valor,aux->anterior,aux);
         
         aux->anterior->proximo = novo;
         aux->anterior = novo;
