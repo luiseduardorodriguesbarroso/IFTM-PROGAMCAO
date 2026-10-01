@@ -36,7 +36,7 @@ void inserirFimListaDLS(int valor, listaDLI *pontlista);
 void limparLDLI(listaDLI *pontlista);
 void MostrarListaInvertida(listaDLI *pontlista);
 void removerelementoListaDLI(int posicao,listaDLI *pontlista);
-
+void inserir_na_posicaoxListaDLI(int posição,int valor,listaDLI *pontlista);
 
 
 
@@ -166,39 +166,65 @@ void MostrarListaInvertida(listaDLI *pontlista) {
 void removerelementoListaDLI(int posicao,listaDLI *pontlista) {
     if (pontlista == NULL)    {
         printf("Avisso: A lista não existe no sistema!\n");
-    } else if (posicao < 0){
-        printf("Avisso: Não e possivel remover uma posição < 0\n");
+    } 
+    else if (pontlista->tamanho == 0){
+        printf("Aviso: Sua Lista esta vazia!\n");
+    } 
+    else if (posicao < 0 || posicao > pontlista->tamanho){
+        printf("Avisso: Não e possivel remover uma posição < 0 ou maior que o tamanho da sua lista!\n");
     }
 
-    NoDSLI *remover = NULL;
+    NoDSLI *remover = pontlista->inicio;
+
+    for (int i = 0; i < posicao; i++) {
+        remover = remover->proximo;
+    }
     
-    if (posicao == 0) {
-        pontlista->inicio = remover; 
+    if (remover->anterior == NULL) {
         pontlista->inicio = remover->proximo;
-        
-        if(pontlista->inicio != NULL){
-            pontlista->inicio->anterior = NULL; //Se pontilista inicio não for nulo eu faço ele apontar para anterior que e nulo 
-        } else {
-            pontlista->fim = NULL;
-        }
-    }
-    
-    else if (posicao == pontlista->tamanho) {
-        pontlista->fim  = remover;
-        pontlista->fim = remover->anterior; 
-        pontlista->fim->proximo = NULL;
-    }
-
-    else {
-        pontlista->inicio = remover;
-        for(int i = 0; i < posicao; i++){
-            remover = remover->proximo; //remover vai andar ate a posição que eu querro remover
-        }  
+    } else {
         remover->anterior->proximo = remover->proximo;
+    }
+    // Caso seja o último
+    if (remover->proximo == NULL) {
+        pontlista->fim = remover->anterior;
+    } else {
         remover->proximo->anterior = remover->anterior;
     }
+
     free(remover);
     pontlista->tamanho--;
+}
+
+void inserir_na_posicaoxListaDLI(int posição,int valor,listaDLI *pontlista){
+    if (pontlista == NULL || pontlista->tamanho == 0){
+        printf("Aviso: Lista esta vazia!");
+        return 0;
+    } else if (posição <= 0) {
+        printf("Aviso: Não e possivel inserir na pasição < 0!\n");
+        return 0;
+    }
+
+    if (posição == 1){
+        inserirInicioListaDLI(valor,pontlista);
+        return 1;
+    } else if ( posição >= pontlista->tamanho){
+        inserirFimListaDLS(valor,pontlista);
+        return 1;
+    } else {
+        NoDSLI *aux =pontlista->inicio;
+        int i = 0;
+        while (i != posição)
+        {
+            aux = aux->proximo;
+            i++;
+        }
+        NoDSLI *novo = criarNoDLI(valor,aux->anterior,aux->proximo);
+        novo = aux;
+        return 1;
+    }
+
+    pontlista->tamanho++;
 }
 
 int main() {
@@ -222,15 +248,17 @@ int main() {
     inserirFimListaDLS(43,lista);
     mostrarListaDLI(lista);
 
-    printf("Mostrando a ListaDLI Inversa\n\n");
-    MostrarListaInvertida(lista);
+/*  printf("Mostrando a ListaDLI Inversa\n\n");
+    MostrarListaInvertida(lista);*/
 
-    //removerelementoListaDLI(3,lista); //remover elemento da lista
-    //mostrarListaDLI(lista);
+    removerelementoListaDLI(1,lista); //remover elemento da lista
+    mostrarListaDLI(lista);
 
-    printf("Apagando a ListaDLI\n");
-    //limparLDLI(lista); //Apagando a lista
-    //mostrarListaDLI(lista);
+    /*printf("Apagando a ListaDLI\n");
+    limparLDLI(lista); //Apagando a lista
+    mostrarListaDLI(lista);*/
 
+    inserir_na_posicaoxListaDLI(2,89,lista);
+    mostrarListaDLI(lista);
     return 0;
 }
