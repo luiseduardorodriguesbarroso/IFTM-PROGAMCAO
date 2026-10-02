@@ -36,9 +36,10 @@ void inserirFimListaDLS(int valor, listaDLI *pontlista);
 void limparLDLI(listaDLI *pontlista);
 void MostrarListaInvertida(listaDLI *pontlista);
 void removerelementoListaDLI(int posicao,listaDLI *pontlista);
-void inserir_na_posicaoxListaDLI(int posição,int valor,listaDLI *pontlista);
+void inserir_na_posicaoxListaDLI(int posicao,int valor,listaDLI *pontlista);
 void trocarIniciopelo_FimLDI(listaDLI *pontlista);
 void trocarFimpelo_InicioLDI(listaDLI *pontlista);
+void trocarelementox (listaDLI *pontlista);
 
 //---------------------------------------------------------------
 
@@ -171,7 +172,7 @@ void removerelementoListaDLI(int posicao,listaDLI *pontlista) {
         printf("Aviso: Sua Lista esta vazia!\n");
     } 
     else if (posicao < 0 || posicao > pontlista->tamanho){
-        printf("Avisso: Não e possivel remover uma posição < 0 ou maior que o tamanho da sua lista!\n");
+        printf("Avisso: Não e possivel remover uma posicao < 0 ou maior que o tamanho da sua lista!\n");
     }
 
     NoDSLI *remover = pontlista->inicio;
@@ -196,60 +197,57 @@ void removerelementoListaDLI(int posicao,listaDLI *pontlista) {
     pontlista->tamanho--;
 }
 
-void inserir_na_posicaoxListaDLI(int posição,int valor,listaDLI *pontlista){
+void inserir_na_posicaoxListaDLI(int posicao,int valor,listaDLI *pontlista){
     if (pontlista == NULL || pontlista->tamanho == 0){
         printf("Aviso: Lista esta vazia!\n");
-        return 0;
-    } else if (posição <= 0) {
+    } else if (posicao <= 0) {
         printf("Aviso: Não e possivel inserir na pasição < 0!\n");
-        return 0;
     }
 
-    if (posição == 1){
+    if (posicao == 1){
         inserirInicioListaDLI(valor,pontlista);
         pontlista->tamanho++;
-        return 1;
-    } else if ( posição >= pontlista->tamanho){
+    } else if ( posicao >= pontlista->tamanho){
         inserirFimListaDLS(valor,pontlista);
         pontlista->tamanho++;
-        return 1;
     } else {
         NoDSLI *aux =pontlista->inicio;
         
-        for (int i = 0; i < posição; i++){
-            aux = aux->proximo; //aux vai caminhar até o nó da posição atual
+        for (int i = 0; i < posicao; i++){
+            aux = aux->proximo; //aux vai caminhar até o nó da posicao atual
         }
         NoDSLI *novo = criarNoDLI(valor,aux->anterior,aux);
         
         aux->anterior->proximo = novo;
         aux->anterior = novo;
         pontlista->tamanho++;
-        return 1;
     }
 }
 
 void trocarIniciopelo_FimLDI(listaDLI *pontlista){
     if(pontlista == NULL){
         printf("Aviso: Lista está vazia!/n");
-        return 0;
-    }
-    int aux = pontlista->inicio->valor;
+    } else {
+        int aux = pontlista->inicio->valor;
 
-    pontlista->inicio->valor = pontlista->fim->valor;
-    pontlista->fim->valor = aux;
-    return 1;
+        pontlista->inicio->valor = pontlista->fim->valor;
+        pontlista->fim->valor = aux;
+    }
 }
 
 void trocarFimpelo_InicioLDI(listaDLI *pontlista){
     if(pontlista == NULL){
         printf("Aviso: Lista está vazia!/n");
-        return 0;
-    }
-    int aux = pontlista->fim->valor;
+    } else {
+        int aux = pontlista->fim->valor;
 
-    pontlista->fim->valor = pontlista->inicio->valor;
-    pontlista->inicio->valor = aux;
-    return 1;
+        pontlista->fim->valor = pontlista->inicio->valor;
+        pontlista->inicio->valor = aux;
+    }
+}
+
+void trocarelementox (listaDLI *pontlista) {
+
 }
 
 
@@ -287,9 +285,11 @@ int main() {
     inserir_na_posicaoxListaDLI(2,89,lista);
     mostrarListaDLI(lista);
 
+    printf("Aviso: trocando o Inicio pelo fim da nossa lista\n");
     trocarIniciopelo_FimLDI(lista);
     mostrarListaDLI(lista);
 
+    printf("Aviso: trocando o fim pelo inicio da nossa lista\n");
     trocarFimpelo_InicioLDI(lista);
     mostrarListaDLI(lista);
     return 0;
