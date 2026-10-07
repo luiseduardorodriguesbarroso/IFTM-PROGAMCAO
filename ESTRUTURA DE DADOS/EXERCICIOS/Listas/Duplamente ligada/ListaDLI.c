@@ -11,7 +11,6 @@
 #include <stdint.h>
 #include <assert.h>
 
-
 typedef struct nodupla
 {
     int valor;
@@ -247,7 +246,9 @@ void trocarFimpelo_InicioLDI(listaDLI *pontlista){
 }
 
 void trocarelementox (listaDLI *pontlista) {
-
+    if(pontlista == NULL){
+       printf("Aviso: Sua lista está Vazia!\n"); 
+    } 
 }
 
 
