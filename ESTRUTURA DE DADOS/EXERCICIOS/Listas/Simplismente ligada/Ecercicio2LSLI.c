@@ -111,7 +111,7 @@ int verific_multiplo5(ListaSLI *pontlista){
         aux = aux->proximo;
         cont++;
     }
-    printf("\nQuantidade de numeros multiplos de 5 na sua lista: %d\n",multiplos);
+    printf("\nQuantidade de numeros multiplos de 5 na sua lista: %d\n\n",multiplos);
     return 1;
 }
 
@@ -119,15 +119,28 @@ int verific_multiplo5(ListaSLI *pontlista){
 void clonar_listalSLDI(ListaSLI *pontlista){
     ListaSLI *clone = criarListaSLI();
 
-    NoSLI *aux = pontlista->inicio;
-    NoSLI *novo = criarNoSLI(pontlista->inicio->valor,NULL);
-    int cont = 0;
-
-    while (cont < pontlista->tamanho)
-    {
-        
+    if (pontlista->inicio == NULL) { // Se a lista estiver vazia, vou retorna a nova lista também vazia
+        return clone;
     }
-    
+
+    NoSLI *aux = pontlista->inicio;
+    NoSLI *ultimoClone = NULL;
+
+    while (aux != NULL) {
+        NoSLI *novo = criarNoSLI(aux->valor, NULL);
+
+        if (clone->inicio == NULL) {
+            clone->inicio = novo; // Primeiro elemento do clone
+        } else {
+            ultimoClone->proximo = novo; // Conecta ao final da nova lista
+        }
+
+        ultimoClone = novo; // Atualiza o ponteiro do último nó inserido
+        aux = aux->proximo;  // Avança na lista original
+    }
+
+    clone->tamanho = pontlista->tamanho;
+    return clone;  
 }
 int main() {
     ListaSLI *lista = criarListaSLI();
@@ -145,5 +158,7 @@ int main() {
 
     numero_de_Impares(lista);
     verific_multiplo5(lista);
+    clonar_listalSLDI(lista); //Clonando lista 
+    mostrarListaSLI(lista);
     return 0;
 }
