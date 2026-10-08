@@ -28,7 +28,7 @@ void mostrarListaSLI(ListaSLI *pontLista);
 void inserirInicio(int valor, ListaSLI *pontlista);
 int numero_de_Impares(ListaSLI *pontlista);
 int verific_multiplo5(ListaSLI *pontlista);
-
+void clonar_listalSLDI(ListaSLI *pontlista);
 //------------------------------------------------------------------------------------------------------------
 
 NoSLI* criarNoSLI(int valor, NoSLI *proximo) {
@@ -70,7 +70,7 @@ void inserirInicio(int valor, ListaSLI *pontlista){
     pontlista->tamanho++;
 }
 
-//Crie uma função em C que recebe como parâmetro uma lista simplesmente ligada de inteiros e retorna o número de elementos com valores ímpares.
+//1- Crie uma função em C que recebe como parâmetro uma lista simplesmente ligada de inteiros e retorna o número de elementos com valores ímpares.
 int numero_de_Impares(ListaSLI *pontlista){
     if (pontlista == NULL){
         printf("Aviso: Sua lista esta vazia!");
@@ -94,7 +94,7 @@ int numero_de_Impares(ListaSLI *pontlista){
     return 1;
 }
 
-//Crie uma função em C que recebe como parâmetro uma lista simplesmente ligada de inteiros e retorna o número de elementos com valores múltiplos de 5.
+//2- Crie uma função em C que recebe como parâmetro uma lista simplesmente ligada de inteiros e retorna o número de elementos com valores múltiplos de 5.
 int verific_multiplo5(ListaSLI *pontlista){
     if (pontlista == NULL){
         printf("Avisso: Sua lista esta vazia!\n");
@@ -115,7 +115,7 @@ int verific_multiplo5(ListaSLI *pontlista){
     return 1;
 }
 
-//Crie uma função em C que recebe como parâmetro uma lista simplesmente ligada de inteiros. A função deve criar e retornar uma cópia dessa lista. (A lista original não pode ser modificada)
+//3- Crie uma função em C que recebe como parâmetro uma lista simplesmente ligada de inteiros. A função deve criar e retornar uma cópia dessa lista. (A lista original não pode ser modificada)
 void clonar_listalSLDI(ListaSLI *pontlista){
     ListaSLI *clone = criarListaSLI();
 
@@ -142,6 +142,10 @@ void clonar_listalSLDI(ListaSLI *pontlista){
     clone->tamanho = pontlista->tamanho;
     return clone;  
 }
+
+//4- Crie uma função em C que recebe como parâmetros duas listas simplesmente ligadas de inteiros. A função deve concatenar as duas listas em uma nova lista e retornar a lista concatenada. (“amarrar” a segunda no final da primeira) (As listas originais não podem ser modificadas)
+
+
 int main() {
     ListaSLI *lista = criarListaSLI();
 
