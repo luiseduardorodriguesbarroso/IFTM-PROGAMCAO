@@ -182,7 +182,7 @@ int main() {
     mostrarListaLDLI(lista);
     //--------------- verficando os impares ---------------\\ 
     printf("Numero de elemetos impares na lista: %d\n",verificarImparesLDLI(lista));
-
+    //--------------- Verificando os multiplos de 5 ---------------\\
     printf("Quantidade de numeros multiplos de 5: %d\n",verificarMultiplo(lista));
 
 
