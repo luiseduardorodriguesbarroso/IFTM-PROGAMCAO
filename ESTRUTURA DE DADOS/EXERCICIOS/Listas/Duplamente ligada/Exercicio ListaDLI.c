@@ -136,7 +136,6 @@ int verificarImparesLDLI(listaDLI *pontlista){
     }
 }
 
-//Crie uma função em C que recebe como parâmetro uma lista duplamente ligada de inteiros e retorna o número de elementos com valores múltiplos de 5.
 int verificarMultiplo(listaDLI *pontlista){
     if(pontlista->inicio == NULL){
         printf("Erro! Sua lista está vazia!\n");
@@ -155,6 +154,22 @@ int verificarMultiplo(listaDLI *pontlista){
     }
 }
 
+listaDLI *copiarLDLI(listaDLI *pontlista){
+ if (pontlista == NULL){
+    printf("\nErro! Não e possivel copiar uma lista vazia!\n");
+    return NULL;
+ }   
+
+ listaDLI *copiar =criarliataDLI();
+ NoDSLI *aux = pontlista->inicio;
+
+ while (aux != NULL)
+ {
+    inserirFimListaDLS(aux->valor,copiar);
+    aux = aux->proximo;
+ }
+ return copiar;
+}
 //Crie uma função em C que recebe como parâmetro uma lista duplamente ligada de inteiros. A função deve criar e retornar uma cópia dessa lista. (A lista original não pode ser modificada)
 
 /*Crie uma função em C que recebe como parâmetros duas listas duplamente ligadas de inteiros. A função deve concatenar as duas listas em uma nova lista e retornar a lista concatenada. (“amarrar” a segunda no final da primeira) (As listas originais não podem ser modificadas)
@@ -183,7 +198,10 @@ int main() {
     printf("Numero de elemetos impares na lista: %d\n",verificarImparesLDLI(lista));
     //--------------- Verificando os multiplos de 5 ---------------
     printf("Quantidade de numeros multiplos de 5: %d\n",verificarMultiplo(lista));
-
+    //--------------- Copiando a Lista --------------- 
+    listaDLI *clone = copiarLDLI(lista);
+    printf("\n|--- Lista Copiada ---|");
+    mostrarListaLDLI(clone);
 
     return 0;
 }
