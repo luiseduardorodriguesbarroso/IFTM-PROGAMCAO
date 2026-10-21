@@ -35,6 +35,8 @@ void inserirInicioListaDLI(int valor, listaDLI *pontlista);
 void inserirFimListaDLS(int valor, listaDLI *pontlista);
 int verificarImparesLDLI(listaDLI *pontlista);
 int verificarMultiplo(listaDLI *pontlista);
+listaDLI *copiarLDLI(listaDLI *pontlista);
+
 
 //--------------------------------------------------------
 NoDSLI *criarNoDLI(int valor, NoDSLI *anterior, NoDSLI *proximo){
@@ -170,11 +172,15 @@ listaDLI *copiarLDLI(listaDLI *pontlista){
  }
  return copiar;
 }
-//Crie uma função em C que recebe como parâmetro uma lista duplamente ligada de inteiros. A função deve criar e retornar uma cópia dessa lista. (A lista original não pode ser modificada)
 
-/*Crie uma função em C que recebe como parâmetros duas listas duplamente ligadas de inteiros. A função deve concatenar as duas listas em uma nova lista e retornar a lista concatenada. (“amarrar” a segunda no final da primeira) (As listas originais não podem ser modificadas)
+void cocatenar_LDLI(listaDLI *pontlista, listaDLI *){
+    
 
-Crie uma função em C que recebe como parâmetros duas listas duplamente ligadas de inteiros e retorne 1 caso elas sejam idênticas ou 0 caso não sejam. (têm o mesmo conteúdo nas mesmas posições)
+}
+
+//Crie uma função em C que recebe como parâmetros duas listas duplamente ligadas de inteiros. A função deve concatenar as duas listas em uma nova lista e retornar a lista concatenada. (“amarrar” a segunda no final da primeira) (As listas originais não podem ser modificadas)
+
+/*Crie uma função em C que recebe como parâmetros duas listas duplamente ligadas de inteiros e retorne 1 caso elas sejam idênticas ou 0 caso não sejam. (têm o mesmo conteúdo nas mesmas posições)
 
 Crie uma função em C que recebe como parâmetro uma lista duplamente ligada de inteiros e retorna se ela está ordenada(1) ou não(0).*/
 
@@ -202,6 +208,8 @@ int main() {
     listaDLI *clone = copiarLDLI(lista);
     printf("\n|--- Lista Copiada ---|");
     mostrarListaLDLI(clone);
+
+
 
     return 0;
 }
