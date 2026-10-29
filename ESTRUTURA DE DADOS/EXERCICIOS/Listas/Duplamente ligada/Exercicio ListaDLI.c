@@ -207,8 +207,7 @@ int main() {
     //--------------- Copiando a Lista --------------- 
     listaDLI *clone = copiarLDLI(lista);
     printf("\n|--- Lista Copiada ---|");
-    mostrarListaLDLI(clone);
-
+    mostrarListaLDLI(clone); 
 
 
     return 0;
