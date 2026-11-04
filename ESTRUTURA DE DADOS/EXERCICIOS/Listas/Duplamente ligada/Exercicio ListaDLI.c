@@ -212,3 +212,49 @@ int main() {
 
     return 0;
 }
+
+/*       
+        // NoSLI *aux3 = pontLista->inicio;             
+        int contador = 0;
+/*
+        while (contador != pontLista->tamanho)
+        {
+            contador++;
+            aux3 = aux3->proximo;
+        }
+        contador = 0;
+        */
+       /* while (contador != pontLista->tamanho)
+        {
+            if(aux->valor == valor)
+            { 
+
+                aux = aux2;
+                aux2 = aux;
+
+
+               /* aux3 = aux3->proximo;
+                pontLista->inicio = aux3;
+                aux = aux2;
+                aux2 = aux;*/
+
+                
+                /*aux3 = aux;
+                aux = aux3;
+                aux = pontLista->inicio;
+                pontLista->inicio = aux2;*/*/
+
+                printf("Achei a primeira ocorrencia\n");
+
+                return 1;
+            }
+//imcompleto, fudeuuuuuuuu 
+            aux = aux->proximo;
+            contador++;
+        }
+        
+
+    }
+    // Implemente sua solução aqui
+    return 0;*/
+    */
