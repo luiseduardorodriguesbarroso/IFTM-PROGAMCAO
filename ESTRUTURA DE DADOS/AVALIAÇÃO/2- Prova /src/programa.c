@@ -26,7 +26,7 @@ int main()
     mostrarLSLI(lista2);
 
     dividirListaLSLI(2, lista2);
-    mostrarLSLI(lista2);
+    mostrarLSLI(lista2);   
 
     destruirLDLI(&lista1);
 

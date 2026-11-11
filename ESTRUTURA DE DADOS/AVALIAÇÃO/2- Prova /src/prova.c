@@ -206,14 +206,41 @@ ListaSLI* dividirListaLSLI(int posicao, ListaSLI *pontLista)
 // - Proibido trocar valores (int) entre os nós. Desengate o nó, ajuste os 
 //   ponteiros anterior/proximo/inicio/fim, atualize o tamanho e dê free no nó.
 // ============================================================================
-int removerTodasOcorrenciasLDLI(int valor, ListaDLI *pontLista)
-{
-    if (pontLista->tamanho = 0)
-    {
-        printf("Lista vazia/n");
-        return 0;
+int removerTodasOcorrenciasLDLI(int valor, ListaDLI *pontLista){
+    if (pontLista == NULL || pontLista->inicio == NULL) {
+        return 0; // Lista vazia
     }
 
-    // Implemente sua solução aqui
-    return 0;
+    int count = 0;
+    NoDLI *current = pontLista->inicio;
+
+    while (current != NULL) {
+        if (current->valor == valor) {
+            NoDLI *toRemove = current;
+
+            // Ajusta os ponteiros dos nós vizinhos
+            if (toRemove->anterior != NULL) {
+                toRemove->anterior->proximo = toRemove->proximo;
+            } else {
+                // Se for o primeiro nó, atualiza o início da lista
+                pontLista->inicio = toRemove->proximo;
+            }
+
+            if (toRemove->proximo != NULL) {
+                toRemove->proximo->anterior = toRemove->anterior;
+            } else {
+                // Se for o último nó, atualiza o fim da lista
+                pontLista->fim = toRemove->anterior;
+            }
+
+            current = toRemove->proximo; // Avança para o próximo nó
+            free(toRemove); // Libera a memória do nó removido
+            count++;
+            pontLista->tamanho--; // Atualiza o tamanho da lista
+        } else {
+            current = current->proximo; // Avança para o próximo nó
+        }
+    }
+
+    return count; // Retorna a quantidade de nós removidos
 }
