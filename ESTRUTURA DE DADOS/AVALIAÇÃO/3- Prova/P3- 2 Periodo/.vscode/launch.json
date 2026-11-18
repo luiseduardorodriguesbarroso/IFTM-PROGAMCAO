@@ -5,12 +5,12 @@
             "name": "(gdb) Debug C",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/debug/programa",
+            "program": "${fileDirname}/../bin/debug/programa.exe",
             "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb",
+            "miDebuggerPath": "gdb.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${fileDirname}/..",
             "environment": [],
             "externalConsole": false,
             "setupCommands": [
@@ -20,11 +20,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "make build debug",
-            "windows": {
-                "program": "${workspaceFolder}/bin/debug/programa.exe",
-                "miDebuggerPath": "c:/msys64/ucrt64/bin/gdb.exe"
-            }
+            "preLaunchTask": "C/C++: gcc arquivo de build ativo"
         }
     ]
 }

@@ -25,14 +25,18 @@
         },
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc-13 arquivo de build ativo",
-            "command": "/usr/bin/gcc-13",
+            "label": "C/C++: gcc arquivo de build ativo",
+            "command": "gcc",
             "args": [
-                "-fdiagnostics-color=always",
+                "-std=c2x",
+                "-Wall",
+                "-Wextra",
+                "-I${fileDirname}/../include",
+                "-I${workspaceFolder}/include",
                 "-g",
-                "${file}",
+                "${fileDirname}/*.c",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/../bin/debug/programa.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -44,7 +48,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Tarefa gerada pelo Depurador."
+            "detail": "Compilação C com gcc no Windows."
         }
     ]
 }

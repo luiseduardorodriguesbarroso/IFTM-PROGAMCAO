@@ -1,4 +1,9 @@
-#include "prova.h"
+#include <stdio.h>
+#include <string.h>
+#include "../include/pilhai.h"
+#include "../include/filai.h"
+#include "../include/filaprio.h"
+#include "../include/prova.h"
 
 // Questão 1 (15%)
 // QUESTÃO 1 (Valor: 15%) - Uso de Pilha como TAD (Caixa-Preta)
@@ -26,12 +31,14 @@ int compactarAdjacentesPilhaI(PilhaI *pontPilha)
         printf("Não foi possivel alterar,tamanho = 0!");
         return 0;
     }
+    
     if (pontPilha->tamanho == 1){
         printf("Não foi possivel alterar,tamanho = 1!");
         return 0;
     }
     
     return 0;
+    
 }
 
 // Questão 2 (20%)
@@ -110,6 +117,7 @@ int transferirTopoParaFilaInPlace(int k, PilhaI *pontPilha, FilaI *pontFila)
         printf("pilha estiver vazia, k <= 0 ou k > pontPilha->tamanho");
         return 0;
     }
+    return 0;
 }
 
 // Questão 4 (35%)
@@ -143,8 +151,8 @@ int transferirTopoParaFilaInPlace(int k, PilhaI *pontPilha, FilaI *pontFila)
 int alterarPrioridadePrio(char nome[], int novaPrioridade, FilaPrio *pontFila)
 {
     if (pontFila->tamanho == 1){
-        novaPrioridade = pontFila->inicio;
-        novaPrioridade = pontFila->fim;
+        // Caso de teste base
+        return 1;
     }
-
+    return 0;
 }

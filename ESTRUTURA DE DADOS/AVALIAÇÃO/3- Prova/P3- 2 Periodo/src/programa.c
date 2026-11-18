@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "filai.h"
+#include "../include/filai.h"
+#include "../include/prova.h"
 
 int main()
 {
