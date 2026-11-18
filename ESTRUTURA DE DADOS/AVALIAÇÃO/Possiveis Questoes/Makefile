@@ -1,6 +1,16 @@
-CC = gcc
+# Detecção do Sistema Operacional (Windows vs Linux)
+ifeq ($(OS),Windows_NT)
+    CC = gcc
+    EXT = .exe
+    RM = -del /f /q 2>nul
+else
+    CC = gcc
+    EXT =
+    RM = rm -f
+endif
+
 CFLAGS = -Wall -Wextra -std=c99
-TARGET = programa.exe
+TARGET = programa$(EXT)
 SRCS = programa.c prova.c pilha.c fila.c
 OBJS = $(SRCS:.c=.o)
 
@@ -16,6 +26,11 @@ run: all
 	./$(TARGET)
 
 clean:
-	del /f /q $(OBJS) $(TARGET) 2>nul || rm -f $(OBJS) $(TARGET)
+ifeq ($(OS),Windows_NT)
+	-del /f /q $(OBJS) $(TARGET) 2>nul
+else
+	rm -f $(OBJS) $(TARGET)
+endif
 
 .PHONY: all run clean
+
