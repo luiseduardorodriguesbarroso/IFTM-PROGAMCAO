@@ -1,0 +1,217 @@
+Questão 1: Buffer de Memória com Expiração (Fila Deslizante)
+
+Sistemas de monitoramento contínuo (como gravação de câmeras de segurança ou 
+logs de roteadores) frequentemente operam com restrições severas de memória. 
+Nesses cenários, os dados chegam de forma ininterrupta, mas o sistema só tem
+capacidade para armazenar o histórico mais recente. Quando o limite de 
+armazenamento é atingido, o dado mais antigo do buffer deve ser 
+automaticamente descartado para abrir espaço para a nova informação.
+
+Implemente esse comportamento de "janela deslizante" utilizando a estrutura
+de Fila vista em sala. Você deve criar uma função que insere um novo número
+inteiro na fila, mas que garante que a capacidade máxima não seja 
+ultrapassada. Se a fila já estiver cheia no momento de uma nova inserção,
+o sistema deve eliminar o registro mais antigo antes de inserir o novo.
+
+void enfileirar_com_limite(int valor, Fila *f, int limite_maximo);
+
+Obrigatório: A função deve garantir que, ao final de sua execução, o número
+de elementos na fila nunca seja maior que limite_maximo.
+
+Obrigatório: A ordem dos elementos armazenados deve respeitar rigorosamente
+o princípio FIFO (First In, First Out).
+
+Proibido Manipular Ponteiros: É expressamente proibido manipular diretamente
+os ponteiros dos nós (como f->inicio, f->fim ou ->proximo) para tentar 
+reposicionar ou remover elementos manualmente. Use as funções da Fila.
+
+Proibido: É expressamente proibido alterar as definições originais das 
+structs (Fila, NoSimples, etc.) fornecidas no material base.
+
+Proibido: Não é permitido o uso de vetores dinâmicos, estáticos ou outras 
+estruturas de dados (como Pilhas) para contornar o problema. A lógica deve
+ser resolvida exclusivamente com as operações e manipulações pertinentes à
+Fila.
+
+Proibido: Não utilize funções de entrada e saída (como printf ou scanf) 
+dentro da sua implementação. A validação será feita de forma automatizada,
+inspecionando a integridade dos ponteiros e o estado da memória após uma 
+bateria intensa de inserções.
+
+------------------------------------
+
+Questão 2: Acesso a Elemento Interno na Pilha
+
+Por definição teórica, a estrutura de Pilha opera estritamente sob o 
+princípio LIFO (Last In, First Out), permitindo acesso direto apenas ao 
+elemento que está no topo. Imagine um pátio logístico onde pesados 
+contêineres são empilhados uns sobre os outros. Caso seja necessário 
+retirar um contêiner danificado que se encontra no meio ou na base dessa 
+pilha, não é possível simplesmente puxá-lo. É necessário remover 
+temporariamente os contêineres que estão acima dele, extrair o contêiner 
+alvo e, em seguida, devolver os contêineres removidos de volta à pilha 
+original, preservando a exata ordem em que estavam.
+
+Sua tarefa é simular essa operação de resgate logístico. Escreva uma 
+função que receba um identificador alvo (id_alvo) e um ponteiro para a 
+pilha principal (p_principal). A função deve buscar esse valor na pilha 
+e removê-lo (se existir). Você deve usar uma pilha auxiliar para realizar
+essa tarefa.
+
+int remover_container_especifico(int id_alvo, Pilha *p_principal);
+
+(A função deve retornar 1 se o contêiner foi encontrado e removido com 
+sucesso, ou 0 caso o id_alvo não exista na pilha).
+
+Obrigatório: A ordem relativa original de todos os elementos que não 
+foram removidos deve ser rigorosamente preservada na pilha principal 
+ao final da execução.
+
+Obrigatório: Você deve instanciar e utilizar internamente apenas uma 
+Pilha auxiliar para manipular o transbordo dos dados. Lembre-se de 
+destruir/liberar a memória dessa estrutura auxiliar antes do encerramento
+da função.
+
+Proibido Manipular Ponteiros: É expressamente proibido quebrar o 
+encapsulamento do Tipo Abstrato de Dados. Você não pode iterar pela lista
+usando ponteiros (como while (pont != NULL)) nem acessar atributos 
+internos dos nós (como ->topo ou ->proximo). Use as funções da Pilha.
+
+Proibido: O uso de vetores (arrays) estáticos ou dinâmicos, ou qualquer 
+outra estrutura de dados (como Filasuestão 2: Acesso a Elemento Interno na Pilha
+
+// Por definição teórica, a estrutura de Pilha opera estritamente sob o 
+// princípio LIFO (Last In, First Out), permitindo acesso direto apenas ao 
+// elemento que está no topo. Imagine um pátio logístico onde pesados 
+// contêineres são empilhados uns sobre os outros. Caso seja necessário 
+// retirar um contêiner danificado que se encontra no meio ou na base dessa 
+// pilha, não é possível simplesmente puxá-lo. É necessário remover 
+// temporariamente os contêineres que estão acima dele, extrair o contêiner 
+// alvo e, em seguida, devolver os contêineres removidos de volta à pilha 
+// original, preservando a exata ordem em que estavam.
+
+// Sua tarefa é simular essa operação de resgate logístico. Escreva uma 
+// função que receba um identificador alvo (id_alvo) e um ponteiro para a 
+// pilha principal (p_principal). A função deve buscar esse valor na pilha 
+// e removê-lo (se existir). Você deve usar uma pilha auxiliar para realizar
+// essa tarefa.
+
+// int remover_container_especifico(int id_alvo, Pilha *p_principal);
+
+// (A função deve retornar 1 se o contêiner foi encontrado e removido com 
+// sucesso, ou 0 caso o id_alvo não exista na pilha).
+
+// Obrigatório: A ordem relativa original de todos os elementos que não 
+// foram removidos deve ser rigorosamente preservada na pilha principal 
+// ao final da execução.
+
+// Obrigatório: Você deve instanciar e utilizar internamente apenas uma 
+// Pilha auxiliar para manipular o transbordo dos dados. Lembre-se de 
+// destruir/liberar a memória dessa estrutura auxiliar antes do encerramento
+// da função.
+
+// Proibido Manipular Ponteiros: É expressamente proibido quebrar o 
+// encapsulamento do Tipo Abstrato de Dados. Você não pode iterar pela lista
+// usando ponteiros (como while (pont != NULL)) nem acessar atributos 
+// internos dos nós (como ->topo ou ->proximo). Use as funções da Pilha.
+
+// Proibido: O uso de vetores (arrays) estáticos ou dinâmicos, ou qualquer 
+// outra estrutura de dados (como Filas) para realizar o armazenamento 
+// intermediário é terminantemente proibido.
+
+// Proibido: Não utilize funções de entrada e saída (como printf ou scanf). 
+// O script automatizado empilhará previamente um conjunto de valores 
+// conhecidos, acionará a sua função e, em seguida, fará o desempilhamento 
+// contínuo para validar se a ordem final restou perfeita.) para realizar o armazenamento 
+intermediário é terminantemente proibido.
+
+Proibido: Não utilize funções de entrada e saída (como printf ou scanf). 
+O script automatizado empilhará previamente um conjunto de valores 
+conhecidos, acionará a sua função e, em seguida, fará o desempilhamento 
+contínuo para validar se a ordem final restou perfeita.
+
+------------------------------------
+
+Questão 3: Navegação Histórica "Voltar / Avançar"
+
+Os navegadores de internet modernos utilizam o conceito de Pilhas (LIFO
+ - Last In, First Out) para gerenciar o histórico de navegação da sua 
+ aba. Quando você navega, o sistema mantém duas pilhas distintas: uma 
+ contendo o histórico das páginas anteriores (para o botão "Voltar") e 
+ outra contendo as páginas que você acabou de retroceder (para o botão 
+ "Avançar").
+
+A regra de ouro da navegação é: se você retroceder algumas páginas e, 
+em seguida, acessar um link totalmente novo, todo o seu histórico 
+"Avançar" é permanentemente apagado.
+
+O Problema:
+Sua tarefa é implementar o motor lógico desse histórico usando duas 
+estruturas do tipo Pilha (representando o armazenamento de IDs numéricos
+ das páginas). Você deverá implementar três funções independentes que 
+ manipulam a pilha_voltar e a pilha_avancar para simular as ações do usuário.
+
+A) Ação de digitar uma URL ou clicar em um novo link:
+
+void acessar_nova_pagina(int id_pagina, Pilha *p_voltar, Pilha *p_avancar);
+
+O id_pagina fornecido deve ser empilhado na p_voltar. Imediatamente após isso,
+ a p_avancar deve ser completamente esvaziada (já que o acesso a uma página 
+ inédita invalida o futuro alternativo do histórico).
+
+B) Ação de clicar no botão "Voltar":
+
+int clicar_voltar(Pilha *p_voltar, Pilha *p_avancar);
+
+A função deve verificar se há histórico disponível na p_voltar. Se houver, 
+desempilha o elemento do topo da p_voltar e o empilha na p_avancar. A função 
+deve retornar 1 em caso de sucesso ou 0 se não houver páginas para voltar.
+
+C) Ação de clicar no botão "Avançar":
+
+int clicar_avancar(Pilha *p_voltar, Pilha *p_avancar);
+
+A função deve verificar se há histórico disponível na p_avancar. Se houver, 
+desempilha o elemento do topo da p_avancar e o empilha de volta na p_voltar. 
+Retorna 1 em caso de sucesso ou 0 se não houver páginas para avançar.
+
+
+Proibido Manipular Ponteiros: O Tipo Abstrato de Dados deve ser tratado como 
+uma caixa-preta. É terminantemente proibido acessar ou alterar diretamente os
+ atributos internos das estruturas (como ->topo ou ->proximo).
+
+Uso da Biblioteca: A movimentação das páginas entre as pilhas deve ser feita
+ exclusivamente invocando as funções da sua biblioteca de Pilha
+
+Gestão de Memória: Na função acessar_nova_pagina, esvaziar a pilha de avanço
+ significa remover adequadamente os elementos garantindo que a memória seja 
+ liberada.
+
+Proibido: Não é permitido criar vetores estáticos, alocar vetores dinâmicos
+ ou usar estruturas auxiliares para "burlar" a movimentação de dados. 
+ O problema deve ser resolvido apenas com a passagem de dados entre as duas 
+ pilhas fornecidas nos parâmetros.
+
+Proibido: Não utilize funções de entrada e saída (como printf ou scanf). 
+O script de correção fará dezenas de simulações alternando chamadas dessas 
+três funções e, ao final, inspecionará o topo e o tamanho de ambas as pilhas 
+para validar a coerência do seu histórico.
+
+
+
+            "args": [
+                "-std=c2x",
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                "-Wshadow",
+                "-Wformat=2",
+                "-Wconversion",
+                "-Wunreachable-code",
+                "-fdiagnostics-color=always",
+                "-g",
+                // "${file}",'
+                "${workspaceFolder}/*.c",
+                "-o",
+                "${fileDirname}/bin/${fileBasenameNoExtension}"
+            ],
