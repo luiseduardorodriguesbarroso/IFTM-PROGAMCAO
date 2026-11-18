@@ -5,6 +5,15 @@
 #include "../include/filaprio.h"
 #include "../include/prova.h"
 
+
+/*@(
+    Get-Content include\prova.h, include\pilhai.h, src\pilhai.c
+    "INSTRUÇÃO: Com base nos arquivos acima, implemente em C a função (int alterarPrioridadePrio(char nome[], int novaPrioridade, FilaPrio *pontFila)) da Questão (4). ATENÇÃO: Sigua sempre todas as intruções do enuncado da questão, e preste muita atenção as restriçoes da questão"
+) | ollama run qwen2.5-coder:7b
+
+
+
+ */
 // Questão 1 (15%)
 // QUESTÃO 1 (Valor: 15%) - Uso de Pilha como TAD (Caixa-Preta)
 // Crie uma função que recebe uma pilha de inteiros e remove todas as 
@@ -27,18 +36,31 @@
 // ============================================================================
 int compactarAdjacentesPilhaI(PilhaI *pontPilha)
 {
-    if(pontPilha->tamanho == 0){
-        printf("Não foi possivel alterar,tamanho = 0!");
+    if (pontPilha == NULL || pontPilha->tamanho <= 1){
+        printf("A pilha está vazia ou tem apenas 1 elemento, então não há nada a remover");
         return 0;
     }
     
-    if (pontPilha->tamanho == 1){
-        printf("Não foi possivel alterar,tamanho = 1!");
-        return 0;
+    PilhaI *pilhatemp = criarPilhaI();
+    int removidos = 0;
+
+    while (pontPilha->tamanho > 0)
+    {
+        empilharI(desempilharI(pontPilha),pilhatemp);
     }
-    
-    return 0;
-    
+
+    while (pilhatemp->tamanho > 0)
+    {
+        int valor = desempilharI(pilhatemp);
+        if (pontPilha->tamanho == 0 || valor != topoI(pontPilha)){
+        empilharI(valor,pontPilha);
+        }
+        else {
+            removidos++;
+        }
+    }
+    destruirPilhaI(&pilhatemp);
+    return removidos;  
 }
 
 // Questão 2 (20%)
@@ -65,19 +87,31 @@ int compactarAdjacentesPilhaI(PilhaI *pontPilha)
 // ============================================================================
 int inverterPrimeirosKFilaI(int k, FilaI *pontFila)
 {
+    if (pontFila == NULL || pontFila->tamanho == 0 || k <= 0 || k > pontFila->tamanho) {
+        return 0;  // Fila vazia, k <= 0 ou k > tamanho: não altere a fila e retorne 0.
+    }
+
     if (k == 1){
-        printf("Fila não alterada,k = 1");
         return 1;
     }
-    else if (k <= 0 || k > pontFila->tamanho){
-        printf("k <= 0 ou k > tamanho: não altere a fila eretorne 0.");
-        return 0;
+
+    PilhaI *tempPilha = criarPilhaI();  // Cria uma pilha temporária para auxiliar na inversão
+
+    // Empilha os primeiros k elementos da fila na pilha temporária
+    for (int i = 0; i < k; i++) {
+        empilharI(desinfileirarI(pontFila), tempPilha);
     }
-    else {
-        
+
+    // Desempilha os elementos da pilha temporária e enfileira de volta na fila original
+    while (tempPilha->tamanho > 0) {
+        enfileirarI(desempilharI(tempPilha), pontFila);
     }
-    return 0;    
+
+    destruirPilhaI(&tempPilha);  // Destroi a pilha temporária
+
+    return 1;  // Operação bem-sucedida
 }
+
 
 // Questão 3 (30%)
 // QUESTÃO 3 (Valor: 30%) - Manipulação de Ponteiros In-Place (Pilha -> Fila)
@@ -110,14 +144,31 @@ int inverterPrimeirosKFilaI(int k, FilaI *pontFila)
 // ============================================================================
 int transferirTopoParaFilaInPlace(int k, PilhaI *pontPilha, FilaI *pontFila)
 {   
-   /* if ( k == pontPilha->tamanho  && k > 0){
-
-    }*/
-    if (k <= 0 || k > pontPilha->tamanho){
-        printf("pilha estiver vazia, k <= 0 ou k > pontPilha->tamanho");
+   if (pontPilha == NULL || pontFila == NULL || k <= 0 || k > pontPilha->tamanho) {
         return 0;
     }
-    return 0;
+
+    int tamanhoPilhaOriginal = pontPilha->tamanho;
+
+    for (int i = 0; i < k; i++) {
+        NoSLI *no = pontPilha->topo;
+        pontPilha->topo = pontPilha->topo->proximo;
+        pontPilha->tamanho--;
+
+        no->proximo = pontFila->fim;
+        if (pontFila->fim != NULL) {
+            pontFila->fim->proximo = no;
+        }
+        pontFila->fim = no;
+
+        if (pontFila->inicio == NULL) {
+            pontFila->inicio = no;
+        }
+
+        no->anterior = NULL;
+    }
+
+    return 1;
 }
 
 // Questão 4 (35%)
@@ -150,9 +201,63 @@ int transferirTopoParaFilaInPlace(int k, PilhaI *pontPilha, FilaI *pontFila)
 // ============================================================================
 int alterarPrioridadePrio(char nome[], int novaPrioridade, FilaPrio *pontFila)
 {
-    if (pontFila->tamanho == 1){
-        // Caso de teste base
-        return 1;
+     if (pontFila->tamanho == 0)
+    {
+        return 0;  // Fila vazia, nada a fazer
     }
-    return 0;
+
+    NoPrio *pontAtual = pontFila->inicio;
+    while (pontAtual != NULL)
+    {
+        if (strcmp(pontAtual->nome, nome) == 0)
+        {
+            if (pontAtual->prioridade == novaPrioridade)
+            {
+                return 1;  // Prioridade já é a nova, não altera posição
+            }
+
+            // Desengate o nó atual da lista
+            NoPrio *pontAnterior = pontAtual->anterior;
+            NoPrio *pontProximo = pontAtual->proximo;
+
+            if (pontAnterior != NULL)
+            {
+                pontAnterior->proximo = pontProximo;
+            }
+            if (pontProximo != NULL)
+            {
+                pontProximo->anterior = pontAnterior;
+            }
+
+            // Reposicione o nó na fila corretamente
+            NoPrio *pontProcurar = pontFila->inicio;
+            while (pontProcurar != NULL && pontProcurar->prioridade <= novaPrioridade)
+            {
+                pontProcurar = pontProcurar->proximo;
+            }
+
+            if (pontProcurar == NULL)  // Inserir no final
+            {
+                pontAtual->anterior = pontFila->fim;
+                pontAtual->proximo = NULL;
+                pontFila->fim->proximo = pontAtual;
+                pontFila->fim = pontAtual;
+            }
+            else  // Inserir em uma posição intermediária
+            {
+                pontAtual->anterior = pontProcurar->anterior;
+                pontAtual->proximo = pontProcurar;
+                pontProcurar->anterior->proximo = pontAtual;
+                pontProcurar->anterior = pontAtual;
+            }
+
+            pontAtual->prioridade = novaPrioridade;
+
+            return 1;  // Nó encontrado e prioridade atualizada
+        }
+
+        pontAtual = pontAtual->proximo;
+    }
+
+    return 0;  // Nó não encontrado na fila
 }

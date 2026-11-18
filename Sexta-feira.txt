@@ -1,0 +1,52 @@
+
+//Regras para Windows
+
+// Abra a pasta da prova no terminal
+cd "C:\Users\luise\Desktop\IFTM PROGAMAÇÃO\IFTM---PROGAMCAO\ESTRUTURA DE DADOS\AVALIAÇÃO\3- Prova\P3- 2 Período"
+
+//para abrir a ia e ela executar
+@(
+    Get-Content include\prova.h, include\pilhai.h, src\pilhai.c
+    "INSTRUÇÃO: Com base nos arquivos acima, implemente em C a função (nome da função) da Questão (numero da função). ATENÇÃO: Sigua sempre todas as intruções do enuncado da questão, e preste muita atenção as restriçoes da questão."
+) | ollama run qwen2.5-coder:7b
+
+
+==============================================================================
+# GUIA DE USO DA IA OFFLINE NO LINUX UBUNTU (FACULDADE)
+# ==============================================================================
+
+# 1. Abra o Terminal do Ubuntu (Atalho: Ctrl + Alt + T)
+
+
+# 2. Navegue até a pasta da prova
+# No Linux usa-se barras normais ( / ) e aspas caso a pasta tenha espaços
+cd ~/Downloads/"P3- 2 Periodo"
+
+# (Dica: digite "ls" para conferir se aparecem as pastas include, src e o Makefile)
+
+
+# 3. Como mandar todos os arquivos + a pergunta para a IA de uma vez só:
+# No Linux usa-se (cat arquivos... ; echo "sua pergunta") | ollama run ...
+(
+    cat include/prova.h include/pilhai.h src/pilhai.c
+    echo "INSTRUÇÃO: Com base nos arquivos acima, implemente em C a função (sua função) da Questão (numero da questão). ATENÇÃO: Sigua sempre todas as intruções do enuncado da questão, e preste muita atenção as restriçoes da questão"
+) | ollama run qwen2.5-coder:7b
+
+# 4. Se quiser mandar O PROJETO INTEIRO de uma vez para ela ver todas as funções:
+(
+    cat include/*.h src/*.c Makefile
+    echo "INSTRUÇÃO: Com base no projeto completo acima, implemente a Questão 1 de prova.h respeitando todas as regras de TAD Caixa-Preta."
+) | ollama run qwen2.5-coder:7b
+
+
+# 5. Como salvar a resposta direto em um arquivo de texto (opcional):
+(
+    cat include/prova.h include/pilhai.h src/pilhai.c
+    echo "Implemente a Questao 1"
+) | ollama run qwen2.5-coder:7b > solucao_q1.c
+
+
+# 6. Como compilar e testar seu código com o Makefile na faculdade:
+# Depois de colar o código gerado dentro do arquivo src/prova.c, rode:
+make
+./bin/debug/programa
