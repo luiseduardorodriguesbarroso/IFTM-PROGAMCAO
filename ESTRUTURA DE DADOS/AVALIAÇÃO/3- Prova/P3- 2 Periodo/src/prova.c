@@ -30,7 +30,8 @@ int compactarAdjacentesPilhaI(PilhaI *pontPilha)
         printf("Não foi possivel alterar,tamanho = 1!");
         return 0;
     }
-
+    
+    return 0;
 }
 
 // Questão 2 (20%)
@@ -68,7 +69,7 @@ int inverterPrimeirosKFilaI(int k, FilaI *pontFila)
     else {
         
     }
-    
+    return 0;    
 }
 
 // Questão 3 (30%)
