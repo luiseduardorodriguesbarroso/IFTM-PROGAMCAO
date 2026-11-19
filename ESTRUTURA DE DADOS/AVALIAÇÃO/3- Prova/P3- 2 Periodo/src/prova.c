@@ -40,9 +40,8 @@ int compactarAdjacentesPilhaI(PilhaI *pontPilha)
 // ============================================================================
 // QUESTÃO 2 (Valor: 20%) - Uso de Fila + Pilha como TAD (Caixa-Preta)
 // ============================================================================
-int inverterPrimeirosKFilaI(int k, FilaI *pontFila)
-{
-    if (pontFila == NULL || pontFila->tamanho == 0 || k <= 0 || k > pontFila->tamanho) {
+int inverterPrimeirosKFilaI(int k, FilaI *pontFila){
+     if (pontFila == NULL || pontFila->tamanho == 0 || k <= 0 || k > pontFila->tamanho) {
         return 0;
     }
 
