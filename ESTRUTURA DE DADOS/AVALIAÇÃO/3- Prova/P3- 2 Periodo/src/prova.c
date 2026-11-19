@@ -37,6 +37,7 @@ int compactarAdjacentesPilhaI(PilhaI *pontPilha)
     return removidos;
 }
 
+
 // ============================================================================
 // QUESTÃO 2 (Valor: 20%) - Uso de Fila + Pilha como TAD (Caixa-Preta)
 // ============================================================================
